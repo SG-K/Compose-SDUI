@@ -1,0 +1,127 @@
+
+{
+
+"card" : {
+  "type" : "Card",
+  "child" : {
+    "type": "ConstraintLayout",
+    "id" : "contraint_layout_password",
+    "style": {
+      "width" : "max",
+      "padding" : {
+        "top": 16,
+        "bottom": 16,
+        "left": 16,
+        "right": 16
+      }
+    },
+    "children" : [
+      {
+        "type" : "Text",
+        "text" : "Password",
+        "textStyle": {
+          "textSize": 16,
+          "textColor": "#000000",
+          "isBold": false
+        },
+        "id" : "card_password_lable"
+      },
+      {
+        "type" : "Text",
+        "text" : "***********",
+        "textStyle": {
+          "textSize": 16,
+          "textColor": "#000000",
+          "isBold": false
+        },
+        "style" : {
+          "padding" : {
+            "top" : 16
+          }
+        },
+        "id" : "card_password_text"
+      },
+      {
+        "type" : "Image",
+        "url" : "edit",
+        "altText" : "Edit Password",
+        "imageType" : "image_vector",
+        "style": {
+          "width" : 24,
+          "height" : 24,
+          "background" : "#FFFFFF"
+        },
+        "id" : "card_password_edit",
+        "tint" : "#d33671"
+      }
+    ],
+    "childernConstrainsList" : [
+      {
+        "refId" : "card_password_lable",
+        "top" : {
+          "contraintDirection" : "top",
+          "constraintComposableId" : "-101",
+          "margin" : 0
+        },
+        "start" : {
+          "contraintDirection" : "start",
+          "constraintComposableId" : "-101",
+          "margin" : 0
+        }
+      },
+      {
+        "refId" : "card_password_text",
+        "top" : {
+          "contraintDirection" : "bottom",
+          "constraintComposableId" : "card_password_lable",
+          "margin" : 0
+        },
+        "start" : {
+          "contraintDirection" : "start",
+          "constraintComposableId" : "-101",
+          "margin" : 0
+        }
+      },
+      {
+        "refId" : "card_password_edit",
+        "top" : {
+          "contraintDirection" : "top",
+          "constraintComposableId" : "card_password_lable",
+          "margin" : 0
+        },
+        "end" : {
+          "contraintDirection" : "end",
+          "constraintComposableId" : "-101",
+          "margin" : 0
+        }
+      }
+    ]
+  },
+  "cornerRadius" : 10,
+  "style": {
+    "width" : "max",
+    "padding" : {
+      "top": 16,
+      "bottom": 16,
+      "left": 16,
+      "right": 16
+    }
+  },
+  "id" : "card_password"
+},
+
+"constint" : {
+  "refId" : "card_password",
+  "top" : {
+    "contraintDirection" : "top",
+    "constraintComposableId" : "-101",
+    "margin" : 0
+  },
+  "bottom" : {
+    "contraintDirection" : "bottom",
+    "constraintComposableId" : "-101",
+    "margin" : 0
+  }
+}
+
+}

@@ -1,0 +1,16 @@
+
+
+
+{
+  "type": "ConstraintLayout",
+  "style": {
+    "width" : "max",
+    "height" : "60",
+    "background" : "Blue"
+  },
+  "id" : "root",
+  "children" : [],
+  "childernConstrainsList" : []
+}
+
+

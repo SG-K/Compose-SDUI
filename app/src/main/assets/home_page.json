@@ -1,0 +1,961 @@
+{
+  "type": "ConstraintLayout",
+  "id" : "root",
+  "style": {
+    "width" : "max",
+    "height" : "max",
+    "background" : "#f5f4f4"
+  },
+  "children": [
+    {
+      "type" : "ConstraintLayout",
+      "id" : "header",
+      "style": {
+        "width" : "max",
+        "height" : 60,
+        "background" : "#FFFFFF"
+      },
+      "children" : [
+        {
+          "type" : "Image",
+          "url" : "close",
+          "altText" : "Close Icon",
+          "imageType" : "image_vector",
+          "style": {
+            "width" : 24,
+            "height" : 24,
+            "background" : "#FFFFFF"
+          },
+          "id" : "header_back_view",
+          "tint" : "#d33671"
+        },
+        {
+          "type" : "Text",
+          "text" : "Profile",
+          "textStyle": {
+            "textSize": 20,
+            "textColor": "#000000",
+            "isBold": true
+          },
+          "style": {
+            "background" : "#FFFFFF"
+          },
+          "id" : "header_text"
+        }
+      ],
+      "childernConstrainsList" : [
+        {
+          "refId" : "header_back_view",
+          "start" : {
+            "contraintDirection" : "start",
+            "constraintComposableId" : "-101",
+            "margin" : 16
+          },
+          "top" : {
+            "contraintDirection" : "top",
+            "constraintComposableId" : "-101",
+            "margin" : 0
+          },
+          "bottom" : {
+            "contraintDirection" : "bottom",
+            "constraintComposableId" : "-101",
+            "margin" : 0
+          }
+
+        },
+        {
+          "refId" : "header_text",
+          "start" : {
+            "contraintDirection" : "start",
+            "constraintComposableId" : "-101",
+            "margin" : 0
+          },
+          "end" : {
+            "contraintDirection" : "end",
+            "constraintComposableId" : "-101",
+            "margin" : 0
+          },
+          "top" : {
+            "contraintDirection" : "top",
+            "constraintComposableId" : "-101",
+            "margin" : 0
+          },
+          "bottom" : {
+            "contraintDirection" : "bottom",
+            "constraintComposableId" : "-101",
+            "margin" : 0
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "LazyList",
+      "orientation": "vertical",
+      "children": [
+
+        {
+          "id": "1",
+          "element": {
+            "type" : "Card",
+            "child" : {
+              "type": "ConstraintLayout",
+              "id" : "contraint_layout_password",
+              "style": {
+                "width" : "max",
+                "padding" : {
+                  "top": 16,
+                  "bottom": 16,
+                  "left": 16,
+                  "right": 16
+                }
+              },
+              "children" : [
+                {
+                  "type" : "Text",
+                  "text" : "Password",
+                  "textStyle": {
+                    "textSize": 16,
+                    "textColor": "#000000",
+                    "isBold": false
+                  },
+                  "id" : "card_password_lable"
+                },
+                {
+                  "type" : "Text",
+                  "text" : "***********",
+                  "textStyle": {
+                    "textSize": 16,
+                    "textColor": "#000000",
+                    "isBold": false
+                  },
+                  "style" : {
+                    "padding" : {
+                      "top" : 16
+                    }
+                  },
+                  "id" : "card_password_text"
+                },
+                {
+                  "type" : "Image",
+                  "url" : "edit",
+                  "altText" : "Edit Password",
+                  "imageType" : "image_vector",
+                  "style": {
+                    "width" : 24,
+                    "height" : 24,
+                    "background" : "#FFFFFF"
+                  },
+                  "id" : "card_password_edit",
+                  "tint" : "#d33671"
+                }
+              ],
+              "childernConstrainsList" : [
+                {
+                  "refId" : "card_password_lable",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "start",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "card_password_text",
+                  "top" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "card_password_lable",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "start",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "card_password_edit",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "card_password_lable",
+                    "margin" : 0
+                  },
+                  "end" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                }
+              ]
+            },
+            "cardStyle" : {
+              "radius" : 10,
+              "contentColor" : "#FFFFFF",
+              "elevation" : 2
+            },
+            "style": {
+              "width" : "max",
+              "padding" : {
+                "top": 8,
+                "bottom": 8
+              }
+            },
+            "id" : "card_password"
+          }
+        },
+        {
+          "id": "2",
+          "element": {
+            "type" : "Card",
+            "child" : {
+              "type": "ConstraintLayout",
+              "id" : "contraint_layout_mobile_number",
+              "style": {
+                "width" : "max",
+                "padding" : {
+                  "top": 16,
+                  "bottom": 16,
+                  "left": 16,
+                  "right": 16
+                }
+              },
+              "children" : [
+                {
+                  "type" : "Text",
+                  "text" : "Mobile Number",
+                  "textStyle": {
+                    "textSize": 16,
+                    "textColor": "#000000",
+                    "isBold": false
+                  },
+                  "id" : "card_mobile_number_lable"
+                },
+                {
+                  "type" : "Text",
+                  "text" : "+91 91601704443",
+                  "textStyle": {
+                    "textSize": 16,
+                    "textColor": "#000000",
+                    "isBold": false
+                  },
+                  "style" : {
+                    "padding" : {
+                      "top" : 16
+                    }
+                  },
+                  "id" : "card_mobile_number_text"
+                },
+                {
+                  "type" : "Image",
+                  "url" : "edit",
+                  "altText" : "Edit Password",
+                  "imageType" : "image_vector",
+                  "style": {
+                    "width" : 24,
+                    "height" : 24,
+                    "background" : "#FFFFFF"
+                  },
+                  "id" : "card_mobile_number_edit",
+                  "tint" : "#d33671"
+                },
+                {
+                  "type" : "Card",
+                  "child" : {
+                    "type" : "Row",
+                    "children" : [
+                      {
+                        "type" : "Image",
+                        "url" : "check",
+                        "altText" : "Verified",
+                        "imageType" : "image_vector",
+                        "style": {
+                          "width" : 18,
+                          "height" : 18
+                        },
+                        "id" : "header_back_view",
+                        "tint" : "#5a5f63"
+                      },
+                      {
+                        "type" : "Spacer",
+                        "style": {
+                          "width" : 5
+                        },
+                        "id" : "verified_spacer"
+                      },
+                      {
+                        "type" : "Text",
+                        "text" : "Verified",
+                        "textStyle": {
+                          "textSize": 12,
+                          "textColor": "#5a5f63",
+                          "isBold": true
+                        },
+                        "id" : "verified_text"
+                      }
+                    ],
+                    "style": {
+                      "padding" : {
+                        "top": 5,
+                        "bottom": 5,
+                        "left": 12,
+                        "right": 10
+                      }
+                    },
+                    "id" : "row_verified_lable"
+                  },
+                  "cardStyle" : {
+                    "radius" : 10,
+                    "contentColor" : "#eff0f2",
+                    "elevation" : 0
+                  },
+                  "style" : {
+                    "padding" : {
+                      "top" : 8
+                    }
+                  },
+                  "id" : "card_verified"
+                }
+              ],
+              "childernConstrainsList" : [
+                {
+                  "refId" : "card_mobile_number_lable",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "start",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "card_mobile_number_text",
+                  "top" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "card_mobile_number_lable",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "start",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "card_mobile_number_edit",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "card_mobile_number_lable",
+                    "margin" : 0
+                  },
+                  "end" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "card_verified",
+                  "top" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "card_mobile_number_text",
+                    "margin" : 16
+                  },
+                  "start" : {
+                    "contraintDirection" : "start",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                }
+              ]
+            },
+            "cardStyle" : {
+              "radius" : 10,
+              "contentColor" : "#FFFFFF",
+              "elevation" : 2
+            },
+            "style": {
+              "width" : "max",
+              "padding" : {
+                "top": 8,
+                "bottom": 8
+              }
+            },
+            "id" : "card_mobile_number"
+          }
+        },
+        {
+          "id" : "3",
+          "element" : {
+            "type" : "Text",
+            "text" : "Connected Accounts",
+            "textStyle": {
+              "textSize": 22,
+              "textColor": "#000000",
+              "isBold": true
+            },
+            "style" : {
+              "padding" : {
+                "top"  : 25,
+                "left" : 4
+              }
+            },
+            "id" : "text_header_connected_accounts"
+          }
+        },
+        {
+          "id" : "4",
+          "element" : {
+            "type" : "Card",
+            "child" : {
+              "type" : "ConstraintLayout",
+              "children" : [
+                {
+                  "type" : "Image",
+                  "url" : "facebook",
+                  "altText" : "facebook",
+                  "imageType" : "drawable",
+                  "style": {
+                    "width" : 30,
+                    "height" : 30
+                  },
+                  "id" : "facebook_image"
+                },
+                {
+                  "type" : "Spacer",
+                  "style": {
+                    "width" : 12
+                  },
+                  "id" : "facebook_spacer"
+                },
+                {
+                  "type" : "Text",
+                  "text" : "Facebook",
+                  "textStyle": {
+                    "textSize": 16,
+                    "textColor": "#000000",
+                    "isBold": false
+                  },
+                  "id" : "facebook_text"
+                },
+                {
+                  "type": "Text",
+                  "text": "Connect",
+                  "textStyle": {
+                    "textSize": 14,
+                    "textColor": "#d33671",
+                    "isBold": true
+                  },
+                  "style": {
+                    "background": "#FFFFFF"
+                  },
+                  "id": "facebook_connect_text"
+                }
+              ],
+              "childernConstrainsList" : [
+                {
+                  "refId" : "facebook_image",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "start",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "facebook_spacer",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "facebook_image",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "facebook_text",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "facebook_spacer",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "facebook_connect_text",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "end" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                }
+              ],
+              "style" : {
+                "width" : "max",
+                "padding" : {
+                  "left" : 16,
+                  "top" : 16,
+                  "bottom" : 16,
+                  "right" : 20
+                }
+              },
+              "id" : "constraint_layout_facebook"
+            },
+            "cardStyle" : {
+              "radius" : 10,
+              "contentColor" : "#FFFFFF",
+              "elevation" : 2
+            },
+            "style": {
+              "width" : "max",
+              "padding" : {
+                "top": 20,
+                "bottom": 4
+              }
+            },
+            "id" : "card_facebook"
+
+          }
+        },
+        {
+          "id" : "5",
+          "element" : {
+            "type" : "Card",
+            "child" : {
+              "type" : "ConstraintLayout",
+              "children" : [
+                {
+                  "type" : "Image",
+                  "url" : "google",
+                  "altText" : "facebook",
+                  "imageType" : "drawable",
+                  "style": {
+                    "width" : 30,
+                    "height" : 30
+                  },
+                  "id" : "google_image"
+                },
+                {
+                  "type" : "Spacer",
+                  "style": {
+                    "width" : 12
+                  },
+                  "id" : "google_spacer"
+                },
+                {
+                  "type" : "Text",
+                  "text" : "Google",
+                  "textStyle": {
+                    "textSize": 16,
+                    "textColor": "#000000",
+                    "isBold": false
+                  },
+                  "id" : "google_text"
+                },
+                {
+                  "type": "Text",
+                  "text": "Connect",
+                  "textStyle": {
+                    "textSize": 14,
+                    "textColor": "#d33671",
+                    "isBold": true
+                  },
+                  "style": {
+                    "background": "#FFFFFF"
+                  },
+                  "id": "google_connect_text"
+                }
+              ],
+              "childernConstrainsList" : [
+                {
+                  "refId" : "google_image",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "start",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "google_spacer",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "google_image",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "google_text",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "google_spacer",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "google_connect_text",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "end" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                }
+              ],
+              "style" : {
+                "width" : "max",
+                "padding" : {
+                  "left" : 16,
+                  "top" : 16,
+                  "bottom" : 16,
+                  "right" : 20
+                }
+              },
+              "id" : "constraint_layout_google"
+            },
+            "cardStyle" : {
+              "radius" : 10,
+              "contentColor" : "#FFFFFF",
+              "elevation" : 2
+            },
+            "style": {
+              "width" : "max",
+              "padding" : {
+                "top": 16,
+                "bottom": 4
+              }
+            },
+            "id" : "card_google"
+
+          }
+        },
+        {
+          "id" : "6",
+          "element" : {
+            "type" : "Card",
+            "child" : {
+              "type" : "ConstraintLayout",
+              "children" : [
+                {
+                  "type" : "Image",
+                  "url" : "apple",
+                  "altText" : "apple",
+                  "imageType" : "drawable",
+                  "style": {
+                    "width" : 30,
+                    "height" : 30
+                  },
+                  "id" : "apple_image"
+                },
+                {
+                  "type" : "Spacer",
+                  "style": {
+                    "width" : 12
+                  },
+                  "id" : "apple_spacer"
+                },
+                {
+                  "type" : "Text",
+                  "text" : "Apple",
+                  "textStyle": {
+                    "textSize": 16,
+                    "textColor": "#000000",
+                    "isBold": false
+                  },
+                  "id" : "apple_text"
+                },
+                {
+                  "type": "Text",
+                  "text": "Connect",
+                  "textStyle": {
+                    "textSize": 14,
+                    "textColor": "#d33671",
+                    "isBold": true
+                  },
+                  "style": {
+                    "background": "#FFFFFF"
+                  },
+                  "id": "apple_connect_text"
+                }
+              ],
+              "childernConstrainsList" : [
+                {
+                  "refId" : "apple_image",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "start",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "apple_spacer",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "apple_image",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "apple_text",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "start" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "apple_spacer",
+                    "margin" : 0
+                  }
+                },
+                {
+                  "refId" : "apple_connect_text",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  },
+                  "end" : {
+                    "contraintDirection" : "end",
+                    "constraintComposableId" : "-101",
+                    "margin" : 0
+                  }
+                }
+              ],
+              "style" : {
+                "width" : "max",
+                "padding" : {
+                  "left" : 16,
+                  "top" : 16,
+                  "bottom" : 16,
+                  "right" : 20
+                }
+              },
+              "id" : "constraint_layout_google"
+            },
+            "cardStyle" : {
+              "radius" : 10,
+              "contentColor" : "#FFFFFF",
+              "elevation" : 2
+            },
+            "style": {
+              "width" : "max",
+              "padding" : {
+                "top": 16,
+                "bottom": 8
+              }
+            },
+            "id" : "card_apple"
+
+          }
+        }
+
+      ],
+      "style": {
+        "width" : "max",
+        "height" : "max",
+        "padding": {
+          "top": 8,
+          "left" : 16,
+          "right" : 16
+        }
+      },
+      "id" : "list_profile"
+
+    },
+
+    {
+      "type": "ConstraintLayout",
+      "id": "footer",
+      "style": {
+        "width": "max",
+        "height": 60,
+        "background": "#FFFFFF"
+      },
+      "children": [
+        {
+          "type": "Text",
+          "text": "Delete My Account",
+          "textStyle": {
+            "textSize": 16,
+            "textColor": "#d33671",
+            "isBold": true
+          },
+          "style": {
+            "background": "#FFFFFF"
+          },
+          "id": "footer_text"
+        }
+      ],
+      "childernConstrainsList": [
+        {
+          "refId": "footer_text",
+          "start": {
+            "contraintDirection": "start",
+            "constraintComposableId": "-101",
+            "margin": 0
+          },
+          "end": {
+            "contraintDirection": "end",
+            "constraintComposableId": "-101",
+            "margin": 0
+          },
+          "top": {
+            "contraintDirection": "top",
+            "constraintComposableId": "-101",
+            "margin": 0
+          },
+          "bottom": {
+            "contraintDirection": "bottom",
+            "constraintComposableId": "-101",
+            "margin": 0
+          }
+        }
+      ]
+    }
+  ],
+  "childernConstrainsList": [
+    {
+      "refId" : "header",
+      "top" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "-101",
+        "margin" : 0
+      }
+    },
+
+    {
+      "refId" : "list_profile",
+      "top" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "header",
+        "margin" : 0
+      },
+      "bottom" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "footer",
+        "margin" : 0
+      },
+      "height_constraint" : "fillToConstraints"
+    },
+
+    {
+      "refId" : "footer",
+      "bottom" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "-101",
+        "margin" : 0
+      }
+    }
+  ]
+}
