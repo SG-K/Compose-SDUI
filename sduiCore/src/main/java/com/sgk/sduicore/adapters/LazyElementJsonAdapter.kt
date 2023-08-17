@@ -1,9 +1,9 @@
 package dev.aungkyawpaing.loki.adapter
 
 import com.sgk.sduicore.modal.Element
-import com.sgk.sduicore.modal.adapters.ElementJsonAdapter
+import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.LazyElement
-import com.sgk.sduicore.modal.adapters.AdapterConstants
+import com.sgk.sduicore.adapters.AdapterConstants
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter
@@ -19,7 +19,7 @@ class LazyElementJsonAdapter(
 
         reader.beginObject()
         while (reader.hasNext()) {
-            when (reader.selectName(AdapterConstants.KEY_OPTIONS_LAZY_ELEMENT)) {
+            when (reader.selectName(com.sgk.sduicore.adapters.AdapterConstants.KEY_OPTIONS_LAZY_ELEMENT)) {
                 0 -> {
                     id = reader.nextString()
                 }
@@ -51,10 +51,10 @@ class LazyElementJsonAdapter(
     override fun toJson(writer: JsonWriter, value: LazyElement?) {
         writer.beginObject()
 
-        writer.name(AdapterConstants.KEY_ID)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
         writer.value(value!!.id)
 
-        writer.name(AdapterConstants.KEY_ELEMENT)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ELEMENT)
         elementJsonAdapter.toJson(writer, value.element)
 
         writer.endObject()

@@ -1,9 +1,9 @@
-package com.sgk.sduicore.modal.adapters
+package com.sgk.sduicore.adapters
 
 import com.sgk.sduicore.modal.Card
 import com.sgk.sduicore.modal.CardStyle
 import com.sgk.sduicore.modal.Column
-import com.sgk.sduicore.modal.adapters.ElementJsonAdapter
+import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.ChildConstraintModel
@@ -21,15 +21,15 @@ import com.sgk.sduicore.modal.LazyElement
 import com.sgk.sduicore.modal.LazyList
 import com.sgk.sduicore.modal.Spacer
 import com.sgk.sduicore.modal.Element
-import com.sgk.sduicore.modal.adapters.constraint_layout.ChildConstraintModelJsonAdapter
-import com.sgk.sduicore.modal.adapters.constraint_layout.ConstraintLayoutJsonAdapter
-import com.sgk.sduicore.modal.adapters.constraint_layout.DirectionConstraintsJsonAdapter
-import com.sgk.sduicore.modal.adapters.metadata.CardStyleJsonAdapter
-import com.sgk.sduicore.modal.adapters.metadata.ElementStyleJsonAdapter
-import com.sgk.sduicore.modal.adapters.metadata.LengthJsonAdapter
-import com.sgk.sduicore.modal.adapters.metadata.OrientationJsonAdapter
-import com.sgk.sduicore.modal.adapters.metadata.PaddingJsonAdapter
-import com.sgk.sduicore.modal.adapters.metadata.TextStyleJsonAdapter
+import com.sgk.sduicore.adapters.constraint_layout.ChildConstraintModelJsonAdapter
+import com.sgk.sduicore.adapters.constraint_layout.ConstraintLayoutJsonAdapter
+import com.sgk.sduicore.adapters.constraint_layout.DirectionConstraintsJsonAdapter
+import com.sgk.sduicore.adapters.metadata.CardStyleJsonAdapter
+import com.sgk.sduicore.adapters.metadata.ElementStyleJsonAdapter
+import com.sgk.sduicore.adapters.metadata.LengthJsonAdapter
+import com.sgk.sduicore.adapters.metadata.OrientationJsonAdapter
+import com.sgk.sduicore.adapters.metadata.PaddingJsonAdapter
+import com.sgk.sduicore.adapters.metadata.TextStyleJsonAdapter
 import com.sgk.sduicore.modal.metadata.Length
 import dev.aungkyawpaing.loki.adapter.LazyElementJsonAdapter
 import dev.aungkyawpaing.loki.adapter.LazyListJsonAdapter
@@ -40,7 +40,7 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
     override fun create(type: Type, annotations: MutableSet<out Annotation>, moshi: Moshi): JsonAdapter<*>? {
         return when (type) {
             Element::class.java -> {
-                ElementJsonAdapter(
+                com.sgk.sduicore.adapters.ElementJsonAdapter(
                     moshi.adapter(com.sgk.sduicore.modal.ConstraintLayout::class.java),
                     moshi.adapter(com.sgk.sduicore.modal.Column::class.java),
                     moshi.adapter(Text::class.java),
@@ -82,7 +82,7 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
             }
 
             Image::class.java -> {
-                ImageJsonAdapter(
+                com.sgk.sduicore.adapters.ImageJsonAdapter(
                     styleJsonAdapter = moshi.adapter(ElementStyle::class.java)
                 )
             }
@@ -94,7 +94,7 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
             }
 
             com.sgk.sduicore.modal.Card::class.java -> {
-                CardJsonAdapter(
+                com.sgk.sduicore.adapters.CardJsonAdapter(
                     elementJsonAdapter = moshi.adapter(Element::class.java),
                     styleJsonAdapter = moshi.adapter(ElementStyle::class.java),
                     cardStyleJsonAdapter = moshi.adapter(com.sgk.sduicore.modal.CardStyle::class.java),

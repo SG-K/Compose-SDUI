@@ -1,10 +1,10 @@
-package com.sgk.sduicore.modal.adapters.constraint_layout
+package com.sgk.sduicore.adapters.constraint_layout
 
 import android.util.Log
 import com.sgk.sduicore.modal.ChildConstraintModel
 import com.sgk.sduicore.modal.ConstraintLayout
 import com.sgk.sduicore.modal.Element
-import com.sgk.sduicore.modal.adapters.ElementJsonAdapter
+import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader

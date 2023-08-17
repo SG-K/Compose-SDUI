@@ -1,7 +1,7 @@
-package com.sgk.sduicore.modal.adapters.metadata
+package com.sgk.sduicore.adapters.metadata
 
 import com.sgk.sduicore.modal.CardStyle
-import com.sgk.sduicore.modal.adapters.AdapterConstants
+import com.sgk.sduicore.adapters.AdapterConstants
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter
@@ -16,7 +16,7 @@ class CardStyleJsonAdapter : JsonAdapter<com.sgk.sduicore.modal.CardStyle>() {
 
         while (reader.hasNext()) {
 
-            when (reader.selectName(AdapterConstants.KEY_OPTIONS_CARD_STYLE)) {
+            when (reader.selectName(com.sgk.sduicore.adapters.AdapterConstants.KEY_OPTIONS_CARD_STYLE)) {
                 0 -> {
                     radius = reader.nextInt()
                 }
@@ -49,13 +49,13 @@ class CardStyleJsonAdapter : JsonAdapter<com.sgk.sduicore.modal.CardStyle>() {
         } else {
             writer.beginObject()
 
-            writer.name(AdapterConstants.KEY_RADIUS)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_RADIUS)
             writer.value(value.radius)
 
-            writer.name(AdapterConstants.KEY_CONTENT_COLOR)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_CONTENT_COLOR)
             writer.value(value.contentColor)
 
-            writer.name(AdapterConstants.KEY_ELEVATION)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ELEVATION)
             writer.value(value.elevation)
 
             writer.endObject()

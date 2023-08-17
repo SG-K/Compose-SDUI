@@ -1,4 +1,4 @@
-package com.sgk.sduicore.modal.adapters.metadata
+package com.sgk.sduicore.adapters.metadata
 
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length

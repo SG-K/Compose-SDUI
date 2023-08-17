@@ -1,9 +1,9 @@
-package com.sgk.sduicore.modal.adapters
+package com.sgk.sduicore.adapters
 
 import com.sgk.sduicore.modal.Card
 import com.sgk.sduicore.modal.CardStyle
 import com.sgk.sduicore.modal.Element
-import com.sgk.sduicore.modal.adapters.ElementJsonAdapter
+import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
@@ -22,10 +22,10 @@ class CardJsonAdapter(
         private const val KEY_CHILD = "child"
         private const val KEY_STYLE = "style"
         private val KEY_OPTIONS = JsonReader.Options.of(
-            KEY_CHILD,
-            KEY_CARD_STYLE,
-            KEY_STYLE,
-            KEY_ID
+            com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_CHILD,
+            com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_CARD_STYLE,
+            com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_STYLE,
+            com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_ID
         )
     }
 
@@ -38,7 +38,7 @@ class CardJsonAdapter(
 
         while (reader.hasNext()) {
 
-            when (reader.selectName(KEY_OPTIONS)) {
+            when (reader.selectName(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_OPTIONS)) {
                 0 -> {
                     val jsonValueMap = reader.readJsonValue() as Map<*, *>
                     child = elementJsonAdapter.fromJsonValue(jsonValueMap) ?: break
@@ -80,19 +80,19 @@ class CardJsonAdapter(
         } else {
             writer.beginObject()
 
-            writer.name(KEY_TYPE)
+            writer.name(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_TYPE)
             writer.value(value.type.typeString)
 
-            writer.name(KEY_CARD_STYLE)
+            writer.name(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_CARD_STYLE)
             cardStyleJsonAdapter.toJson(writer, value.cardStyle)
 
-            writer.name(KEY_CHILD)
+            writer.name(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_CHILD)
             elementJsonAdapter.toJson(writer, value.child)
 
-            writer.name(KEY_STYLE)
+            writer.name(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_STYLE)
             styleJsonAdapter.toJson(writer, value.style)
 
-            writer.name(KEY_ID)
+            writer.name(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_ID)
             writer.value(value.id)
 
             writer.endObject()

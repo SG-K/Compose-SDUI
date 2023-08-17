@@ -2,7 +2,7 @@ package dev.aungkyawpaing.loki.adapter
 
 import com.sgk.sduicore.modal.LazyElement
 import com.sgk.sduicore.modal.LazyList
-import com.sgk.sduicore.modal.adapters.AdapterConstants
+import com.sgk.sduicore.adapters.AdapterConstants
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Orientation
 import com.squareup.moshi.JsonAdapter
@@ -24,7 +24,7 @@ class LazyListJsonAdapter(
 
         reader.beginObject()
         while (reader.hasNext()) {
-            when (reader.selectName(AdapterConstants.KEY_OPTIONS_LAZY_LIST)) {
+            when (reader.selectName(com.sgk.sduicore.adapters.AdapterConstants.KEY_OPTIONS_LAZY_LIST)) {
                 0 -> {
                     orientation = orientationJsonAdapter.fromJson(reader)
                 }
@@ -65,20 +65,20 @@ class LazyListJsonAdapter(
     override fun toJson(writer: JsonWriter, value: LazyList?) {
         writer.beginObject()
 
-        writer.name(AdapterConstants.KEY_TYPE)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_TYPE)
         writer.value(value!!.type.typeString)
 
-        writer.name(AdapterConstants.KEY_ORIENTATION)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ORIENTATION)
         orientationJsonAdapter.toJson(writer, value.orientation)
 
-        writer.name(AdapterConstants.KEY_CHILDREN)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_CHILDREN)
         writer.beginArray()
         value.children.forEach { lazyElement ->
             lazyElementJsonAdapter.toJson(writer, lazyElement)
         }
         writer.endArray()
 
-        writer.name(AdapterConstants.KEY_ID)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
         writer.value(value.id)
 
         writer.endObject()

@@ -1,9 +1,9 @@
-package com.sgk.sduicore.modal.adapters.constraint_layout
+package com.sgk.sduicore.adapters.constraint_layout
 
 import com.sgk.sduicore.modal.ChildConstraintModel
 import com.sgk.sduicore.modal.ContraintHeightWidth
 import com.sgk.sduicore.modal.DirectionConstraints
-import com.sgk.sduicore.modal.adapters.AdapterConstants
+import com.sgk.sduicore.adapters.AdapterConstants
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter
@@ -24,7 +24,7 @@ class ChildConstraintModelJsonAdapter (
 
         reader.beginObject()
         while (reader.hasNext()) {
-            val temData = reader.selectName(AdapterConstants.KEY_OPTIONS_CHILD_CONTRAINT_SET)
+            val temData = reader.selectName(com.sgk.sduicore.adapters.AdapterConstants.KEY_OPTIONS_CHILD_CONTRAINT_SET)
             when (temData) {
                 0 -> {
                     refId = reader.nextString()
@@ -79,25 +79,25 @@ class ChildConstraintModelJsonAdapter (
         } else {
             writer.beginObject()
 
-            writer.name(AdapterConstants.KEY_REF_ID)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_REF_ID)
             writer.value(value.refId)
 
-            writer.name(AdapterConstants.KEY_TOP)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_TOP)
             directionConstraintsJsonAdapter.toJson(writer, value.top)
 
-            writer.name(AdapterConstants.KEY_BOTTOM)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_BOTTOM)
             directionConstraintsJsonAdapter.toJson(writer, value.bottom)
 
-            writer.name(AdapterConstants.KEY_START)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_START)
             directionConstraintsJsonAdapter.toJson(writer, value.start)
 
-            writer.name(AdapterConstants.KEY_END)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_END)
             directionConstraintsJsonAdapter.toJson(writer, value.end)
 
-            writer.name(AdapterConstants.KEY_WIDTH_CONSTRAINT)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_WIDTH_CONSTRAINT)
             writer.value(value.width_constraint?.typeString)
 
-            writer.name(AdapterConstants.KEY_HEIGHT_CONSTRAINT)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_HEIGHT_CONSTRAINT)
             writer.value(value.height_constraint?.typeString)
 
             writer.endObject()

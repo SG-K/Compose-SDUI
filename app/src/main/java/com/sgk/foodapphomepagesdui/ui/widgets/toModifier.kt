@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.sgk.sduicore.modal.adapters.ElementJsonAdapter
+import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.foodapphomepagesdui.helper.toColor

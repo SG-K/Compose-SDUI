@@ -1,6 +1,6 @@
-package com.sgk.sduicore.modal.adapters.constraint_layout
+package com.sgk.sduicore.adapters.constraint_layout
 
-import com.sgk.sduicore.modal.adapters.AdapterConstants
+import com.sgk.sduicore.adapters.AdapterConstants
 import com.sgk.sduicore.modal.ContraintDirections
 import com.sgk.sduicore.modal.DirectionConstraints
 import com.squareup.moshi.FromJson
@@ -26,7 +26,7 @@ class DirectionConstraintsJsonAdapter :  JsonAdapter<com.sgk.sduicore.modal.Dire
         reader.beginObject()
 
         while (reader.hasNext()) {
-            when (reader.selectName(AdapterConstants.KEY_OPTIONS_DIRECTION_CONSTRAINT)) {
+            when (reader.selectName(com.sgk.sduicore.adapters.AdapterConstants.KEY_OPTIONS_DIRECTION_CONSTRAINT)) {
                 0 -> {
 //                    val jsonValueMap = reader.readJsonValue() as Map<*, *>
 //                    val typeString = jsonValueMap[KEY_CONSTRAINT_DIRECTION] as String
@@ -71,13 +71,13 @@ class DirectionConstraintsJsonAdapter :  JsonAdapter<com.sgk.sduicore.modal.Dire
         } else {
             writer.beginObject()
 
-            writer.name(AdapterConstants.KEY_CONSTRAINT_DIRECTION)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_CONSTRAINT_DIRECTION)
             writer.value(value.contraintDirection.typeString)
 
-            writer.name(AdapterConstants.KEY_CONSTRAINT_COMPOSABLE_ID)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_CONSTRAINT_COMPOSABLE_ID)
             writer.value(value.constraintComposableId)
 
-            writer.name(AdapterConstants.KEY_MARGIN)
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_MARGIN)
             writer.value(value.margin)
 
             writer.endObject()

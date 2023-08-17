@@ -6,7 +6,7 @@ import com.sgk.sduicore.modal.LazyList
 import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Spacer
 import com.sgk.sduicore.modal.Text
-import com.sgk.sduicore.modal.adapters.constraint_layout.print
+import com.sgk.sduicore.adapters.constraint_layout.print
 import com.sgk.foodapphomepagesdui.ui.widgets.constraint_layout.ConstraintLayoutRenderer
 import com.sgk.sduicore.modal.Element
 

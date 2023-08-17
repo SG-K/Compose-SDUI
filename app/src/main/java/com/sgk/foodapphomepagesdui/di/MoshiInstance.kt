@@ -1,6 +1,6 @@
 package com.sgk.foodapphomepagesdui.di
 
-import com.sgk.sduicore.modal.adapters.SduiJsonAdapterFactory
+import com.sgk.sduicore.adapters.SduiJsonAdapterFactory
 import com.squareup.moshi.Moshi
 
 object MoshiInstance {

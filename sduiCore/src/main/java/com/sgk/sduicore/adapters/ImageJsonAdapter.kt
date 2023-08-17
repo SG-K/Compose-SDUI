@@ -1,4 +1,4 @@
-package com.sgk.sduicore.modal.adapters
+package com.sgk.sduicore.adapters
 
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.squareup.moshi.JsonAdapter
@@ -22,7 +22,7 @@ class ImageJsonAdapter(
 
         reader.beginObject()
         while (reader.hasNext()) {
-            when (reader.selectName(AdapterConstants.KEY_OPTIONS_IMAGE)) {
+            when (reader.selectName(com.sgk.sduicore.adapters.AdapterConstants.KEY_OPTIONS_IMAGE)) {
                 0 -> {
                     url = reader.nextString()
                 }
@@ -73,25 +73,25 @@ class ImageJsonAdapter(
         }
         writer.beginObject()
 
-        writer.name(AdapterConstants.KEY_TYPE)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_TYPE)
         writer.value(value.type.typeString)
 
-        writer.name(AdapterConstants.KEY_URL)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_URL)
         writer.value(value.url)
 
-        writer.name(AdapterConstants.KEY_ALT_TEXT)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ALT_TEXT)
         writer.value(value.altText)
 
-        writer.name(AdapterConstants.KEY_IMAGE_TYPE)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_IMAGE_TYPE)
         writer.value(value.imageType.typeString)
 
-        writer.name(AdapterConstants.KEY_STYLE)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_STYLE)
         styleJsonAdapter.toJson(writer, value.style)
 
-        writer.name(AdapterConstants.KEY_ID)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
         writer.value(value.id)
 
-        writer.name(AdapterConstants.KEY_TINT)
+        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_TINT)
         writer.value(value.tint)
 
         writer.endObject()

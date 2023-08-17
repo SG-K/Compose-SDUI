@@ -1,4 +1,4 @@
-package com.sgk.sduicore.modal.adapters.metadata
+package com.sgk.sduicore.adapters.metadata
 
 import com.sgk.sduicore.modal.metadata.Orientation
 import com.squareup.moshi.JsonAdapter

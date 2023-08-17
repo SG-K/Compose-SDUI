@@ -1,4 +1,4 @@
-package com.sgk.sduicore.modal.adapters
+package com.sgk.sduicore.adapters
 
 import com.sgk.sduicore.modal.ElementType
 import com.sgk.sduicore.modal.Text
