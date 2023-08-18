@@ -23,10 +23,7 @@ import com.sgk.foodapphomepagesdui.ui.widgets.image.getPaintResource
 fun ImageRenderer(imgElement: ImageElement) {
 
   val modifier = imgElement
-    .style
-    ?.asModifier()
-    ?.layoutId(imgElement.id)
-    ?: Modifier.layoutId(imgElement.id)
+    .style.asModifier()
 
 
   when(imgElement.imageType){
@@ -80,12 +77,12 @@ fun ImageRendererPreview() {
     imgElement = ImageElement(
       altText = "some altText",
       url = "https://images.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-      id = "image",
       imageType = ImageType.REMOTE,
       tint = "#FF0000",
       style = ElementStyle(
         width = Length.Number(48),
         height = Length.Number(48),
+        id = "image",
         padding = Padding(
           left = 24,
           right = 24,

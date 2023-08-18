@@ -10,6 +10,6 @@ import com.sgk.sduicore.modal.Spacer as SpacerElement
 @Composable
 fun SpacerRenderer(element: SpacerElement) {
     Spacer(
-        modifier = element.style?.asModifier()?.layoutId(element.id) ?: Modifier.layoutId(element.id)
+        modifier = element.style.asModifier()
     )
 }

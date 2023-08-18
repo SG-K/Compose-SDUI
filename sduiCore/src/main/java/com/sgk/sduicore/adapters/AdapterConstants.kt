@@ -27,53 +27,54 @@ object AdapterConstants {
     const val KEY_RADIUS = "radius"
     const val KEY_CONTENT_COLOR = "contentColor"
     const val KEY_ELEVATION = "elevation"
+    const val KEY_LAZY_ELEMENT_ID = "lazyElemntId"
 
 
 
 
     val KEY_OPTIONS_LAZY_ELEMENT = JsonReader.Options.of(
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_ID,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_ELEMENT
+        KEY_LAZY_ELEMENT_ID,
+        KEY_ELEMENT
     )
     val KEY_OPTIONS_LAZY_LIST = JsonReader.Options.of(
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_ORIENTATION,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_CHILDREN,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_STYLE,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_ID
+        KEY_ORIENTATION,
+        KEY_CHILDREN,
+        KEY_STYLE,
+//        KEY_ID
     )
     val KEY_OPTIONS_IMAGE = JsonReader.Options.of(
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_URL,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_ALT_TEXT,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_IMAGE_TYPE,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_STYLE,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_ID,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_TINT
+        KEY_URL,
+        KEY_ALT_TEXT,
+        KEY_IMAGE_TYPE,
+        KEY_STYLE,
+//        KEY_ID,
+        KEY_TINT
     )
     val KEY_OPTIONS_DIRECTION_CONSTRAINT = JsonReader.Options.of(
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_CONSTRAINT_DIRECTION,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_CONSTRAINT_COMPOSABLE_ID,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_MARGIN
+        KEY_CONSTRAINT_DIRECTION,
+        KEY_CONSTRAINT_COMPOSABLE_ID,
+        KEY_MARGIN
     )
     val KEY_OPTIONS_CHILD_CONTRAINT_SET = JsonReader.Options.of(
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_REF_ID,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_TOP,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_BOTTOM,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_START,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_END,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_WIDTH_CONSTRAINT,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_HEIGHT_CONSTRAINT
+        KEY_REF_ID,
+        KEY_TOP,
+        KEY_BOTTOM,
+        KEY_START,
+        KEY_END,
+        KEY_WIDTH_CONSTRAINT,
+        KEY_HEIGHT_CONSTRAINT
     )
 
     val KEY_OPTIONS_SPACER = JsonReader.Options.of(
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_SIZE,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_STYLE,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_ID
+        KEY_SIZE,
+        KEY_STYLE,
+//        KEY_ID
     )
 
     val KEY_OPTIONS_CARD_STYLE = JsonReader.Options.of(
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_RADIUS,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_CONTENT_COLOR,
-        com.sgk.sduicore.adapters.AdapterConstants.KEY_ELEVATION
+        KEY_RADIUS,
+        KEY_CONTENT_COLOR,
+        KEY_ELEVATION
     )
 
 

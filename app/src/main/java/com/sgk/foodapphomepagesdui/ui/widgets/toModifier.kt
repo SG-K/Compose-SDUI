@@ -5,17 +5,21 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
-import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.foodapphomepagesdui.helper.toColor
 import com.sgk.sduicore.modal.Element
 
 @SuppressLint("ModifierFactoryExtensionFunction")
-fun ElementStyle.asModifier(): Modifier {
+fun ElementStyle?.asModifier(): Modifier {
 
   var modifier: Modifier = Modifier
+
+  if (this == null)
+    return modifier
 
 
   padding?.let {
@@ -58,14 +62,23 @@ fun ElementStyle.asModifier(): Modifier {
     }
   }
 
+  id?.let {
+    modifier = modifier
+      .layoutId(it)
+      .testTag(it)
+  }
+
   return modifier
 }
 
 @SuppressLint("ModifierFactoryExtensionFunction")
 @Composable
-fun Element.asModifier(): Modifier {
+fun Element?.asModifier(): Modifier {
 
-  var modifier: Modifier = this.style?.asModifier() ?: Modifier
+  if(this == null)
+    return Modifier
+
+  var modifier: Modifier = this.style.asModifier()
 
 
 //  val onPress = this.interactions?.onPress

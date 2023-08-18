@@ -21,7 +21,7 @@ class RowJsonAdapter(
         private val KEY_OPTIONS = JsonReader.Options.of(
             KEY_CHILDREN,
             KEY_STYLE,
-            KEY_ID
+//            KEY_ID
         )
     }
 
@@ -47,9 +47,9 @@ class RowJsonAdapter(
                 1 -> {
                     style = styleJsonAdapter.fromJson(reader)
                 }
-                2 -> {
-                    id = reader.nextString()
-                }
+//                2 -> {
+//                    id = reader.nextString()
+//                }
                 else -> {
                     reader.skipName()
                     reader.skipValue()
@@ -66,7 +66,7 @@ class RowJsonAdapter(
         return Row(
             children = children.toList(),
             style = style,
-            id = id ?: System.currentTimeMillis().toString()
+//            id = id ?: System.currentTimeMillis().toString()
         )
     }
 
@@ -89,8 +89,8 @@ class RowJsonAdapter(
             writer.name(KEY_STYLE)
             styleJsonAdapter.toJson(writer, value.style)
 
-            writer.name(KEY_ID)
-            writer.value( value.id)
+//            writer.name(KEY_ID)
+//            writer.value( value.id)
 
             writer.endObject()
         }

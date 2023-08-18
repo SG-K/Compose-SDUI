@@ -14,7 +14,7 @@ class TextJsonAdapter constructor(
 ) : JsonAdapter<Text>() {
 
     companion object {
-        private const val KEY_ID = "id"
+//        private const val KEY_ID = "id"
         private const val KEY_TYPE = "type"
         private const val KEY_TEXT = "text"
         private const val KEY_TEXT_STYLE = "textStyle"
@@ -23,7 +23,7 @@ class TextJsonAdapter constructor(
             KEY_TEXT,
             KEY_TEXT_STYLE,
             KEY_STYLE,
-            KEY_ID
+//            KEY_ID
         )
     }
 
@@ -45,9 +45,9 @@ class TextJsonAdapter constructor(
                 2 -> {
                     style = styleJsonAdapter.fromJson(reader)
                 }
-                3 -> {
-                    id = reader.nextString()
-                }
+//                3 -> {
+//                    id = reader.nextString()
+//                }
                 else -> {
                     reader.skipName()
                     reader.skipValue()
@@ -68,7 +68,7 @@ class TextJsonAdapter constructor(
             text = text,
             textStyle = textStyle,
             style = style,
-            id = id ?: System.currentTimeMillis().toString()
+//            id = id ?: System.currentTimeMillis().toString()
         )
     }
 
@@ -89,8 +89,8 @@ class TextJsonAdapter constructor(
             writer.name(KEY_STYLE)
             styleJsonAdapter.toJson(writer, value.style)
 
-            writer.name(KEY_ID) // "text":
-            writer.value(value.id)
+//            writer.name(KEY_ID) // "text":
+//            writer.value(value.id)
 
             writer.endObject() // }
         }

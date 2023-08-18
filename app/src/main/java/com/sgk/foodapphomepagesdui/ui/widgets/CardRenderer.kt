@@ -22,7 +22,7 @@ import com.sgk.sduicore.modal.Card as CardElement
 fun CardRenderer(element: CardElement) {
 
   Card(
-    modifier = element.style?.asModifier()?.layoutId(element.id) ?: Modifier.layoutId(element.id) ,
+    modifier = element.style.asModifier() ,
     shape = RoundedCornerShape(size = element.cardStyle?.radius?.dp ?: 0.dp),
     elevation = CardDefaults.cardElevation(
       defaultElevation = element.cardStyle?.elevation?.dp ?: 0.dp
@@ -41,8 +41,8 @@ fun CardRenderer(element: CardElement) {
 fun CardRendererPreview() {
   CardRenderer(
     element = CardElement(
-      id = "card",
       style = ElementStyle(
+        id = "card",
         width = Length.Number(300),
         height = Length.Number(350),
         padding = Padding(
@@ -59,12 +59,12 @@ fun CardRendererPreview() {
       ),
       child = TextElement(
         text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper sodales erat vel egestas. In nec diam non est volutpat convallis et ut urna. Aliquam ante libero, sollicitudin dictum magna sit amet, pharetra semper justo. Sed gravida, odio vitae iaculis dignissim, turpis metus faucibus nisi, non aliqui scelerisque, eu grvel turpis porttitor tellnenatis.",
-        id = "sds",
         textStyle = TextStyle(
           textSize = 20,
           isBold = false,
         ),
         style = ElementStyle(
+          id = "sds",
           width = Length.Number(60),
           height = Length.Number(30),
           padding = Padding(

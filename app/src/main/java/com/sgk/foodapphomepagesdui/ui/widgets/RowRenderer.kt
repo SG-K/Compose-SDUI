@@ -10,7 +10,7 @@ import com.sgk.sduicore.modal.Row as RowElement
 @Composable
 fun RowRenderer(element: RowElement) {
   Row(
-    modifier = element.style?.asModifier()?.layoutId(element.id) ?: Modifier.layoutId(element.id),
+    modifier = element.style.asModifier(),
   ) {
     element.children.forEach { child ->
       CompositeRenderer(element = child)

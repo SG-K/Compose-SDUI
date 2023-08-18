@@ -43,7 +43,7 @@ class LazyElementJsonAdapter(
         }
 
         return LazyElement(
-            id = id,
+            lazyElemntId = id,
             element = element
         )
     }
@@ -52,7 +52,7 @@ class LazyElementJsonAdapter(
         writer.beginObject()
 
         writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
-        writer.value(value!!.id)
+        writer.value(value!!.lazyElemntId)
 
         writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ELEMENT)
         elementJsonAdapter.toJson(writer, value.element)

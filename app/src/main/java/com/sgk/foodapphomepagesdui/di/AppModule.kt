@@ -1,6 +1,7 @@
 package com.sgk.foodapphomepagesdui.di
 
 import android.app.Application
+import android.content.res.AssetManager
 import com.sgk.foodapphomepagesdui.data.SduiDataRepositoryImpl
 import com.sgk.foodapphomepagesdui.domain.SduiDataRepository
 import com.sgk.foodapphomepagesdui.features.profile.domain.use_case.GetProfilePageData
@@ -19,8 +20,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideEasyToDoRepository(app: Application): SduiDataRepository {
-        return SduiDataRepositoryImpl(app)
+    fun provideEasyToDoRepository(assetManager: AssetManager): SduiDataRepository {
+        return SduiDataRepositoryImpl(assetManager)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAssetManager(app: Application): AssetManager {
+        return app.assets
     }
 
     @Provides

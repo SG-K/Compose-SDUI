@@ -9,6 +9,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.sgk.foodapphomepagesdui.helper.toColor
+import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.sgk.sduicore.modal.Text as TextElement
 
@@ -25,8 +26,7 @@ fun TextRenderer(textElement: TextElement) {
     color = textElement.textStyle.textColor?.toColor() ?: Color.Unspecified,
     modifier = textElement
       .style
-      ?.asModifier()
-      ?.layoutId(textElement.id) ?: Modifier.layoutId(textElement.id)
+      .asModifier()
   )
 }
 
@@ -38,7 +38,7 @@ fun TextRendererPreview() {
       text = "Some Text", textStyle = TextStyle(
         textSize = 20,
         isBold = false,
-      ), style = null, id = "text"
+      ), style = ElementStyle(id = "text")
     )
   )
 }

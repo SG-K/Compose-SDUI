@@ -16,7 +16,7 @@ class ImageJsonAdapter(
         var url: String? = null
         var altText: String? = null
         var style: ElementStyle? = null
-        var id: String? = null
+//        var id: String? = null
         var tint: String? = null
         var imageType: ImageType? = null
 
@@ -36,10 +36,10 @@ class ImageJsonAdapter(
                 3 -> {
                     style = styleJsonAdapter.fromJson(reader)
                 }
+//                4 -> {
+//                    id = reader.nextString()
+//                }
                 4 -> {
-                    id = reader.nextString()
-                }
-                5 -> {
                     tint = reader.nextString()
                 }
                 else -> {
@@ -61,7 +61,7 @@ class ImageJsonAdapter(
             style = style,
             imageType = imageType ?: ImageType.REMOTE,
             tint = tint,
-            id = id ?: System.currentTimeMillis().toString()
+//            id = id ?: System.currentTimeMillis().toString()
         )
     }
 
@@ -88,8 +88,8 @@ class ImageJsonAdapter(
         writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_STYLE)
         styleJsonAdapter.toJson(writer, value.style)
 
-        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
-        writer.value(value.id)
+//        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
+//        writer.value(value.id)
 
         writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_TINT)
         writer.value(value.tint)

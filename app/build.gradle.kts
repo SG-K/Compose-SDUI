@@ -21,7 +21,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.sgk.foodapphomepagesdui.HiltTestRunner"
+//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -61,6 +62,12 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.isReturnDefaultValues = true
+    }
+
 }
 
 dependencies {
@@ -95,6 +102,11 @@ dependencies {
     implementation("com.squareup.moshi:moshi:1.14.0")
     implementation("com.squareup.moshi:moshi-adapters:1.14.0")
     implementation ("com.squareup.moshi:moshi-kotlin:1.14.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("junit:junit:4.12")
+    testImplementation("junit:junit:4.12")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
 
 
@@ -115,7 +127,7 @@ dependencies {
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+//    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
@@ -134,6 +146,29 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
 
+    // Optional -- Robolectric environment
+//    testImplementation "androidx.test:core:$androidXTestVersion"
+//    // Optional -- Mockito framework
+//    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+//    // Optional -- mockito-kotlin
+//    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
+//    // Optional -- Mockk framework
+//    testImplementation "io.mockk:mockk:$mockkVersion"
 
+
+    androidTestImplementation ("com.google.dagger:hilt-android-testing:2.37")
+    kaptAndroidTest ("com.google.dagger:hilt-android-compiler:2.37")
+    androidTestImplementation ("junit:junit:4.13.2")
+    androidTestImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1")
+    androidTestImplementation ("androidx.arch.core:core-testing:2.1.0")
+    androidTestImplementation ("com.google.truth:truth:1.1.3")
+    androidTestImplementation ("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation ("androidx.test:core-ktx:1.4.0")
+    androidTestImplementation ("com.squareup.okhttp3:mockwebserver:4.9.1")
+//    androidTestImplementation "io.mockk:mockk-android:1.10.5"
+    androidTestImplementation ("androidx.test:runner:1.4.0")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    debugImplementation("androidx.compose.ui:ui-test-junit4")
+//    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
 }

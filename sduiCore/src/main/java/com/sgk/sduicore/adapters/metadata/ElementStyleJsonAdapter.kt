@@ -1,5 +1,6 @@
 package com.sgk.sduicore.adapters.metadata
 
+import com.sgk.sduicore.adapters.AdapterConstants
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.sduicore.modal.metadata.Padding
@@ -17,7 +18,7 @@ class ElementStyleJsonAdapter constructor(
         private const val KEY_HEIGHT = "height"
         private const val KEY_PADDING = "padding"
         private const val KEY_BACKGROUND = "background"
-        private val KEY_OPTIONS = JsonReader.Options.of(KEY_WIDTH, KEY_HEIGHT, KEY_PADDING, KEY_BACKGROUND)
+        private val KEY_OPTIONS = JsonReader.Options.of(KEY_WIDTH, KEY_HEIGHT, KEY_PADDING, KEY_BACKGROUND, AdapterConstants.KEY_ID)
     }
 
     override fun fromJson(reader: JsonReader): ElementStyle? {
@@ -25,6 +26,7 @@ class ElementStyleJsonAdapter constructor(
         var height: Length? = null
         var padding: Padding? = null
         var background : String? = null
+        var id : String? = null
 
         if (reader.peek() == JsonReader.Token.NULL) {
             reader.skipValue()
@@ -46,6 +48,9 @@ class ElementStyleJsonAdapter constructor(
                 3 -> {
                     background = reader.nextString()
                 }
+                4 -> {
+                    id = reader.nextString()
+                }
                 else -> {
                     reader.skipName()
                     reader.skipValue()
@@ -55,7 +60,7 @@ class ElementStyleJsonAdapter constructor(
 
         reader.endObject()
 
-        return ElementStyle(width, height, padding, background)
+        return ElementStyle(width, height, padding, background, id)
     }
 
     override fun toJson(writer: JsonWriter, value: ElementStyle?) {
@@ -77,6 +82,9 @@ class ElementStyleJsonAdapter constructor(
 
         writer.name(KEY_BACKGROUND)
         writer.value(value.background)
+
+        writer.name(AdapterConstants.KEY_ID)
+        writer.value(value.id)
 
         writer.endObject()
     }

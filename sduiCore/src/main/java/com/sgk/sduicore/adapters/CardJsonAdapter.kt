@@ -25,7 +25,7 @@ class CardJsonAdapter(
             com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_CHILD,
             com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_CARD_STYLE,
             com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_STYLE,
-            com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_ID
+//            com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_ID
         )
     }
 
@@ -50,9 +50,6 @@ class CardJsonAdapter(
                 2 -> {
                     style = styleJsonAdapter.fromJson(reader)
                 }
-                3 -> {
-                    id = reader.nextString()
-                }
                 else -> {
                     reader.skipName()
                     reader.skipValue()
@@ -70,7 +67,6 @@ class CardJsonAdapter(
             cardStyle = cardStyle,
             child = child,
             style = style,
-            id = id ?: System.currentTimeMillis().toString()
         )
     }
 
@@ -92,8 +88,8 @@ class CardJsonAdapter(
             writer.name(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_STYLE)
             styleJsonAdapter.toJson(writer, value.style)
 
-            writer.name(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_ID)
-            writer.value(value.id)
+//            writer.name(com.sgk.sduicore.adapters.CardJsonAdapter.Companion.KEY_ID)
+//            writer.value(value.id)
 
             writer.endObject()
         }

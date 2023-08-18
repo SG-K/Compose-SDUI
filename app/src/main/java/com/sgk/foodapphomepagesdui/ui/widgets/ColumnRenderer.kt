@@ -29,8 +29,8 @@ ColumnRenderer(
       width = Length.Max,
       height = Length.Number(60),
       background = "Red",
-    ),
-    id = "root"
+      id = "root"
+    )
   )
 )
 

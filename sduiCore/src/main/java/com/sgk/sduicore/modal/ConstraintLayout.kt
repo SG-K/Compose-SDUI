@@ -6,8 +6,7 @@ data class ConstraintLayout(
     val children: List<com.sgk.sduicore.modal.Element>?,
     val childernConstrainsList : List<com.sgk.sduicore.modal.ChildConstraintModel>?,
     override val style: ElementStyle? = null,
-    override val id : String
-) : com.sgk.sduicore.modal.Element(com.sgk.sduicore.modal.ElementType.CONSTRAINT_LAYOUT, style, id)
+) : com.sgk.sduicore.modal.Element(com.sgk.sduicore.modal.ElementType.CONSTRAINT_LAYOUT, style)
 
 data class ChildConstraintModel(
     val refId : String,

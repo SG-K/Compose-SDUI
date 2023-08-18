@@ -14,7 +14,7 @@ class SpacerJsonAdapter(
 
     override fun fromJson(reader: JsonReader): Spacer? {
         var style: ElementStyle? = null
-        var id: String? = null
+//        var id: String? = null
         reader.beginObject()
 
         while (reader.hasNext()) {
@@ -23,9 +23,9 @@ class SpacerJsonAdapter(
                 1 -> {
                     style = styleJsonAdapter.fromJson(reader)
                 }
-                2 -> {
-                    id = reader.nextString()
-                }
+//                2 -> {
+//                    id = reader.nextString()
+//                }
                 else -> {
                     reader.skipName()
                     reader.skipValue()
@@ -35,7 +35,7 @@ class SpacerJsonAdapter(
 
         return Spacer(
             style = style,
-            id = id ?: System.currentTimeMillis().toString()
+//            id = id ?: System.currentTimeMillis().toString()
         )
 
     }
@@ -52,8 +52,8 @@ class SpacerJsonAdapter(
             writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_STYLE)
             styleJsonAdapter.toJson(writer, value.style)
 
-            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
-            writer.value( value.id)
+//            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
+//            writer.value( value.id)
 
 
             writer.endObject()

@@ -20,7 +20,7 @@ class LazyListJsonAdapter(
         var orientation: Orientation? = null
         val children: MutableList<LazyElement> = mutableListOf()
         var style: ElementStyle? = null
-        var id : String? = null
+//        var id : String? = null
 
         reader.beginObject()
         while (reader.hasNext()) {
@@ -39,9 +39,9 @@ class LazyListJsonAdapter(
                 2 -> {
                     style = styleJsonAdapter.fromJson(reader)
                 }
-                3 -> {
-                    id = reader.nextString()
-                }
+//                3 -> {
+//                    id = reader.nextString()
+//                }
                 else -> {
                     reader.skipName()
                     reader.skipValue()
@@ -58,7 +58,7 @@ class LazyListJsonAdapter(
             orientation = orientation,
             children = children,
             style = style,
-            id = id ?: System.currentTimeMillis().toString()
+//            id = id ?: System.currentTimeMillis().toString()
         )
     }
 
@@ -78,8 +78,8 @@ class LazyListJsonAdapter(
         }
         writer.endArray()
 
-        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
-        writer.value(value.id)
+//        writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ID)
+//        writer.value(value.id)
 
         writer.endObject()
     }

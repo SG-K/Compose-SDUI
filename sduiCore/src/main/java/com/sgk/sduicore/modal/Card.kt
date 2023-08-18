@@ -7,8 +7,7 @@ data class Card(
     val cardStyle: com.sgk.sduicore.modal.CardStyle?,
     val child: com.sgk.sduicore.modal.Element,
     override val style: ElementStyle? = null,
-    override val id : String
-) : com.sgk.sduicore.modal.Element(com.sgk.sduicore.modal.ElementType.CARD, style, id)
+) : com.sgk.sduicore.modal.Element(com.sgk.sduicore.modal.ElementType.CARD, style)
 
 data class CardStyle(
     val radius: Int = 0,

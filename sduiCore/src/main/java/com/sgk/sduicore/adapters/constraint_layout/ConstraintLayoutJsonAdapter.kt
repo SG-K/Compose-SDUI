@@ -65,9 +65,9 @@ class ConstraintLayoutJsonAdapter (
                     }
                     reader.endArray()
                 }
-                3 -> {
-                    id = reader.nextString()
-                }
+//                3 -> {
+//                    id = reader.nextString()
+//                }
                 2 -> {
                     style = styleJsonAdapter.fromJson(reader)
                 }
@@ -97,7 +97,7 @@ class ConstraintLayoutJsonAdapter (
             children = children.toList(),
             childernConstrainsList = childernConstrainsList.toList(),
             style = style,
-            id = id ?: System.currentTimeMillis().toString()
+//            id = id ?: System.currentTimeMillis().toString()
         )
 
 
@@ -129,8 +129,8 @@ class ConstraintLayoutJsonAdapter (
             writer.name(KEY_STYLE)
             styleJsonAdapter.toJson(writer, value.style)
 
-            writer.name(KEY_ID)
-            writer.value( value.id)
+//            writer.name(KEY_ID)
+//            writer.value( value.id)
 
             writer.endObject()
         }

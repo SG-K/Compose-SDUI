@@ -19,8 +19,7 @@ fun ConstraintLayoutRenderer(
     ConstraintLayout(
         constraintSet = element.childernConstrainsList?.handleContraintsSets()?: ConstraintSet {  },
         modifier = element
-            .style?.asModifier()
-            ?.layoutId(element.id) ?: Modifier
+            .style.asModifier()
     ) {
         element.children?.forEach { child ->
             CompositeRenderer(element = child)
@@ -37,11 +36,11 @@ fun ConstraintLayoutRendererPreview(){
             children = emptyList(),
             childernConstrainsList = emptyList(),
             style = ElementStyle(
+                id = "root",
                 width = Length.Max,
                 height = Length.Number(60),
                 background = "Red",
-            ),
-            id = "root"
+            )
         )
     )
 
