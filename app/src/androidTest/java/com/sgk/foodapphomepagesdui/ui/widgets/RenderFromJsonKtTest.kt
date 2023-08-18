@@ -46,6 +46,7 @@ class RenderFromJsonKtTest{
             }
         }
         composeRule.onNodeWithText("Verified").assertIsDisplayed()
+        composeRule.onNodeWithText("Apple").assertIsNotDisplayed()
     }
 
 }
