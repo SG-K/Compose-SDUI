@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 //    id("com.google.devtools.ksp")
 //    id ("kotlin-android")
 
@@ -74,6 +75,10 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+
+
     implementation ("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
 
 
@@ -99,6 +104,12 @@ dependencies {
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4")
     testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
 
+    // Hilt for DI
+    implementation ("com.google.dagger:hilt-android:2.44")
+    kapt ("com.google.dagger:hilt-compiler:2.44")
+//    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    kapt ("androidx.hilt:hilt-compiler:1.0.0")
+
     implementation(project(":sduiCore"))
 
 
@@ -108,5 +119,21 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
+//    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Local unit tests
+    testImplementation ("androidx.test:core:1.4.0")
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+//    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation ("com.google.truth:truth:1.1.3")
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.9.1")
+    testImplementation ("io.mockk:mockk:1.10.5")
+//    debugImplementation "androidx.compose.ui:ui-test-manifest:1.1.0-alpha04"
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+
+
+
 }
