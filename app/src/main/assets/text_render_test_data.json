@@ -1,0 +1,12 @@
+{
+  "type" : "Text",
+  "text" : "Verified",
+  "textStyle": {
+    "textSize": 12,
+    "textColor": "#5a5f63",
+    "isBold": true
+  },
+  "style" : {
+    "id" : "verified_text"
+  }
+}

@@ -9,14 +9,6 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class RenderJsonTestDataAnnotation
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class HomePageJsonTestDataAnnotation
-
 @Module
 @InstallIn(SingletonComponent::class)
 object JsonModule {
@@ -41,4 +33,26 @@ object JsonModule {
         return json
     }
 
+    @Provides
+    @Singleton
+    @TextRenderJsonTestDataAnnotation
+    fun provideTextRenderJsonDataString(assetManager: AssetManager): String {
+        val json = assetManager.open("text_render_test_data.json").bufferedReader().use {
+            it.readText()
+        }
+        return json
+    }
+
 }
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class RenderJsonTestDataAnnotation
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class HomePageJsonTestDataAnnotation
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class TextRenderJsonTestDataAnnotation
