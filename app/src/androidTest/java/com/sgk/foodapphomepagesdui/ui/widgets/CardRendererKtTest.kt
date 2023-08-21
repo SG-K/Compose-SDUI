@@ -118,6 +118,22 @@ class CardRendererKtTest{
             )
     }
 
+    @Test
+    fun testElementStyle(){
+//        val style = cardRenderData.copy(
+//            style = cardRenderData.style?.copy(
+//                padding = Padding(
+//                    top = 1,
+//                    bottom = 1,
+//                    left = 1,
+//                    right = 1
+//                )
+//            )
+//        )
+//        style.style?.elementStyleTests(composeRule)
+        cardRenderData.style?.elementStyleTests(composeRule)
+    }
+
 
 
 }
