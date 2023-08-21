@@ -2,6 +2,7 @@ package com.sgk.foodapphomepagesdui.ui.widgets
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -9,6 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.sgk.foodapphomepagesdui.helper.toColor
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.addTestSemantics
 import com.sgk.foodapphomepagesdui.ui.widgets.semantics.background
 import com.sgk.foodapphomepagesdui.ui.widgets.semantics.height
 import com.sgk.foodapphomepagesdui.ui.widgets.semantics.isTextBold
@@ -35,16 +37,7 @@ fun TextRenderer(textElement: TextElement) {
     modifier = textElement
       .style
       .asModifier()
-      .semantics {
-        textColor = textElement.textStyle.textColor
-        textSize = textElement.textStyle.textSize
-        isTextBold = textElement.textStyle.isBold
-        width = textElement.style?.width
-        height = textElement.style?.height
-        background = textElement.style?.background
-        padding = textElement.style?.padding
-        layoutId = textElement.style?.id
-      }
+      .addTestSemantics(textElement)
   )
 }
 

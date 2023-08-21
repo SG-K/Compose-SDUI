@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sgk.sduicore.modal.CardStyle
@@ -16,13 +17,22 @@ import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.sgk.foodapphomepagesdui.helper.toColor
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.addTestSemantics
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.cardContentColor
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.cardElevation
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.cardRadius
 import com.sgk.sduicore.modal.Card as CardElement
 
 @Composable
 fun CardRenderer(element: CardElement) {
 
+  val modifier = element
+    .style
+    .asModifier()
+    .addTestSemantics(element)
+
   Card(
-    modifier = element.style.asModifier() ,
+    modifier = modifier ,
     shape = RoundedCornerShape(size = element.cardStyle?.radius?.dp ?: 0.dp),
     elevation = CardDefaults.cardElevation(
       defaultElevation = element.cardStyle?.elevation?.dp ?: 0.dp

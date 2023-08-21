@@ -19,6 +19,7 @@ import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.foodapphomepagesdui.helper.toColor
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getImageVector
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getPaintResource
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.addTestSemantics
 import com.sgk.foodapphomepagesdui.ui.widgets.semantics.background
 import com.sgk.foodapphomepagesdui.ui.widgets.semantics.height
 import com.sgk.foodapphomepagesdui.ui.widgets.semantics.imageType
@@ -38,17 +39,7 @@ fun ImageRenderer(imgElement: ImageElement) {
   val modifier = imgElement
     .style
     .asModifier()
-    .semantics {
-      imageUrl = imgElement.url
-      imageType = imgElement.imageType
-      tint = imgElement.tint
-      width = imgElement.style?.width
-      height = imgElement.style?.height
-      background = imgElement.style?.background
-      padding = imgElement.style?.padding
-      layoutId = imgElement.style?.id
-      vectorUrl = imgElement.url.getImageVector()
-    }
+    .addTestSemantics(imgElement)
 
 
   when(imgElement.imageType){

@@ -7,10 +7,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.foodapphomepagesdui.helper.toColor
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.background
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.height
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.layoutId
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.padding
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.width
 import com.sgk.sduicore.modal.Element
 
 @SuppressLint("ModifierFactoryExtensionFunction")
@@ -67,6 +73,16 @@ fun ElementStyle?.asModifier(): Modifier {
       .layoutId(it)
       .testTag(it)
   }
+
+  val _style = this
+  modifier = modifier
+    .semantics {
+      width = _style.width
+      height = _style.height
+      background = _style.background
+      padding = _style.padding
+      layoutId = _style.id
+    }
 
   return modifier
 }
