@@ -11,6 +11,11 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import com.sgk.foodapphomepagesdui.R
 
+/**
+ * Temporary mapping solution for image rendering as it's
+ * a testing sample project
+ */
+
 fun String.getImageVector() : ImageVector{
     return when(this){
         "close"-> Icons.Default.Close

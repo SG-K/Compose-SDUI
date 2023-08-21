@@ -14,35 +14,46 @@ import com.sgk.sduicore.modal.metadata.ElementStyle
 fun ElementStyle.elementStyleTests(
     composeRule : ComposeContentTestRule
 ){
-    composeRule
-        .onNodeWithText("Some Text")
-        .assert(
-            SemanticsMatcher.expectValue(WidthKey, width)
-        )
-
-    composeRule
-        .onNodeWithText("Some Text")
-        .assert(
-            SemanticsMatcher.expectValue(HeightKey, height)
-        )
-
-    composeRule
-        .onNodeWithText("Some Text")
-        .assert(
-            SemanticsMatcher.expectValue(PaddingKey, padding)
-        )
-
-    composeRule
-        .onNodeWithText("Some Text")
-        .assert(
-            SemanticsMatcher.expectValue(BackgroundKey, background)
-        )
 
     id?.let{
+
         composeRule
             .onNode(
                 hasTestTag(it)
             )
             .assertExists()
+
+        composeRule
+            .onNode(
+                hasTestTag(it)
+            )
+            .assert(
+                SemanticsMatcher.expectValue(WidthKey, width)
+            )
+
+        composeRule
+            .onNode(
+                hasTestTag(it)
+            )
+            .assert(
+                SemanticsMatcher.expectValue(HeightKey, height)
+            )
+
+        composeRule
+            .onNode(
+                hasTestTag(it)
+            )
+            .assert(
+                SemanticsMatcher.expectValue(PaddingKey, padding)
+            )
+
+        composeRule
+            .onNode(
+                hasTestTag(it)
+            )
+            .assert(
+                SemanticsMatcher.expectValue(BackgroundKey, background)
+            )
+
     }
 }

@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -18,12 +19,36 @@ import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.foodapphomepagesdui.helper.toColor
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getImageVector
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getPaintResource
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.background
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.height
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.imageType
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.imageUrl
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.isTextBold
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.layoutId
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.padding
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.textColor
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.textSize
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.tint
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.vectorUrl
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.width
 
 @Composable
 fun ImageRenderer(imgElement: ImageElement) {
 
   val modifier = imgElement
-    .style.asModifier()
+    .style
+    .asModifier()
+    .semantics {
+      imageUrl = imgElement.url
+      imageType = imgElement.imageType
+      tint = imgElement.tint
+      width = imgElement.style?.width
+      height = imgElement.style?.height
+      background = imgElement.style?.background
+      padding = imgElement.style?.padding
+      layoutId = imgElement.style?.id
+      vectorUrl = imgElement.url.getImageVector()
+    }
 
 
   when(imgElement.imageType){
