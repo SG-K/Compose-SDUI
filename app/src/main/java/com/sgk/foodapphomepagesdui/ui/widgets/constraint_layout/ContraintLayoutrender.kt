@@ -1,8 +1,6 @@
 package com.sgk.foodapphomepagesdui.ui.widgets.constraint_layout
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
@@ -11,10 +9,18 @@ import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.foodapphomepagesdui.ui.widgets.CompositeRenderer
 import com.sgk.foodapphomepagesdui.ui.widgets.asModifier
+import com.sgk.sduicore.modal.ChildConstraintModel
+import com.sgk.sduicore.modal.ContraintDirections
+import com.sgk.sduicore.modal.DirectionConstraints
+import com.sgk.sduicore.modal.Image
+import com.sgk.sduicore.modal.ImageType
+import com.sgk.sduicore.modal.Text
+import com.sgk.sduicore.modal.metadata.Padding
+import com.sgk.sduicore.modal.metadata.TextStyle
 
 @Composable
 fun ConstraintLayoutRenderer(
-    element: com.sgk.sduicore.modal.ConstraintLayout
+    element: ConstraintLayout
 ) {
     ConstraintLayout(
         constraintSet = element.childernConstrainsList?.handleContraintsSets()?: ConstraintSet {  },
@@ -32,27 +38,107 @@ fun ConstraintLayoutRenderer(
 @Preview
 fun ConstraintLayoutRendererPreview(){
     ConstraintLayoutRenderer(
-        element = com.sgk.sduicore.modal.ConstraintLayout(
-            children = emptyList(),
-            childernConstrainsList = emptyList(),
+        element = ConstraintLayout(
+            children = listOf(
+                Text(
+                    text = "Password",
+                    textStyle = TextStyle(
+                        textSize = 16,
+                        textColor = "#000000",
+                        isBold = false
+                    ),
+                    style = ElementStyle(
+                        id = "card_password_lable"
+                    )
+                ),
+                Text(
+                    text = "***********",
+                    textStyle = TextStyle(
+                        textSize = 16,
+                        textColor = "#000000",
+                        isBold = false
+                    ),
+                    style = ElementStyle(
+                        id = "card_password_text",
+                        padding = Padding(
+                            top = 16,
+                            bottom = 0,
+                            left = 0,
+                            right = 0
+                        )
+                    )
+                ),
+                Image(
+                    url = "edit",
+                    altText = "Edit Password",
+                    imageType = ImageType.IMAGE_VECTOR,
+                    style = ElementStyle(
+                        width = Length.Number(24),
+                        height = Length.Number(24),
+                        background = "#FFFFFF",
+                        id = "card_password_edit"
+                    ),
+                    tint = "#d33671"
+                )
+            ),
+            childernConstrainsList = listOf(
+                ChildConstraintModel(
+                    refId = "card_password_lable",
+                    top = DirectionConstraints(
+                        contraintDirection = ContraintDirections.TOP,
+                        constraintComposableId = "-101",
+                        margin = 0
+                    ),
+                    start = DirectionConstraints(
+                        contraintDirection = ContraintDirections.START,
+                        constraintComposableId = "-101",
+                        margin = 0
+                    )
+                ),
+
+
+                ChildConstraintModel(
+                    refId = "card_password_text",
+                    top = DirectionConstraints(
+                        contraintDirection = ContraintDirections.BOTTOM,
+                        constraintComposableId = "card_password_lable",
+                        margin = 0
+                    ),
+                    start = DirectionConstraints(
+                        contraintDirection = ContraintDirections.START,
+                        constraintComposableId = "-101",
+                        margin = 0
+                    )
+                ),
+
+                ChildConstraintModel(
+                    refId = "card_password_edit",
+                    top = DirectionConstraints(
+                        contraintDirection = ContraintDirections.TOP,
+                        constraintComposableId = "card_password_lable",
+                        margin = 0
+                    ),
+                    end = DirectionConstraints(
+                        contraintDirection = ContraintDirections.END,
+                        constraintComposableId = "-101",
+                        margin = 0
+                    )
+                ),
+
+
+            ),
             style = ElementStyle(
-                id = "root",
+                id = "contraint_layout_password",
                 width = Length.Max,
-                height = Length.Number(60),
-                background = "Red",
+                padding = Padding(
+                    top = 16,
+                    bottom = 16,
+                    left = 16,
+                    right = 16
+                ),
+                background = "#FFFFFF"
             )
         )
     )
 
-//    ColumnRenderer(
-//        element = Column(
-//            children = emptyList(),
-//            style = ElementStyle(
-//                width = Length.Max,
-//                height = Length.Number(60),
-//                background = "Red",
-//            ),
-//            id = "root"
-//        )
-//    )
 }
