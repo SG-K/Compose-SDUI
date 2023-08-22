@@ -3,8 +3,17 @@ package com.sgk.foodapphomepagesdui.ui.widgets
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertTextEquals
+import androidx.compose.ui.test.filter
+import androidx.compose.ui.test.hasAnyChild
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onChild
+import androidx.compose.ui.test.onChildAt
+import androidx.compose.ui.test.onChildren
+import androidx.compose.ui.test.onFirst
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.printToLog
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.semantics.CardContentColorKey
 import com.sgk.foodapphomepagesdui.ui.widgets.semantics.CardElevationKey
@@ -24,6 +33,7 @@ import org.junit.Test
 
 @HiltAndroidTest
 class CardRendererKtTest{
+
     @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
 
@@ -132,6 +142,20 @@ class CardRendererKtTest{
 //        )
 //        style.style?.elementStyleTests(composeRule)
         cardRenderData.style?.elementStyleTests(composeRule)
+    }
+
+    @Test
+    fun testCardContents(){
+
+        val text = cardRenderData.child as Text
+        text.style?.id?.let {
+            composeRule
+                .onNode(hasTestTag("card"))
+                .onChild()
+                .assert(hasTestTag(it))
+                .assertTextEquals(text.text)
+        }
+
     }
 
 
