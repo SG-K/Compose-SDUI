@@ -10,6 +10,9 @@ import com.sgk.sduicore.adapters.constraint_layout.print
 import com.sgk.foodapphomepagesdui.ui.widgets.constraint_layout.ConstraintLayoutRenderer
 import com.sgk.sduicore.modal.Element
 
+/**
+ * TODO: Pending UI tests for this widget
+ */
 @Composable
 fun CompositeRenderer(element: Element) {
   when (element) {

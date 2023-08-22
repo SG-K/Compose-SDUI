@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.tooling.preview.Preview
+import com.sgk.foodapphomepagesdui.ui.widgets.semantics.addTestSemantics
 import com.sgk.sduicore.modal.LazyElement
 import com.sgk.sduicore.modal.LazyList
 import com.sgk.sduicore.modal.metadata.ElementStyle
@@ -23,11 +24,14 @@ import com.sgk.sduicore.modal.Text as TextElement
 @Composable
 fun LazyListRenderer(element: LazyList) {
 
+  val modifier = element
+    .asModifier()
+    .addTestSemantics(element)
+
   when (element.orientation) {
     Orientation.HORIZONTAL -> {
       LazyRow(
-        modifier = element
-          .asModifier()
+        modifier = modifier
       ) {
         items(items = element.children, key = LazyElement::lazyElemntId) {
           CompositeRenderer(it.element)
@@ -36,8 +40,7 @@ fun LazyListRenderer(element: LazyList) {
     }
     Orientation.VERTICAL -> {
       LazyColumn(
-        modifier = element
-          .asModifier()
+        modifier = modifier
 
         ) {
         items( items = element.children, key = LazyElement::lazyElemntId) {
