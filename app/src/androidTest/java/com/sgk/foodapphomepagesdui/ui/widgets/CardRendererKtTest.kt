@@ -15,9 +15,9 @@ import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.printToLog
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.CardContentColorKey
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.CardElevationKey
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.CardRadiusKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.CardContentColorKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.CardElevationKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.CardRadiusKey
 import com.sgk.sduicore.modal.Card as CardElement
 import com.sgk.sduicore.modal.CardStyle
 import com.sgk.sduicore.modal.Text

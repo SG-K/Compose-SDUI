@@ -9,9 +9,9 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.ImageRenderer
 import com.sgk.foodapphomepagesdui.ui.widgets.elementStyleTests
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.ImageTypeKey
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.ImageUrlKey
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.TintKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.ImageTypeKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.ImageUrlKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.TintKey
 import com.sgk.sduicore.modal.Image
 import com.sgk.sduicore.modal.ImageType
 import com.sgk.sduicore.modal.metadata.ElementStyle

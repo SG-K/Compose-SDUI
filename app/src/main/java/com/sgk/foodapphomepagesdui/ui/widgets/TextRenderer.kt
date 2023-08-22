@@ -10,15 +10,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.sgk.foodapphomepagesdui.helper.toColor
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.addTestSemantics
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.background
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.height
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.isTextBold
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.layoutId
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.padding
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.textColor
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.textSize
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.width
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.addTestSemantics
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.background
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.height
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.isTextBold
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.layoutId
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.padding
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.textColor
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.textSize
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.width
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.sgk.sduicore.modal.Text as TextElement

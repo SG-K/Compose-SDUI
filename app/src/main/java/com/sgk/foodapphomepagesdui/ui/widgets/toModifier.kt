@@ -12,11 +12,11 @@ import androidx.compose.ui.unit.dp
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.foodapphomepagesdui.helper.toColor
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.background
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.height
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.layoutId
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.padding
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.width
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.background
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.height
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.layoutId
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.padding
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.width
 import com.sgk.sduicore.modal.Element
 
 @SuppressLint("ModifierFactoryExtensionFunction")

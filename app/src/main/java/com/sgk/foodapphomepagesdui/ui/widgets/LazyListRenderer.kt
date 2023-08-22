@@ -12,7 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.tooling.preview.Preview
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.addTestSemantics
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.addTestSemantics
 import com.sgk.sduicore.modal.LazyElement
 import com.sgk.sduicore.modal.LazyList
 import com.sgk.sduicore.modal.metadata.ElementStyle

@@ -1,4 +1,4 @@
-package com.sgk.foodapphomepagesdui.ui.widgets.semantics
+package com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics

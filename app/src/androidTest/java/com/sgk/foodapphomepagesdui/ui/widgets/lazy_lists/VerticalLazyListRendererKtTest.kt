@@ -13,8 +13,8 @@ import androidx.compose.ui.test.onLast
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.LazyListRenderer
 import com.sgk.foodapphomepagesdui.ui.widgets.elementStyleTests
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.IsTextBoldKey
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.OrientationKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.IsTextBoldKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.OrientationKey
 import com.sgk.sduicore.modal.LazyElement
 import com.sgk.sduicore.modal.LazyList
 import com.sgk.sduicore.modal.Text

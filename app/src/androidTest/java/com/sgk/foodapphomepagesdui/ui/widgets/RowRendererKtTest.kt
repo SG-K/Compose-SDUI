@@ -11,8 +11,8 @@ import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.IsTextBoldKey
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.OrientationKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.IsTextBoldKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.OrientationKey
 import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.metadata.ElementStyle

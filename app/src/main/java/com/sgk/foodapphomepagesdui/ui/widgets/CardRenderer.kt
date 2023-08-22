@@ -17,10 +17,10 @@ import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.sgk.foodapphomepagesdui.helper.toColor
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.addTestSemantics
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.cardContentColor
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.cardElevation
-import com.sgk.foodapphomepagesdui.ui.widgets.semantics.cardRadius
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.addTestSemantics
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.cardContentColor
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.cardElevation
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.cardRadius
 import com.sgk.sduicore.modal.Card as CardElement
 
 @Composable

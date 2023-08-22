@@ -1,4 +1,4 @@
-package com.sgk.foodapphomepagesdui.ui.widgets.semantics
+package com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics
 
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
