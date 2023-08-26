@@ -1,19 +1,31 @@
 package com.sgk.foodapphomepagesdui.ui.widgets.constraint_layout
 
+import android.content.Context
 import android.util.DisplayMetrics
+import android.util.Log
+import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertLeftPositionInRootIsEqualTo
+import androidx.compose.ui.test.assertTopPositionInRootIsEqualTo
+import androidx.compose.ui.test.getBoundsInRoot
 import androidx.compose.ui.test.hasTestTag
+import androidx.compose.ui.test.junit4.AndroidComposeTestRule
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
+import androidx.compose.ui.test.onLast
 import androidx.compose.ui.test.printToLog
+import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.Dimension
+import androidx.test.platform.app.InstrumentationRegistry
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.elementStyleTests
 import com.sgk.sduicore.modal.ChildConstraintModel
 import com.sgk.sduicore.modal.ConstraintLayout
 import com.sgk.sduicore.modal.ContraintDirections
+import com.sgk.sduicore.modal.ContraintHeightWidth
 import com.sgk.sduicore.modal.DirectionConstraints
 import com.sgk.sduicore.modal.Image
 import com.sgk.sduicore.modal.ImageType
@@ -165,10 +177,26 @@ class ContraintLayoutrenderKtTest{
 
     @Test
     fun testConstraintLayoutContents(){
-        composeRule
+
+        val placementsOfChild1 = composeRule
             .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
             .onChildren()
-            .assertCountEquals(constraintLayoutData.childernConstrainsList?.size?:0)
+            .onFirst()
+            .getBoundsInRoot()
+
+        val placementsOfChild2 = composeRule
+            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
+            .onChildren()
+            .get(1)
+            .getBoundsInRoot()
+
+        val placementsOfChild3 = composeRule
+            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
+            .onChildren()
+            .onLast()
+            .getBoundsInRoot()
+
+        Log.v("CONSTRAINT_LAYOUT_DEBUG_TAG", "dpData = $placementsOfChild1")
 
         composeRule
             .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
@@ -177,14 +205,60 @@ class ContraintLayoutrenderKtTest{
         composeRule
             .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
             .onChildren()
+            .assertCountEquals(constraintLayoutData.childernConstrainsList?.size?:0)
+
+        composeRule
+            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
+            .onChildren()
             .onFirst()
-//            .assertLeftPositionInRootIsEqualTo()
+            .assertIsDisplayed()
+            .assertLeftPositionInRootIsEqualTo(
+                ((constraintLayoutData.style?.padding?.left ?:0) +
+                        (constraintLayoutData.children?.first()?.style?.padding?.left ?:0)
+                        ).dp
+            )
+            .assertTopPositionInRootIsEqualTo(
+                ((constraintLayoutData.style?.padding?.top ?:0) +
+                        (constraintLayoutData.children?.first()?.style?.padding?.top ?:0)
+                        ).dp
+            )
+
+
+        composeRule
+            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
+            .onChildren()
+            .get(1)
+            .assertIsDisplayed()
+            .assertLeftPositionInRootIsEqualTo(
+                ((constraintLayoutData.style?.padding?.left ?:0) +
+                        (constraintLayoutData.children?.get(1)?.style?.padding?.left ?:0)
+                        ).dp
+            )
+            .assertTopPositionInRootIsEqualTo(
+                ( (constraintLayoutData.children?.get(1)?.style?.padding?.top ?:0)
+                        ).dp + placementsOfChild1.bottom
+            )
+
+        composeRule
+            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
+            .onChildren()
+            .onLast()
+            .assertIsDisplayed()
+            .assertTopPositionInRootIsEqualTo(
+                placementsOfChild1.top
+            )
+//            .assertLeftPositionInRootIsEqualTo(
+//
+//            )
 
     }
 
-//    fun dpToPx(dp: Int): Int {
-//        val displayMetrics: DisplayMetrics = composeRule.getContext().getResources().getDisplayMetrics()
-//        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
-//    }
+    fun dpToPx(
+        dp: Int,
+    ): Int {
+        val context: Context = InstrumentationRegistry.getInstrumentation().getTargetContext()
+        val displayMetrics: DisplayMetrics = context.getResources().getDisplayMetrics()
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
+    }
 
 }
