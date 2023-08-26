@@ -2,6 +2,7 @@ package com.sgk.sduicore.adapters
 
 import com.sgk.sduicore.modal.Button
 import com.sgk.sduicore.modal.ButtonStyle
+import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.squareup.moshi.JsonAdapter
@@ -10,24 +11,22 @@ import com.squareup.moshi.JsonWriter
 
 class ButtonJsonAdapter(
     private val buttonStyleJsonAdapter: JsonAdapter<ButtonStyle>,
-    private val textStyleJsonAdapter: JsonAdapter<TextStyle>,
+    private val textJsonAdapter: JsonAdapter<Text>,
     private val styleJsonAdapter: JsonAdapter<ElementStyle>
 ) : JsonAdapter<Button>() {
 
     companion object {
         private const val KEY_TYPE = "type"
         private const val KEY_TEXT = "text"
-        private const val KEY_TEXT_STYLE = "textStyle"
         private const val KEY_BUTTON_STYLE = "buttonStyle"
         private const val KEY_COLOR = "color"
         private const val KEY_STYLE = "style"
 
-        private val KEY_OPTIONS = JsonReader.Options.of(KEY_TEXT, KEY_TEXT_STYLE, KEY_BUTTON_STYLE, KEY_COLOR, KEY_STYLE)
+        private val KEY_OPTIONS = JsonReader.Options.of(KEY_TEXT, KEY_BUTTON_STYLE, KEY_COLOR, KEY_STYLE)
     }
 
     override fun fromJson(reader: JsonReader): Button {
-        var text: String? = null
-        var textStyle: TextStyle? = null
+        var text: Text? = null
         var buttonStyle: ButtonStyle? = null
         var color: String? = null
         var style: ElementStyle? = null
@@ -36,18 +35,15 @@ class ButtonJsonAdapter(
         while (reader.hasNext()) {
             when (reader.selectName(KEY_OPTIONS)) {
                 0 -> {
-                    text = reader.nextString()
+                    text = textJsonAdapter.fromJson(reader)
                 }
                 1 -> {
-                    textStyle = textStyleJsonAdapter.fromJson(reader)
-                }
-                2 -> {
                     buttonStyle = buttonStyleJsonAdapter.fromJson(reader)
                 }
-                3 -> {
+                2 -> {
                     color = reader.nextString()
                 }
-                4 -> {
+                3 -> {
                     style = styleJsonAdapter.fromJson(reader)
                 }
                 else -> {
@@ -62,10 +58,6 @@ class ButtonJsonAdapter(
             throw IllegalArgumentException("Required property text is missing")
         }
 
-        if (textStyle == null) {
-            throw IllegalArgumentException("Required property textStyle is missing")
-        }
-
         if (buttonStyle == null) {
             throw IllegalArgumentException("Required property buttonStyle is missing")
         }
@@ -76,7 +68,6 @@ class ButtonJsonAdapter(
 
         return Button(
             text = text,
-            textStyle = textStyle,
             buttonStyle = buttonStyle,
             color = color,
             style = style
@@ -93,10 +84,7 @@ class ButtonJsonAdapter(
             writer.value(value.type.typeString)
 
             writer.name(KEY_TEXT)
-            writer.value(value.text)
-
-            writer.name(KEY_TEXT_STYLE)
-            textStyleJsonAdapter.toJson(writer, value.textStyle)
+            textJsonAdapter.toJson(writer, value.text)
 
             writer.name(KEY_BUTTON_STYLE)
             buttonStyleJsonAdapter.toJson(writer, value.buttonStyle)

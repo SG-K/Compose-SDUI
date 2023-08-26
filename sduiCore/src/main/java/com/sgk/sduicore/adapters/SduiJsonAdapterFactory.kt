@@ -139,7 +139,7 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
             Button::class.java -> {
                 ButtonJsonAdapter(
                     buttonStyleJsonAdapter = moshi.adapter(ButtonStyle::class.java),
-                    textStyleJsonAdapter = moshi.adapter(TextStyle::class.java),
+                    textJsonAdapter = moshi.adapter(Text::class.java),
                     styleJsonAdapter = moshi.adapter(ElementStyle::class.java),
                 )
             }

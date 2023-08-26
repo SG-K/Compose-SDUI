@@ -15,6 +15,7 @@ import com.sgk.sduicore.modal.Button as ButtonElement
 import com.sgk.sduicore.modal.ButtonStyle.FILLED
 import com.sgk.sduicore.modal.ButtonStyle.OUTLINED
 import com.sgk.sduicore.modal.ButtonStyle.TEXT
+import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
@@ -22,38 +23,32 @@ import com.sgk.sduicore.modal.Text as TextElement
 
 @Composable
 fun ButtonRenderer(element: ButtonElement) {
-  val textElement = TextElement(
-    text = element.text,
-    textStyle = TextStyle(
-      textColor = element.textStyle.textColor,
-      textSize = element.textStyle.textSize,
-      isBold = element.textStyle.isBold
-    )
-  )
+
+  val modifier : Modifier = element.style?.asModifier() ?: Modifier
 
   when (element.buttonStyle) {
     FILLED -> Button(
       shape = CircleShape,
-      modifier = element.style?.asModifier() ?: Modifier,
+      modifier = modifier,
       colors = ButtonDefaults.buttonColors(containerColor = element.color.toColor()),
       onClick = {}
     ) {
-      CompositeRenderer(element = textElement)
+      CompositeRenderer(element = element.text)
     }
     OUTLINED -> OutlinedButton(
       shape = CircleShape,
       border = BorderStroke(1.dp, element.color.toColor()),
-      modifier = element.style?.asModifier() ?: Modifier,
+      modifier = modifier,
       onClick = {}
     ) {
-      CompositeRenderer(element = textElement)
+      CompositeRenderer(element = element.text)
     }
     TEXT -> TextButton(
-      modifier = element.style?.asModifier() ?: Modifier,
+      modifier = modifier,
       colors = ButtonDefaults.buttonColors(containerColor = element.color.toColor()),
       onClick = {}
     ) {
-      CompositeRenderer(element = textElement)
+      CompositeRenderer(element = element.text)
     }
   }
 }
@@ -63,8 +58,10 @@ fun ButtonRenderer(element: ButtonElement) {
 fun TextButtonRendererPreview() {
   ButtonRenderer(
     element = ButtonElement(
-      text = "Submit",
-      textStyle = TextStyle(textSize = 14),
+      text = Text(
+        text = "Submit",
+        textStyle = TextStyle(textSize = 14),
+      ),
       buttonStyle = TEXT,
       color = "#5accf6",
       style = ElementStyle(
@@ -84,8 +81,10 @@ fun TextButtonRendererPreview() {
 fun FilledButtonRendererPreview() {
   ButtonRenderer(
     element = ButtonElement(
-      text = "Submit",
-      textStyle = TextStyle(textSize = 14),
+      text = Text(
+        text = "Submit",
+        textStyle = TextStyle(textSize = 14),
+      ),
       buttonStyle = FILLED,
       color = "#5accf6",
       style = ElementStyle(
@@ -105,8 +104,10 @@ fun FilledButtonRendererPreview() {
 fun OutlinedButtonRendererPreview() {
   ButtonRenderer(
     element = ButtonElement(
-      text = "Submit",
-      textStyle = TextStyle(textSize = 14),
+      text = Text(
+        text = "Submit",
+        textStyle = TextStyle(textSize = 14),
+      ),
       buttonStyle = OUTLINED,
       color = "#5accf6",
       style = ElementStyle(
@@ -120,3 +121,48 @@ fun OutlinedButtonRendererPreview() {
     )
   )
 }
+
+//{
+//  "lazyElemntId" : "7",
+//  "element" : {
+//  "type" : "Button",
+//  "text" : "Submit",
+//  "textStyle" : {
+//  "textSize" : 14
+//},
+//  "buttonStyle" : "filled",
+//  "color" : "#5accf6",
+//  "style": {
+//  "width" : "max",
+//  "padding" : {
+//  "top": 16,
+//  "bottom": 8
+//},
+//  "id" : "button"
+//}
+//}
+//}
+
+//{
+//  "lazyElemntId" : "7",
+//  "element" : {
+//  "type" : "Button",
+//  "text" : {
+//  "type" : "Text",
+//  "text" : "Submit",
+//  "textStyle" : {
+//  "textSize" : 14
+//}
+//},
+//  "buttonStyle" : "filled",
+//  "color" : "#5accf6",
+//  "style": {
+//  "width" : "max",
+//  "padding" : {
+//  "top": 16,
+//  "bottom": 8
+//},
+//  "id" : "button"
+//}
+//}
+//}

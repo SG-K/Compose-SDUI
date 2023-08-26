@@ -5,8 +5,7 @@ import com.sgk.sduicore.modal.metadata.TextStyle
 
 
 data class Button(
-    val text: String,
-    val textStyle: TextStyle,
+    val text: Text,
     val buttonStyle: ButtonStyle,
     val color: String,
     override val style: ElementStyle? = null
