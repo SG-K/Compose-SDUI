@@ -30,6 +30,8 @@ import com.sgk.sduicore.adapters.metadata.LengthJsonAdapter
 import com.sgk.sduicore.adapters.metadata.OrientationJsonAdapter
 import com.sgk.sduicore.adapters.metadata.PaddingJsonAdapter
 import com.sgk.sduicore.adapters.metadata.TextStyleJsonAdapter
+import com.sgk.sduicore.modal.Button
+import com.sgk.sduicore.modal.ButtonStyle
 import com.sgk.sduicore.modal.metadata.Length
 import dev.aungkyawpaing.loki.adapter.LazyElementJsonAdapter
 import dev.aungkyawpaing.loki.adapter.LazyListJsonAdapter
@@ -40,22 +42,23 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
     override fun create(type: Type, annotations: MutableSet<out Annotation>, moshi: Moshi): JsonAdapter<*>? {
         return when (type) {
             Element::class.java -> {
-                com.sgk.sduicore.adapters.ElementJsonAdapter(
-                    moshi.adapter(com.sgk.sduicore.modal.ConstraintLayout::class.java),
-                    moshi.adapter(com.sgk.sduicore.modal.Column::class.java),
+                ElementJsonAdapter(
+                    moshi.adapter(ConstraintLayout::class.java),
+                    moshi.adapter(Column::class.java),
                     moshi.adapter(Text::class.java),
                     moshi.adapter(Row::class.java),
                     moshi.adapter(Image::class.java),
-                    moshi.adapter(com.sgk.sduicore.modal.Card::class.java),
+                    moshi.adapter(Card::class.java),
                     moshi.adapter(LazyList::class.java),
                     moshi.adapter(Spacer::class.java),
+                    moshi.adapter(Button::class.java),
                 )
             }
-            com.sgk.sduicore.modal.ConstraintLayout::class.java -> {
+            ConstraintLayout::class.java -> {
                 ConstraintLayoutJsonAdapter(
                     elementJsonAdapter = moshi.adapter(Element::class.java),
                     styleJsonAdapter = moshi.adapter(ElementStyle::class.java),
-                    childConstraintModelJsonAdapter = moshi.adapter(com.sgk.sduicore.modal.ChildConstraintModel::class.java)
+                    childConstraintModelJsonAdapter = moshi.adapter(ChildConstraintModel::class.java)
                 )
             }
             Row::class.java -> {
@@ -64,7 +67,7 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
                     styleJsonAdapter = moshi.adapter(ElementStyle::class.java),
                 )
             }
-            com.sgk.sduicore.modal.Column::class.java -> {
+            Column::class.java -> {
                 ColumnJsonAdapter(
                     elementJsonAdapter = moshi.adapter(Element::class.java),
                     styleJsonAdapter = moshi.adapter(ElementStyle::class.java)
@@ -82,7 +85,7 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
             }
 
             Image::class.java -> {
-                com.sgk.sduicore.adapters.ImageJsonAdapter(
+                ImageJsonAdapter(
                     styleJsonAdapter = moshi.adapter(ElementStyle::class.java)
                 )
             }
@@ -93,15 +96,15 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
                 )
             }
 
-            com.sgk.sduicore.modal.Card::class.java -> {
-                com.sgk.sduicore.adapters.CardJsonAdapter(
+            Card::class.java -> {
+                CardJsonAdapter(
                     elementJsonAdapter = moshi.adapter(Element::class.java),
                     styleJsonAdapter = moshi.adapter(ElementStyle::class.java),
                     cardStyleJsonAdapter = moshi.adapter(com.sgk.sduicore.modal.CardStyle::class.java),
                 )
             }
 
-            com.sgk.sduicore.modal.CardStyle::class.java -> {
+            CardStyle::class.java -> {
                 CardStyleJsonAdapter()
             }
 
@@ -128,17 +131,30 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
             Length::class.java -> {
                 LengthJsonAdapter()
             }
+
+            ButtonStyle::class.java -> {
+                ButtonStyleJsonAdapter()
+            }
+
+            Button::class.java -> {
+                ButtonJsonAdapter(
+                    buttonStyleJsonAdapter = moshi.adapter(ButtonStyle::class.java),
+                    textStyleJsonAdapter = moshi.adapter(TextStyle::class.java),
+                    styleJsonAdapter = moshi.adapter(ElementStyle::class.java),
+                )
+            }
+
             ElementStyle::class.java -> {
                 ElementStyleJsonAdapter(
                     moshi.adapter(Length::class.java), moshi.adapter(Padding::class.java)
                 )
             }
-            com.sgk.sduicore.modal.DirectionConstraints::class.java -> {
+            DirectionConstraints::class.java -> {
                 DirectionConstraintsJsonAdapter()
             }
-            com.sgk.sduicore.modal.ChildConstraintModel::class.java -> {
+            ChildConstraintModel::class.java -> {
                 ChildConstraintModelJsonAdapter(
-                    moshi.adapter(com.sgk.sduicore.modal.DirectionConstraints::class.java)
+                    moshi.adapter(DirectionConstraints::class.java)
                 )
             }
 
