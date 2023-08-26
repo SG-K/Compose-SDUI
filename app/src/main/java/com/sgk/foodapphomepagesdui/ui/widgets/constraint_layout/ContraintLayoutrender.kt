@@ -11,6 +11,7 @@ import com.sgk.foodapphomepagesdui.ui.widgets.CompositeRenderer
 import com.sgk.foodapphomepagesdui.ui.widgets.asModifier
 import com.sgk.sduicore.modal.ChildConstraintModel
 import com.sgk.sduicore.modal.ContraintDirections
+import com.sgk.sduicore.modal.ContraintHeightWidth
 import com.sgk.sduicore.modal.DirectionConstraints
 import com.sgk.sduicore.modal.Image
 import com.sgk.sduicore.modal.ImageType
@@ -48,7 +49,9 @@ fun ConstraintLayoutRendererPreview(){
                         isBold = false
                     ),
                     style = ElementStyle(
-                        id = "card_password_lable"
+                        id = "card_password_lable",
+                        background = "#FF0000",
+                        width = Length.Max
                     )
                 ),
                 Text(
@@ -75,7 +78,6 @@ fun ConstraintLayoutRendererPreview(){
                     style = ElementStyle(
                         width = Length.Number(24),
                         height = Length.Number(24),
-                        background = "#FFFFFF",
                         id = "card_password_edit"
                     ),
                     tint = "#d33671"
@@ -93,7 +95,13 @@ fun ConstraintLayoutRendererPreview(){
                         contraintDirection = ContraintDirections.START,
                         constraintComposableId = "-101",
                         margin = 0
-                    )
+                    ),
+                    end = DirectionConstraints(
+                        contraintDirection = ContraintDirections.START,
+                        constraintComposableId = "card_password_edit",
+                        margin = 0
+                    ),
+                    width_constraint = ContraintHeightWidth.FILL_TO_CONSTRAINTS
                 ),
 
 

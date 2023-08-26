@@ -3,10 +3,15 @@ package com.sgk.foodapphomepagesdui.ui.widgets.constraint_layout
 import android.content.Context
 import android.util.DisplayMetrics
 import android.util.Log
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Check
+import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertLeftPositionInRootIsEqualTo
+import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.assertTopPositionInRootIsEqualTo
 import androidx.compose.ui.test.getBoundsInRoot
 import androidx.compose.ui.test.hasTestTag
@@ -22,6 +27,8 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.test.platform.app.InstrumentationRegistry
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.elementStyleTests
+import com.sgk.foodapphomepagesdui.ui.widgets.image.getImageVector
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.VectorUrlKey
 import com.sgk.sduicore.modal.ChildConstraintModel
 import com.sgk.sduicore.modal.ConstraintLayout
 import com.sgk.sduicore.modal.ContraintDirections
@@ -60,7 +67,8 @@ class ContraintLayoutrenderKtTest{
                     isBold = false
                 ),
                 style = ElementStyle(
-                    id = "card_password_lable"
+                    id = "card_password_lable",
+                    width = Length.Max
                 )
             ),
             Text(
@@ -87,7 +95,6 @@ class ContraintLayoutrenderKtTest{
                 style = ElementStyle(
                     width = Length.Number(24),
                     height = Length.Number(24),
-                    background = "#FFFFFF",
                     id = "card_password_edit"
                 ),
                 tint = "#d33671"
@@ -105,7 +112,13 @@ class ContraintLayoutrenderKtTest{
                     contraintDirection = ContraintDirections.START,
                     constraintComposableId = "-101",
                     margin = 0
-                )
+                ),
+                end = DirectionConstraints(
+                    contraintDirection = ContraintDirections.START,
+                    constraintComposableId = "card_password_edit",
+                    margin = 0
+                ),
+                width_constraint = ContraintHeightWidth.FILL_TO_CONSTRAINTS
             ),
 
 
@@ -184,17 +197,9 @@ class ContraintLayoutrenderKtTest{
             .onFirst()
             .getBoundsInRoot()
 
-        val placementsOfChild2 = composeRule
-            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
-            .onChildren()
-            .get(1)
-            .getBoundsInRoot()
-
-        val placementsOfChild3 = composeRule
-            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
-            .onChildren()
-            .onLast()
-            .getBoundsInRoot()
+        val child1 : Text? = constraintLayoutData.children?.first() as Text?
+        val child2 : Text? = constraintLayoutData.children?.get(1) as Text?
+        val child3 : Image? = constraintLayoutData.children?.last() as Image?
 
         Log.v("CONSTRAINT_LAYOUT_DEBUG_TAG", "dpData = $placementsOfChild1")
 
@@ -207,6 +212,7 @@ class ContraintLayoutrenderKtTest{
             .onChildren()
             .assertCountEquals(constraintLayoutData.childernConstrainsList?.size?:0)
 
+        // region test cases for placements of the childern
         composeRule
             .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
             .onChildren()
@@ -247,9 +253,40 @@ class ContraintLayoutrenderKtTest{
             .assertTopPositionInRootIsEqualTo(
                 placementsOfChild1.top
             )
-//            .assertLeftPositionInRootIsEqualTo(
-//
-//            )
+            .assertLeftPositionInRootIsEqualTo(
+                placementsOfChild1.right
+            )
+
+        // endregion
+
+        // region Data matching test cases
+
+        composeRule
+            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
+            .onChildren()
+            .onFirst()
+            .assertTextEquals(
+                child1?.text?:""
+            )
+
+        composeRule
+            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
+            .onChildren()
+            .get(1)
+            .assertTextEquals(
+                child2?.text?:""
+            )
+
+        composeRule
+            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
+            .onChildren()
+            .onLast()
+            .assertExists()
+            .assert(
+                SemanticsMatcher.expectValue(VectorUrlKey, child3?.url?.getImageVector())
+            )
+
+        // endregion
 
     }
 
