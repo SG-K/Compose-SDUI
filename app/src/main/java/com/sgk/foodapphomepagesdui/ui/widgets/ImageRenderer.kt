@@ -20,18 +20,6 @@ import com.sgk.foodapphomepagesdui.helper.toColor
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getImageVector
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getPaintResource
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.addTestSemantics
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.background
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.height
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.imageType
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.imageUrl
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.isTextBold
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.layoutId
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.padding
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.textColor
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.textSize
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.tint
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.vectorUrl
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.width
 
 @Composable
 fun ImageRenderer(imgElement: ImageElement) {

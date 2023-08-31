@@ -7,6 +7,7 @@ import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.filter
 import androidx.compose.ui.test.hasAnyChild
 import androidx.compose.ui.test.hasTestTag
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChild
 import androidx.compose.ui.test.onChildAt
@@ -18,8 +19,10 @@ import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.CardContentColorKey
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.CardElevationKey
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.CardRadiusKey
+import com.sgk.sduicore.modal.Card
 import com.sgk.sduicore.modal.Card as CardElement
 import com.sgk.sduicore.modal.CardStyle
+import com.sgk.sduicore.modal.Element
 import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
@@ -159,5 +162,51 @@ class CardRendererKtTest{
     }
 
 
+
+}
+
+
+fun Card.testWidget(
+    composeRule : ComposeContentTestRule,
+){
+    composeRule
+        .onNode(
+            hasTestTag(style?.id!!)
+        )
+        .assertExists()
+        .assertIsDisplayed()
+
+    composeRule
+        .onNode(
+            hasTestTag(style?.id!!)
+        )
+        .assert(
+            SemanticsMatcher.expectValue(CardRadiusKey, cardStyle?.radius)
+        )
+
+    composeRule
+        .onNode(
+            hasTestTag(style?.id!!)
+        )
+        .assert(
+            SemanticsMatcher.expectValue(CardElevationKey, cardStyle?.elevation)
+        )
+
+    composeRule
+        .onNode(
+            hasTestTag(style?.id!!)
+        )
+        .assert(
+            SemanticsMatcher.expectValue(CardContentColorKey, cardStyle?.contentColor)
+        )
+
+    style?.elementStyleTests(composeRule)
+
+    child.style?.id?.let {
+        composeRule
+            .onNode(hasTestTag(style?.id!!))
+            .onChild()
+            .assert(hasTestTag(it))
+    }
 
 }

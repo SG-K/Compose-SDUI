@@ -1,10 +1,15 @@
 package com.sgk.foodapphomepagesdui.ui.widgets.image_render
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Check
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertContentDescriptionEquals
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.ImageRenderer
@@ -12,6 +17,7 @@ import com.sgk.foodapphomepagesdui.ui.widgets.elementStyleTests
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.ImageTypeKey
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.ImageUrlKey
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.TintKey
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.VectorUrlKey
 import com.sgk.sduicore.modal.Image
 import com.sgk.sduicore.modal.ImageType
 import com.sgk.sduicore.modal.metadata.ElementStyle
@@ -120,4 +126,54 @@ class ImageRendererKtTest{
     }
 
 
+}
+
+
+fun Image.testWidget(
+    composeRule : ComposeContentTestRule,
+){
+    composeRule
+        .onNode(
+            hasTestTag(style?.id!!)
+        )
+        .assertExists()
+        .assertIsDisplayed()
+
+    composeRule
+        .onNode(hasTestTag(style?.id!!))
+        .assertExists()
+        .assertIsDisplayed()
+        .assert(
+            SemanticsMatcher.expectValue(ImageTypeKey, imageType)
+        )
+
+    composeRule
+        .onNode(hasTestTag(style?.id!!))
+        .assertExists()
+        .assertIsDisplayed()
+        .assertContentDescriptionEquals(altText?:"")
+
+    composeRule
+        .onNode(hasTestTag(style?.id!!))
+        .assertExists()
+        .assertIsDisplayed()
+        .assert(
+            SemanticsMatcher.expectValue(TintKey, tint)
+        )
+
+
+    style?.elementStyleTests(composeRule)
+
+}
+
+fun Image.vectorAssetTest(
+    composeRule : ComposeContentTestRule,
+    imageVector: ImageVector
+){
+    composeRule
+        .onNode(hasTestTag(style?.id!!))
+        .assertExists()
+        .assert(
+            SemanticsMatcher.expectValue(VectorUrlKey, imageVector)
+        )
 }
