@@ -121,15 +121,7 @@ class VerticalLazyListRendererKtTest{
 
     @Test
     fun testLazyListDisplay(){
-        composeRule
-            .onNode(hasTestTag(verticalList.style?.id?:""))
-            .assertExists()
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun testElementStyles(){
-        verticalList.style?.elementStyleTests(composeRule)
+        verticalList.testWidget(composeRule)
     }
 
     @Test
@@ -141,9 +133,6 @@ class VerticalLazyListRendererKtTest{
 
         composeRule
             .onNode(hasTestTag(verticalList.style?.id?:""))
-            .assert(
-                SemanticsMatcher.expectValue(OrientationKey, verticalList.orientation)
-            )
             .onChildren()
             .assertCountEquals(3)
 

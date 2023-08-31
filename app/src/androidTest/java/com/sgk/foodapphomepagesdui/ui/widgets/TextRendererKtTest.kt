@@ -9,13 +9,9 @@ import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.BackgroundKey
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.HeightKey
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.IsTextBoldKey
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.PaddingKey
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.TextColorKey
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.TextSizeKey
-import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.WidthKey
 import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.TextStyle
@@ -56,63 +52,13 @@ class TextRendererKtTest{
     }
 
     @Test
-    fun isTextDisplayed(){
-
-        composeRule
-            .onNodeWithText("Some Text")
-            .assertIsDisplayed()
-
-        composeRule
-            .onNode(
-                hasTestTag("text")
-            )
-            .assertExists()
-
-        composeRule
-            .onNodeWithText("Verified")
-            .assertDoesNotExist()
-
-    }
-
-    @Test
-    fun testTextStyleProperties(){
-
-        testTextElement.textStyle.testTextStyle(composeRule,testTextElement.style?.id!!)
-
-//        composeRule
-//            .onNodeWithText("Some Text")
-//            .assert(
-//                SemanticsMatcher.expectValue(TextColorKey, testTextElement.textStyle.textColor)
-//            )
-//
-//        composeRule
-//            .onNodeWithText("Some Text")
-//            .assert(
-//                SemanticsMatcher.expectValue(TextSizeKey, testTextElement.textStyle.textSize)
-//            )
-//
-//        composeRule
-//            .onNodeWithText("Some Text")
-//            .assert(
-//                SemanticsMatcher.expectValue(IsTextBoldKey, testTextElement.textStyle.isBold)
-//            )
-
-    }
-
-    @Test
-    fun testStylePrperties(){
-
-        testTextElement
-            .style
-            ?.elementStyleTests(
-                composeRule
-            )
-
+    fun testText(){
+        testTextElement.testWidget(composeRule)
     }
 
 }
 
-fun Text.testwidget(
+fun Text.testWidget(
     composeRule : ComposeContentTestRule,
 ){
     composeRule

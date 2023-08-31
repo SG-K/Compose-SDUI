@@ -6,6 +6,7 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
@@ -82,15 +83,7 @@ class ColumnRendererKtTest{
 
     @Test
     fun testColomDisplay(){
-        composeRule
-            .onNode(hasTestTag(columnElement.style?.id?:""))
-            .assertExists()
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun testElementStyle(){
-        columnElement.style?.elementStyleTests(composeRule)
+        columnElement.testWidget(composeRule)
     }
 
     @Test
@@ -107,17 +100,28 @@ class ColumnRendererKtTest{
             .assertCountEquals(2)
             .onFirst()
             .assertTextEquals(child1.text)
-            .assert(
-                SemanticsMatcher.expectValue(IsTextBoldKey, child1.textStyle.isBold)
-            )
+
 
         childern
             .onLast()
             .assertTextEquals(child2.text)
-            .assert(
-                SemanticsMatcher.expectValue(IsTextBoldKey, child2.textStyle.isBold)
-            )
+
+        child1.testWidget(composeRule)
+        child2.testWidget(composeRule)
 
     }
+
+}
+
+fun Column.testWidget(
+    composeRule : ComposeContentTestRule
+){
+
+    composeRule
+        .onNode(hasTestTag(style?.id?:""))
+        .assertExists()
+        .assertIsDisplayed()
+
+    style?.elementStyleTests(composeRule)
 
 }

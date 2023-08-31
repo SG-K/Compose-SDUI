@@ -6,6 +6,7 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
@@ -88,15 +89,7 @@ class RowRendererKtTest{
 
     @Test
     fun testRowDisplay(){
-        composeRule
-            .onNode(hasTestTag(rowElementData.style?.id?:""))
-            .assertExists()
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun testElementStyles(){
-        rowElementData.style?.elementStyleTests(composeRule)
+        rowElementData.testWidget(composeRule)
     }
 
     @Test
@@ -128,6 +121,23 @@ class RowRendererKtTest{
                 SemanticsMatcher.expectValue(IsTextBoldKey, child2.textStyle.isBold)
             )
 
+        child1.testWidget(composeRule)
+        child2.testWidget(composeRule)
+
     }
+
+}
+
+
+fun Row.testWidget(
+    composeRule : ComposeContentTestRule,
+){
+
+    composeRule
+        .onNode(hasTestTag(style?.id?:""))
+        .assertExists()
+        .assertIsDisplayed()
+
+    style?.elementStyleTests(composeRule)
 
 }

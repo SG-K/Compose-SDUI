@@ -43,6 +43,7 @@ import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -177,15 +178,7 @@ class ContraintLayoutrenderKtTest{
 
     @Test
     fun testConstraintLayoutDisplay(){
-        composeRule
-            .onNode(hasTestTag(constraintLayoutData.style?.id?:""))
-            .assertExists()
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun testElementStyles(){
-        constraintLayoutData.style?.elementStyleTests(composeRule)
+        constraintLayoutData.testWidget(composeRule)
     }
 
     @Test
@@ -297,5 +290,19 @@ class ContraintLayoutrenderKtTest{
         val displayMetrics: DisplayMetrics = context.getResources().getDisplayMetrics()
         return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
     }
+
+}
+
+fun ConstraintLayout.testWidget(
+    composeRule : ComposeContentTestRule
+){
+    composeRule
+        .onNode(hasTestTag(style?.id?:""))
+        .assertExists()
+        .assertIsDisplayed()
+
+    style?.elementStyleTests(composeRule)
+
+    Assert.assertEquals(children?.size, childernConstrainsList?.size)
 
 }

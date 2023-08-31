@@ -6,6 +6,7 @@ import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
@@ -24,6 +25,7 @@ import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -122,15 +124,7 @@ class HorizontalLazyListRendererKtTest{
 
     @Test
     fun testLazyListDisplay(){
-        composeRule
-            .onNode(hasTestTag(horizontalListData.style?.id?:""))
-            .assertExists()
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun testElementStyles(){
-        horizontalListData.style?.elementStyleTests(composeRule)
+        horizontalListData.testWidget(composeRule)
     }
 
     @Test
@@ -197,5 +191,26 @@ class HorizontalLazyListRendererKtTest{
             )
 
     }
+
+}
+
+fun LazyList.testWidget(
+    composeRule : ComposeContentTestRule,
+){
+
+    composeRule
+        .onNode(hasTestTag(style?.id?:""))
+        .assertExists()
+        .assertIsDisplayed()
+
+    style?.elementStyleTests(composeRule)
+
+    composeRule
+        .onNode(hasTestTag(style?.id?:""))
+        .assert(
+            SemanticsMatcher.expectValue(OrientationKey, orientation)
+        )
+
+    Assert.assertNotEquals(0,children.size)
 
 }

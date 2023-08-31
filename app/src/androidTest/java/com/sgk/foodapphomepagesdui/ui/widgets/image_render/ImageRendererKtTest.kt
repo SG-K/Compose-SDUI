@@ -131,6 +131,7 @@ class ImageRendererKtTest{
 
 fun Image.testWidget(
     composeRule : ComposeContentTestRule,
+    imageVector: ImageVector? = null
 ){
     composeRule
         .onNode(
@@ -164,16 +165,13 @@ fun Image.testWidget(
 
     style?.elementStyleTests(composeRule)
 
-}
+    imageVector?.let {
+        composeRule
+            .onNode(hasTestTag(style?.id!!))
+            .assertExists()
+            .assert(
+                SemanticsMatcher.expectValue(VectorUrlKey, it)
+            )
+    }
 
-fun Image.vectorAssetTest(
-    composeRule : ComposeContentTestRule,
-    imageVector: ImageVector
-){
-    composeRule
-        .onNode(hasTestTag(style?.id!!))
-        .assertExists()
-        .assert(
-            SemanticsMatcher.expectValue(VectorUrlKey, imageVector)
-        )
 }

@@ -1,8 +1,6 @@
 package com.sgk.foodapphomepagesdui.features.profile.presentation
 
-import android.util.Log
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.ui.test.SemanticsMatcher
@@ -13,7 +11,6 @@ import androidx.compose.ui.test.assertLeftPositionInRootIsEqualTo
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.assertTopPositionInRootIsEqualTo
 import androidx.compose.ui.test.getBoundsInRoot
-import androidx.compose.ui.test.getUnclippedBoundsInRoot
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChildren
@@ -25,10 +22,8 @@ import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.elementStyleTests
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getImageVector
 import com.sgk.foodapphomepagesdui.ui.widgets.image_render.testWidget
-import com.sgk.foodapphomepagesdui.ui.widgets.image_render.vectorAssetTest
 import com.sgk.foodapphomepagesdui.ui.widgets.testTextStyle
 import com.sgk.foodapphomepagesdui.ui.widgets.testWidget
-import com.sgk.foodapphomepagesdui.ui.widgets.testwidget
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.VectorUrlKey
 import com.sgk.sduicore.modal.Card
 import com.sgk.sduicore.modal.ConstraintLayout
@@ -314,10 +309,12 @@ class ProfileScreenKtTest{
         val child2 = constraintLayout.children?.get(1) as Text
         val child3 = constraintLayout.children?.last() as Image
 
-        child1.testwidget(composeRule)
-        child2.testwidget(composeRule)
-        child3.testWidget(composeRule)
-        child3.vectorAssetTest(composeRule,Icons.Outlined.Edit)
+        child1.testWidget(composeRule)
+        child2.testWidget(composeRule)
+        child3.testWidget(
+            composeRule = composeRule,
+            imageVector = Icons.Outlined.Edit
+        )
 
         val child1Bound = composeRule
             .onNode(
@@ -415,14 +412,18 @@ class ProfileScreenKtTest{
         val child4_1 = verifiedRow.children.first() as Image
         val child4_2 = verifiedRow.children.last() as Text
 
-        child1.testwidget(composeRule)
-        child2.testwidget(composeRule)
-        child3.testWidget(composeRule)
-        child3.vectorAssetTest(composeRule,Icons.Outlined.Edit)
+        child1.testWidget(composeRule)
+        child2.testWidget(composeRule)
+        child3.testWidget(
+            composeRule = composeRule,
+            imageVector = Icons.Outlined.Edit
+        )
         child4.testWidget(composeRule)
-        child4_1.testWidget(composeRule)
-        child4_1.vectorAssetTest(composeRule,Icons.Outlined.Check)
-        child4_2.testwidget(composeRule)
+        child4_1.testWidget(
+            composeRule = composeRule,
+            imageVector = Icons.Outlined.Check
+        )
+        child4_2.testWidget(composeRule)
 
         val child1Bound = composeRule
             .onNode(
