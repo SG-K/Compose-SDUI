@@ -8,6 +8,8 @@ import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import com.sgk.foodapphomepagesdui.base.BaseComponentRenderTest
+import com.sgk.foodapphomepagesdui.base.BaseTest
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.TextColorKey
@@ -24,13 +26,8 @@ import org.junit.Test
 //https://developer.android.com/jetpack/compose/testing-cheatsheet
 
 @HiltAndroidTest
-class TextRendererKtTest{
+class TextRendererKtTest : BaseComponentRenderTest() {
 
-    @get:Rule(order = 0)
-    val hiltRule = HiltAndroidRule(this)
-
-    @get:Rule(order = 1)
-    val composeRule = createComposeRule()
 
     val testTextElement = com.sgk.sduicore.modal.Text(
         text = "Some Text", textStyle = TextStyle(
@@ -39,10 +36,8 @@ class TextRendererKtTest{
         ), style = ElementStyle(id = "text")
     )
 
-    @Before
-    fun setUp(){
-        hiltRule.inject()
-        composeRule.setContent {
+    override fun setUp(){
+        composeTestRule.setContent {
             FoodAppHomePageSDUITheme {
                 TextRenderer(
                     textElement = testTextElement
@@ -53,7 +48,7 @@ class TextRendererKtTest{
 
     @Test
     fun testText(){
-        testTextElement.testWidget(composeRule)
+        testTextElement.testWidget(composeTestRule)
     }
 
 }
