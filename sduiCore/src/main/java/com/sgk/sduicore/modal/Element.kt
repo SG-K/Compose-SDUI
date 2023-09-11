@@ -12,7 +12,7 @@ open class Element(
 //    @property:Json(name="style")
     open val style: ElementStyle?,
 //    @property:Json(name="id")
-    open val id : String
+//    open val id : String
 )
 
 

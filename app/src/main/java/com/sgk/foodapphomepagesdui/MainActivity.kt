@@ -11,10 +11,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sgk.foodapphomepagesdui.data.SduiDataRepositoryImpl
-import com.sgk.foodapphomepagesdui.features.profile.ProfileScreen
+import com.sgk.foodapphomepagesdui.features.profile.domain.use_case.GetProfilePageData
+import com.sgk.foodapphomepagesdui.features.profile.presentation.ProfileScreen
 import com.sgk.foodapphomepagesdui.ui.theme.FoodAppHomePageSDUITheme
+import com.squareup.moshi.Moshi
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+
+    @Inject
+    lateinit var getProfilePageData : GetProfilePageData
+
+    @Inject
+    lateinit var moshi: Moshi
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,7 +39,8 @@ class MainActivity : ComponentActivity() {
                 ) {
 //                    Greeting("Android")
                     ProfileScreen(
-                        sduiDataRepository = SduiDataRepositoryImpl(this@MainActivity)
+                        getProfilePageData = getProfilePageData,
+                        moshi = moshi
                     )
                 }
             }

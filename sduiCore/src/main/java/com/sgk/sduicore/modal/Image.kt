@@ -20,6 +20,5 @@ data class Image(
     val imageType: ImageType,
     val tint : String?,
     override val style: ElementStyle?,
-    override val id: String
-) : Element(ElementType.IMAGE, style, id)
+) : Element(ElementType.IMAGE, style, )
 

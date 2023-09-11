@@ -8,5 +8,4 @@ data class Text(
     val text: String,
     val textStyle: TextStyle,
     override val style: ElementStyle? = null,
-    override val id: String
-) : Element(ElementType.TEXT, style, id)
+) : Element(ElementType.TEXT, style)

@@ -1,6 +1,6 @@
 package com.sgk.sduicore.modal
 
 data class LazyElement(
-    val id: String,
+    val lazyElemntId: String,
     val element: Element
 )

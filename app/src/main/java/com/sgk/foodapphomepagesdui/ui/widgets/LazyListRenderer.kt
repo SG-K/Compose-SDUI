@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.tooling.preview.Preview
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.addTestSemantics
 import com.sgk.sduicore.modal.LazyElement
 import com.sgk.sduicore.modal.LazyList
 import com.sgk.sduicore.modal.metadata.ElementStyle
@@ -23,26 +24,26 @@ import com.sgk.sduicore.modal.Text as TextElement
 @Composable
 fun LazyListRenderer(element: LazyList) {
 
+  val modifier = element
+    .asModifier()
+    .addTestSemantics(element)
+
   when (element.orientation) {
     Orientation.HORIZONTAL -> {
       LazyRow(
-        modifier = element
-          .asModifier()
-          .layoutId(element.id)
+        modifier = modifier
       ) {
-        items(element.children, key = LazyElement::id) {
+        items(items = element.children, key = LazyElement::lazyElemntId) {
           CompositeRenderer(it.element)
         }
       }
     }
     Orientation.VERTICAL -> {
       LazyColumn(
-        modifier = element
-          .asModifier()
-          .layoutId(element.id),
+        modifier = modifier
 
         ) {
-        items(element.children, key = LazyElement::id) {
+        items( items = element.children, key = LazyElement::lazyElemntId) {
           CompositeRenderer(it.element)
         }
       }
@@ -55,9 +56,9 @@ fun LazyListRenderer(element: LazyList) {
 fun LazyListHorizontalRenderer() {
   LazyListRenderer(
     element = LazyList(
-      id = "horizontal_list",
       orientation = Orientation.HORIZONTAL,
       style = ElementStyle(
+        id = "horizontal_list",
         padding = Padding(
           top = 12,
           bottom = 12,
@@ -67,15 +68,15 @@ fun LazyListHorizontalRenderer() {
       ),
       children = listOf(
         LazyElement(
-          id = "1",
+          lazyElemntId = "1",
           element = TextElement(
-            id = "11",
             text = "Lorem",
             textStyle = TextStyle(
               textSize = 24,
               isBold = true,
             ),
             style = ElementStyle(
+              id = "11",
               padding = Padding(
                 top = 12,
                 bottom = 12,
@@ -86,15 +87,15 @@ fun LazyListHorizontalRenderer() {
           )
         ),
         LazyElement(
-          id = "2",
+          lazyElemntId = "2",
           element = TextElement(
             text = "ipsum",
-            id = "22",
             textStyle = TextStyle(
               textSize = 14,
               isBold = false,
             ),
             style = ElementStyle(
+              id = "22",
               padding = Padding(
                 top = 12,
                 bottom = 12,
@@ -105,15 +106,16 @@ fun LazyListHorizontalRenderer() {
           )
         ),
         LazyElement(
-          id = "3",
+          lazyElemntId = "3",
           element = TextElement(
-            id = "33",
+
             text = "dolor sit amet",
             textStyle = TextStyle(
               textSize = 10,
               isBold = false,
             ),
             style = ElementStyle(
+              id = "33",
               padding = Padding(
                 top = 12,
                 bottom = 12,
@@ -137,9 +139,9 @@ fun LazyListVerticalPreview() {
   ){
     LazyListRenderer(
       element = LazyList(
-        id = "vertical_list",
         orientation = Orientation.VERTICAL,
         style = ElementStyle(
+          id = "vertical_list",
           padding = Padding(
             top = 12,
             bottom = 12,
@@ -149,15 +151,15 @@ fun LazyListVerticalPreview() {
         ),
         children = listOf(
           LazyElement(
-            id = "1",
+            lazyElemntId = "1",
             element = TextElement(
               text = "Lorem",
               textStyle = TextStyle(
                 textSize = 24,
                 isBold = true,
               ),
-              id = "11",
               style = ElementStyle(
+                id = "11",
                 padding = Padding(
                   top = 12,
                   bottom = 12,
@@ -168,15 +170,15 @@ fun LazyListVerticalPreview() {
             )
           ),
           LazyElement(
-            id = "2",
+            lazyElemntId = "2",
             element = TextElement(
               text = "ipsum",
               textStyle = TextStyle(
                 textSize = 14,
                 isBold = false,
               ),
-              id = "22",
               style = ElementStyle(
+                id = "22",
                 padding = Padding(
                   top = 12,
                   bottom = 12,
@@ -187,15 +189,15 @@ fun LazyListVerticalPreview() {
             )
           ),
           LazyElement(
-            id = "3",
+            lazyElemntId = "3",
             element = TextElement(
               text = "dolor sit amet",
               textStyle = TextStyle(
                 textSize = 10,
                 isBold = false,
               ),
-              id = "33",
               style = ElementStyle(
+                id = "33",
                 padding = Padding(
                   top = 12,
                   bottom = 12,

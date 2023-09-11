@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -18,15 +19,15 @@ import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.foodapphomepagesdui.helper.toColor
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getImageVector
 import com.sgk.foodapphomepagesdui.ui.widgets.image.getPaintResource
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.addTestSemantics
 
 @Composable
 fun ImageRenderer(imgElement: ImageElement) {
 
   val modifier = imgElement
     .style
-    ?.asModifier()
-    ?.layoutId(imgElement.id)
-    ?: Modifier.layoutId(imgElement.id)
+    .asModifier()
+    .addTestSemantics(imgElement)
 
 
   when(imgElement.imageType){
@@ -80,12 +81,12 @@ fun ImageRendererPreview() {
     imgElement = ImageElement(
       altText = "some altText",
       url = "https://images.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-      id = "image",
       imageType = ImageType.REMOTE,
       tint = "#FF0000",
       style = ElementStyle(
         width = Length.Number(48),
         height = Length.Number(48),
+        id = "image",
         padding = Padding(
           left = 24,
           right = 24,

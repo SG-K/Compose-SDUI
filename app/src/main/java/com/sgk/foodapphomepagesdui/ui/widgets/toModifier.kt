@@ -5,17 +5,27 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
-import com.sgk.sduicore.modal.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.foodapphomepagesdui.helper.toColor
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.background
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.height
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.layoutId
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.padding
+import com.sgk.foodapphomepagesdui.ui.widgets.utils.semantics.width
 import com.sgk.sduicore.modal.Element
 
 @SuppressLint("ModifierFactoryExtensionFunction")
-fun ElementStyle.asModifier(): Modifier {
+fun ElementStyle?.asModifier(): Modifier {
 
   var modifier: Modifier = Modifier
+
+  if (this == null)
+    return modifier
 
 
   padding?.let {
@@ -58,14 +68,33 @@ fun ElementStyle.asModifier(): Modifier {
     }
   }
 
+  id?.let {
+    modifier = modifier
+      .layoutId(it)
+      .testTag(it)
+  }
+
+  val _style = this
+  modifier = modifier
+    .semantics {
+      width = _style.width
+      height = _style.height
+      background = _style.background
+      padding = _style.padding
+      layoutId = _style.id
+    }
+
   return modifier
 }
 
 @SuppressLint("ModifierFactoryExtensionFunction")
 @Composable
-fun Element.asModifier(): Modifier {
+fun Element?.asModifier(): Modifier {
 
-  var modifier: Modifier = this.style?.asModifier() ?: Modifier
+  if(this == null)
+    return Modifier
+
+  var modifier: Modifier = this.style.asModifier()
 
 
 //  val onPress = this.interactions?.onPress

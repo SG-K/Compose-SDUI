@@ -2,7 +2,7 @@ package com.sgk.sduicore.modal
 
 
 enum class ElementType(val typeString: String) {
-//    Button("Button"),
+    BUTTON("Button"),
     TEXT("Text"),
     IMAGE("Image"),
     ROW("Row"),
