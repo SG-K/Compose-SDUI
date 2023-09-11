@@ -1,13 +1,13 @@
 package com.sgk.compose_sdui.ui.widgets
 
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import com.sgk.compose_sdui.base.BaseComponentRenderTest
-import com.sgk.compose_sdui.ui.theme.FoodAppHomePageSDUITheme
+import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.TextColorKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.TextSizeKey
@@ -20,29 +20,27 @@ import org.junit.Test
 //https://developer.android.com/jetpack/compose/testing-cheatsheet
 
 @HiltAndroidTest
-class TextRendererKtTest : BaseComponentRenderTest() {
+class TextRendererKtTest : BaseComposeTest<Text>() {
 
+     override fun setData(): Text {
+        return Text(
+            text = "Some Text", textStyle = TextStyle(
+                textSize = 20,
+                isBold = false,
+            ), style = ElementStyle(id = "text")
+        )
+    }
 
-    val testTextElement = com.sgk.sduicore.modal.Text(
-        text = "Some Text", textStyle = TextStyle(
-            textSize = 20,
-            isBold = false,
-        ), style = ElementStyle(id = "text")
-    )
-
-    override fun setUp(){
-        composeTestRule.setContent {
-            FoodAppHomePageSDUITheme {
-                TextRenderer(
-                    textElement = testTextElement
-                )
-            }
-        }
+    @Composable
+    override fun SetContent() {
+        TextRenderer(
+            textElement = element
+        )
     }
 
     @Test
-    fun testText(){
-        testTextElement.testWidget(composeTestRule)
+    override fun testExecution() {
+        element.testWidget(composeTestRule)
     }
 
 }

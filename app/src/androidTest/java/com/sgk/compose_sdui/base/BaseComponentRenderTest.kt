@@ -1,10 +1,38 @@
 package com.sgk.compose_sdui.base
 
-import com.sgk.sduicore.modal.Element
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.test.junit4.createComposeRule
+import com.sgk.compose_sdui.ui.theme.FoodAppHomePageSDUITheme
+import org.junit.Rule
+import org.junit.Test
 
-open class BaseComponentRenderTest : BaseTest(){
 
-    lateinit var element : Element
+abstract class BaseComposeTest<T>() : BaseTest(){
+
+    @get:Rule(order = 1)
+    val composeTestRule = createComposeRule()
+
+    val element : T by lazy {
+        setData()
+    }
+
+    override fun setUp() {
+        super.setUp()
+        composeTestRule.setContent {
+            FoodAppHomePageSDUITheme {
+                SetContent()
+            }
+        }
+    }
+
+    abstract fun setData() : T
+
+    @Composable
+    abstract fun SetContent()
+
+    @Test
+    abstract fun testExecution()
+
 
 
 
