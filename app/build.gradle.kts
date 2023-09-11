@@ -11,17 +11,17 @@ plugins {
 }
 
 android {
-    namespace = "com.sgk.foodapphomepagesdui"
+    namespace = "com.sgk.compose_sdui"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.sgk.foodapphomepagesdui"
+        applicationId = "com.sgk.compose_sdui"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "com.sgk.foodapphomepagesdui.HiltTestRunner"
+        testInstrumentationRunner = "com.sgk.compose_sdui.HiltTestRunner"
 //        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
