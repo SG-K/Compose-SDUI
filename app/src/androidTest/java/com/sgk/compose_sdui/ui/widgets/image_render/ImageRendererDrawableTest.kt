@@ -1,10 +1,12 @@
 package com.sgk.compose_sdui.ui.widgets.image_render
 
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createComposeRule
+import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.compose_sdui.ui.widgets.ImageRenderer
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.ImageTypeKey
@@ -21,66 +23,38 @@ import org.junit.Rule
 import org.junit.Test
 
 @HiltAndroidTest
-class ImageRendererDrawableTest {
+class ImageRendererDrawableTest : BaseComposeTest<Image>() {
 
-
-    @get:Rule(order = 0)
-    val hiltRule = HiltAndroidRule(this)
-
-    @get:Rule(order = 1)
-    val composeRule = createComposeRule()
-
-    val imageElementDrawable = Image(
-        altText = "some altText",
-        url = "facebook",
-        imageType = ImageType.DRAWABLE,
-        tint = "#FF0000",
-        style = ElementStyle(
-            width = Length.Number(48),
-            height = Length.Number(48),
-            id = "image",
-            padding = Padding(
-                left = 24,
-                right = 24,
-                top = 24,
-                bottom = 24,
+    override fun setData(): Image {
+        return Image(
+            altText = "some altText",
+            url = "facebook",
+            imageType = ImageType.DRAWABLE,
+            tint = "#FF0000",
+            style = ElementStyle(
+                width = Length.Number(48),
+                height = Length.Number(48),
+                id = "image",
+                padding = Padding(
+                    left = 24,
+                    right = 24,
+                    top = 24,
+                    bottom = 24,
+                )
             )
         )
-    )
+    }
 
-    @Before
-    fun setUp(){
-        hiltRule.inject()
-        composeRule.setContent {
-            FoodAppHomePageSDUITheme {
-                ImageRenderer(
-                    imgElement = imageElementDrawable
-                )
-            }
-        }
+    @Composable
+    override fun SetContent() {
+        ImageRenderer(
+            imgElement = element
+        )
     }
 
     @Test
-    fun testImageTypeDrawable(){
-        composeRule
-            .onNode(hasTestTag(imageElementDrawable.style?.id!!))
-            .assertExists()
-            .assertIsDisplayed()
-            .assert(
-                SemanticsMatcher.expectValue(ImageTypeKey, imageElementDrawable.imageType)
-            )
+    override fun testExecution() {
+        element.testWidget(composeTestRule)
     }
-
-    @Test
-    fun testImageUrlDrawable(){
-        composeRule
-            .onNode(hasTestTag(imageElementDrawable.style?.id!!))
-            .assertExists()
-            .assertIsDisplayed()
-            .assert(
-                SemanticsMatcher.expectValue(ImageUrlKey, imageElementDrawable.url)
-            )
-    }
-
 
 }
