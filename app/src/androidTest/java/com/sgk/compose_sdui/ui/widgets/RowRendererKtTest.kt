@@ -1,5 +1,6 @@
 package com.sgk.compose_sdui.ui.widgets
 
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertCountEquals
@@ -11,6 +12,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
+import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.sduicore.modal.Row
@@ -25,84 +27,75 @@ import org.junit.Rule
 import org.junit.Test
 
 @HiltAndroidTest
-class RowRendererKtTest{
+class RowRendererKtTest : BaseComposeTest<Row>(){
 
-    @get:Rule(order = 0)
-    val hiltRule = HiltAndroidRule(this)
-
-    @get:Rule(order = 1)
-    val composeRule = createComposeRule()
-
-    val rowElementData = Row(
-        children = listOf(
-            Text(
-                text = "Lorem",
-                textStyle = TextStyle(
-                    textSize = 24,
-                    isBold = true,
-                ),
-                style = ElementStyle(
-                    id = "11"
-                )
-            ),
-            Text(
-                text = "ipsum",
-                textStyle = TextStyle(
-                    textSize = 14,
-                    isBold = false,
-                ),
-                style = ElementStyle(
-                    id = "22",
-                    padding = Padding(
-                        top = 12,
-                        bottom = 12,
-                        left = 12,
-                        right = 12
+    override fun setData(): Row {
+        return Row(
+            children = listOf(
+                Text(
+                    text = "Lorem",
+                    textStyle = TextStyle(
+                        textSize = 24,
+                        isBold = true,
+                    ),
+                    style = ElementStyle(
+                        id = "11"
                     )
-                )
-            ),
+                ),
+                Text(
+                    text = "ipsum",
+                    textStyle = TextStyle(
+                        textSize = 14,
+                        isBold = false,
+                    ),
+                    style = ElementStyle(
+                        id = "22",
+                        padding = Padding(
+                            top = 12,
+                            bottom = 12,
+                            left = 12,
+                            right = 12
+                        )
+                    )
+                ),
 
-            ),
-        style = ElementStyle(
-            id = "row",
-            background = "#FFFFFF",
-            padding = Padding(
-                top = 12,
-                bottom = 12,
-                left = 12,
-                right = 12
+                ),
+            style = ElementStyle(
+                id = "row",
+                background = "#FFFFFF",
+                padding = Padding(
+                    top = 12,
+                    bottom = 12,
+                    left = 12,
+                    right = 12
+                )
             )
         )
-    )
-
-    @Before
-    fun setUp(){
-        hiltRule.inject()
-        composeRule.setContent {
-            FoodAppHomePageSDUITheme {
-                RowRenderer(element = rowElementData)
-            }
-        }
+    }
+    
+    @Composable
+    override fun SetContent() {
+        RowRenderer(element = element)
     }
 
     @Test
-    fun testRowDisplay(){
-        rowElementData.testWidget(composeRule)
+    override fun testExecution() {
+        element.testWidget(composeTestRule)
+        testRowContents()
     }
-
-    @Test
+    
     fun testRowContents(){
 
-        val child1 = rowElementData.children[0] as Text
-        val child2 = rowElementData.children[1] as Text
+        val child1 = element.children[0] as Text
+        val child2 = element.children[1] as Text
 
-        composeRule
-            .onNode(hasTestTag(rowElementData.style?.id?:""))
+        composeTestRule
+            .onNode(hasTestTag(element.style?.id?:""))
             .onChildren()
             .assertCountEquals(2)
 
-        val childern = composeRule
-            .onNode(hasTestTag(rowElementData.style?.id?:""))
+        val childern = composeTestRule
+            .onNode(hasTestTag(element.style?.id?:""))
             .onChildren()
 
         childern
@@ -119,8 +112,8 @@ class RowRendererKtTest{
                 SemanticsMatcher.expectValue(IsTextBoldKey, child2.textStyle.isBold)
             )
 
-        child1.testWidget(composeRule)
-        child2.testWidget(composeRule)
+        child1.testWidget(composeTestRule)
+        child2.testWidget(composeTestRule)
 
     }
 

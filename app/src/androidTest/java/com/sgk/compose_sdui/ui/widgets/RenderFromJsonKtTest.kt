@@ -1,8 +1,10 @@
 package com.sgk.compose_sdui.ui.widgets
 
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.di.RenderJsonTestDataAnnotation
 import com.sgk.compose_sdui.ui.theme.FoodAppHomePageSDUITheme
 import com.squareup.moshi.Moshi
@@ -14,38 +16,30 @@ import org.junit.Test
 import javax.inject.Inject
 
 @HiltAndroidTest
-class RenderFromJsonKtTest{
-
-    @get:Rule(order = 0)
-    val hiltRule = HiltAndroidRule(this)
-
-    @get:Rule(order = 1)
-    val composeRule = createComposeRule()
-
-    @Inject
-    lateinit var moshi: Moshi
+class RenderFromJsonKtTest : BaseComposeTest<String>(){
 
     @RenderJsonTestDataAnnotation
     @Inject lateinit var jsonData: String
 
+    @Inject
+    lateinit var moshi: Moshi
 
-    @Before
-    fun setUp(){
-        hiltRule.inject()
+    override fun setData(): String {
+        return jsonData
+    }
+
+    @Composable
+    override fun SetContent() {
+        RenderFromJson(
+            json = element,
+            moshi = moshi
+        )
     }
 
     @Test
-    fun test(){
-        composeRule.setContent {
-            FoodAppHomePageSDUITheme {
-                RenderFromJson(
-                    json = jsonData,
-                    moshi = moshi
-                )
-            }
-        }
-        composeRule.onNodeWithText("Verified").assertIsDisplayed()
-        composeRule.onNodeWithText("Apple").assertDoesNotExist()
+    override fun testExecution() {
+        composeTestRule.onNodeWithText("Verified").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Apple").assertDoesNotExist()
     }
 
 }
