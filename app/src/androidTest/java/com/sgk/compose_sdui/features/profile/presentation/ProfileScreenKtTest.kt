@@ -3,6 +3,7 @@ package com.sgk.compose_sdui.features.profile.presentation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertCountEquals
@@ -12,13 +13,12 @@ import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.assertTopPositionInRootIsEqualTo
 import androidx.compose.ui.test.getBoundsInRoot
 import androidx.compose.ui.test.hasTestTag
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.printToLog
 import androidx.compose.ui.unit.dp
+import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.di.HomePageJsonTestDataAnnotation
 import com.sgk.compose_sdui.features.profile.domain.use_case.GetProfilePageData
-import com.sgk.compose_sdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.compose_sdui.ui.widgets.elementStyleTests
 import com.sgk.compose_sdui.ui.widgets.image.getImageVector
 import com.sgk.compose_sdui.ui.widgets.image_render.testWidget
@@ -33,26 +33,14 @@ import com.sgk.sduicore.modal.LazyList
 import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Text
 import com.squareup.moshi.Moshi
-import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Assert.*
-import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
 @HiltAndroidTest
-class ProfileScreenKtTest{
-
-    @get:Rule(order = 0)
-    val hiltRule = HiltAndroidRule(this)
-
-    @get:Rule(order = 1)
-    val composeRule = createComposeRule()
-
-    @Inject
-    lateinit var getProfilePageData: GetProfilePageData
+class ProfileScreenKtTest : BaseComposeTest<Element>(){
 
     @Inject
     lateinit var moshi: Moshi
@@ -60,36 +48,35 @@ class ProfileScreenKtTest{
     @HomePageJsonTestDataAnnotation
     @Inject lateinit var jsonData: String
 
-    lateinit var element : Element
+    @Inject
+    lateinit var getProfilePageData: GetProfilePageData
 
-    @Before
-    fun setUp(){
-        hiltRule.inject()
-        element = moshi.adapter(Element::class.java).fromJson(jsonData)!!
-        composeRule.setContent {
-            FoodAppHomePageSDUITheme {
-                ProfileScreen(
-                    getProfilePageData = getProfilePageData,
-                    moshi = moshi
-                )
-            }
-        }
+    override fun setData(): Element {
+        return moshi.adapter(Element::class.java).fromJson(jsonData)!!
+    }
+
+    @Composable
+    override fun SetContent() {
+        ProfileScreen(
+            getProfilePageData = getProfilePageData,
+            moshi = moshi
+        )
     }
 
     @Test
-    fun rootLayoutDisplayAndPropertTesting(){
-        composeRule
+    override fun testExecution(){
+        composeTestRule
             .onNode(
                 hasTestTag(element.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        element.style?.elementStyleTests(composeRule)
+        element.style?.elementStyleTests(composeTestRule)
 
         val constraintLayout = element as ConstraintLayout
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(element.style!!.id!!)
             )
@@ -103,23 +90,23 @@ class ProfileScreenKtTest{
         val constraintLayout = element as ConstraintLayout
         val child1 = constraintLayout.children!!.first() as ConstraintLayout
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1.style!!.id!!)
             )
             .printToLog("CHILD_1")
 
         //region root contents and styles testing
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        child1.style?.elementStyleTests(composeRule)
+        child1.style?.elementStyleTests(composeTestRule)
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1.style!!.id!!)
             )
@@ -133,16 +120,16 @@ class ProfileScreenKtTest{
         // region child 1 contents and styles testing
         val child1_1 = child1.children?.get(0) as Image
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1_1.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        child1_1.style?.elementStyleTests(composeRule)
+        child1_1.style?.elementStyleTests(composeTestRule)
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1_1.style!!.id!!)
             )
@@ -159,16 +146,16 @@ class ProfileScreenKtTest{
 
         val child1_2 = child1.children?.get(1) as Text
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1_2.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        child1_2.style?.elementStyleTests(composeRule)
+        child1_2.style?.elementStyleTests(composeTestRule)
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1_2.style!!.id!!)
             )
@@ -176,19 +163,19 @@ class ProfileScreenKtTest{
                 child1_2.text
             )
 
-        child1_2.textStyle.testTextStyle(composeRule, child1_2.style?.id!!)
+        child1_2.textStyle.testTextStyle(composeTestRule, child1_2.style?.id!!)
 
         //endregion
 
         //region Childern placesments testing
 
-        val child1_1_bounds = composeRule
+        val child1_1_bounds = composeTestRule
             .onNode(
                 hasTestTag(child1_1.style!!.id!!)
             )
             .getBoundsInRoot()
 
-        val child1_2_bounds = composeRule
+        val child1_2_bounds = composeTestRule
             .onNode(
                 hasTestTag(child1_2.style!!.id!!)
             )
@@ -196,7 +183,7 @@ class ProfileScreenKtTest{
 
         val tempBounds = (60 - 24)/2
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1_1.style!!.id!!)
             )
@@ -211,7 +198,7 @@ class ProfileScreenKtTest{
         val child1_2_height = child1_2_bounds.bottom - child1_2_bounds.top
         val child1_2_temp_bound = (60.dp - child1_2_height) / 2
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1_2.style!!.id!!)
             )
@@ -230,23 +217,23 @@ class ProfileScreenKtTest{
         val constraintLayout = element as ConstraintLayout
         val lazylist = constraintLayout.children!!.get(1) as LazyList
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(lazylist.style!!.id!!)
             )
             .printToLog("child_2")
 
         //region root contents and styles testing
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(lazylist.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        lazylist.style?.elementStyleTests(composeRule)
+        lazylist.style?.elementStyleTests(composeTestRule)
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(lazylist.style!!.id!!)
             )
@@ -268,37 +255,37 @@ class ProfileScreenKtTest{
         card: Card
     ){
 
-        val cardBounds = composeRule
+        val cardBounds = composeTestRule
             .onNode(
                 hasTestTag(card.style!!.id!!)
             )
             .getBoundsInRoot()
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(card.style!!.id!!)
             )
             .printToLog("card_password")
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(card.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        card.style?.elementStyleTests(composeRule)
+        card.style?.elementStyleTests(composeTestRule)
 
         val constraintLayout = card.child as ConstraintLayout
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(constraintLayout.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        constraintLayout.style?.elementStyleTests(composeRule)
+        constraintLayout.style?.elementStyleTests(composeTestRule)
 
         assertEquals(
             constraintLayout.children?.size?:0,
@@ -309,20 +296,20 @@ class ProfileScreenKtTest{
         val child2 = constraintLayout.children?.get(1) as Text
         val child3 = constraintLayout.children?.last() as Image
 
-        child1.testWidget(composeRule)
-        child2.testWidget(composeRule)
+        child1.testWidget(composeTestRule)
+        child2.testWidget(composeTestRule)
         child3.testWidget(
-            composeRule = composeRule,
+            composeRule = composeTestRule,
             imageVector = Icons.Outlined.Edit
         )
 
-        val child1Bound = composeRule
+        val child1Bound = composeTestRule
             .onNode(
                 hasTestTag(child1.style?.id!!)
             )
             .getBoundsInRoot()
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1.style?.id!!)
             )
@@ -337,7 +324,7 @@ class ProfileScreenKtTest{
                         (child1.style?.padding?.left?:0).dp
             )
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child2.style?.id!!)
             )
@@ -352,7 +339,7 @@ class ProfileScreenKtTest{
             )
 
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child3.style?.id!!)
             )
@@ -367,37 +354,37 @@ class ProfileScreenKtTest{
     fun mobileNumberCardUiTesting(
         card: Card
     ){
-        val cardBounds = composeRule
+        val cardBounds = composeTestRule
             .onNode(
                 hasTestTag(card.style!!.id!!)
             )
             .getBoundsInRoot()
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(card.style!!.id!!)
             )
             .printToLog("card_mobile")
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(card.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        card.style?.elementStyleTests(composeRule)
+        card.style?.elementStyleTests(composeTestRule)
 
         val constraintLayout = card.child as ConstraintLayout
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(constraintLayout.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        constraintLayout.style?.elementStyleTests(composeRule)
+        constraintLayout.style?.elementStyleTests(composeTestRule)
 
         assertEquals(
             constraintLayout.children?.size?:0,
@@ -412,31 +399,31 @@ class ProfileScreenKtTest{
         val child4_1 = verifiedRow.children.first() as Image
         val child4_2 = verifiedRow.children.last() as Text
 
-        child1.testWidget(composeRule)
-        child2.testWidget(composeRule)
+        child1.testWidget(composeTestRule)
+        child2.testWidget(composeTestRule)
         child3.testWidget(
-            composeRule = composeRule,
+            composeRule = composeTestRule,
             imageVector = Icons.Outlined.Edit
         )
-        child4.testWidget(composeRule)
+        child4.testWidget(composeTestRule)
         child4_1.testWidget(
-            composeRule = composeRule,
+            composeRule = composeTestRule,
             imageVector = Icons.Outlined.Check
         )
-        child4_2.testWidget(composeRule)
+        child4_2.testWidget(composeTestRule)
 
-        val child1Bound = composeRule
+        val child1Bound = composeTestRule
             .onNode(
                 hasTestTag(child1.style?.id!!)
             )
             .getBoundsInRoot()
-        val child2Bound = composeRule
+        val child2Bound = composeTestRule
             .onNode(
                 hasTestTag(child2.style?.id!!)
             )
             .getBoundsInRoot()
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child1.style?.id!!)
             )
@@ -451,7 +438,7 @@ class ProfileScreenKtTest{
                         (child1.style?.padding?.left?:0).dp
             )
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child2.style?.id!!)
             )
@@ -466,7 +453,7 @@ class ProfileScreenKtTest{
             )
 
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child3.style?.id!!)
             )
@@ -476,7 +463,7 @@ class ProfileScreenKtTest{
                         (child3.style?.padding?.top?:0).dp
             )
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child4.style?.id!!)
             )
@@ -491,12 +478,12 @@ class ProfileScreenKtTest{
                         (child4.style?.padding?.left?:0).dp
             )
 
-        val child4_1Bounds = composeRule
+        val child4_1Bounds = composeTestRule
             .onNode(
                 hasTestTag(child4_1.style?.id!!)
             )
             .getBoundsInRoot()
-        val child4_2Bounds = composeRule
+        val child4_2Bounds = composeTestRule
             .onNode(
                 hasTestTag(child4_2.style?.id!!)
             )
@@ -511,7 +498,7 @@ class ProfileScreenKtTest{
         val constraintLayout = element as ConstraintLayout
         val child3 = constraintLayout.children!!.last() as ConstraintLayout
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child3.style!!.id!!)
             )
@@ -519,16 +506,16 @@ class ProfileScreenKtTest{
 
 
         //region root contents and styles testing
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child3.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        child3.style?.elementStyleTests(composeRule)
+        child3.style?.elementStyleTests(composeTestRule)
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child3.style!!.id!!)
             )
@@ -543,16 +530,16 @@ class ProfileScreenKtTest{
 
         val child3_1 = child3.children?.get(0) as Text
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child3_1.style!!.id!!)
             )
             .assertExists()
             .assertIsDisplayed()
 
-        child3_1.style?.elementStyleTests(composeRule)
+        child3_1.style?.elementStyleTests(composeTestRule)
 
-        composeRule
+        composeTestRule
             .onNode(
                 hasTestTag(child3_1.style!!.id!!)
             )
@@ -560,18 +547,18 @@ class ProfileScreenKtTest{
                 child3_1.text
             )
 
-        child3_1.textStyle.testTextStyle(composeRule, child3_1.style?.id!!)
+        child3_1.textStyle.testTextStyle(composeTestRule, child3_1.style?.id!!)
 
         //endregion
 
         // region child 1 placement
 
-        val child3Bounds = composeRule
+        val child3Bounds = composeTestRule
             .onNode(
                 hasTestTag(child3.style!!.id!!)
             )
             .getBoundsInRoot()
-        val child3_1Bounds = composeRule
+        val child3_1Bounds = composeTestRule
             .onNode(
                 hasTestTag(child3_1.style!!.id!!)
             )
