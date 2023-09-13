@@ -7,14 +7,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.sgk.sduicore.modal.Text as TextElement
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Length
-import com.sgk.sduicore.modal.metadata.Padding
-import com.sgk.sduicore.modal.metadata.TextStyle
+import com.sgk.model.modal.Text as TextElement
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Length
+import com.sgk.model.modal.metadata.Padding
+import com.sgk.model.modal.metadata.TextStyle
 import com.sgk.compose_sdui.helper.toColor
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.addTestSemantics
-import com.sgk.sduicore.modal.Card as CardElement
+import com.sgk.model.modal.Card as CardElement
 
 @Composable
 fun CardRenderer(element: CardElement) {
@@ -55,7 +55,7 @@ fun CardRendererPreview() {
           right = 12
         )
       ),
-      cardStyle = com.sgk.sduicore.modal.CardStyle(
+      cardStyle = com.sgk.model.modal.CardStyle(
         radius = 10,
         contentColor = "#FF0000",
         elevation = 2

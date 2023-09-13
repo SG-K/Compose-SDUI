@@ -9,13 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.addTestSemantics
-import com.sgk.sduicore.modal.LazyElement
-import com.sgk.sduicore.modal.LazyList
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Orientation
-import com.sgk.sduicore.modal.metadata.Padding
-import com.sgk.sduicore.modal.metadata.TextStyle
-import com.sgk.sduicore.modal.Text as TextElement
+import com.sgk.model.modal.LazyElement
+import com.sgk.model.modal.LazyList
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Orientation
+import com.sgk.model.modal.metadata.Padding
+import com.sgk.model.modal.metadata.TextStyle
+import com.sgk.model.modal.Text as TextElement
 
 @Composable
 fun LazyListRenderer(element: LazyList) {

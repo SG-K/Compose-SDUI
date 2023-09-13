@@ -1,7 +1,7 @@
 package com.sgk.compose_sdui.ui.widgets
 
 import androidx.compose.runtime.Composable
-import com.sgk.sduicore.modal.Element
+import com.sgk.model.modal.Element
 import com.squareup.moshi.Moshi
 
 @Composable

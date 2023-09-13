@@ -13,7 +13,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/sdui" />
-            <option value="$PROJECT_DIR$/sdui/sduiCore" />
+            <option value="$PROJECT_DIR$/sdui/model" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -3,13 +3,13 @@ package com.sgk.compose_sdui.ui.widgets.constraint_layout
 import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import androidx.constraintlayout.compose.ConstraintSet
 
-fun List<com.sgk.sduicore.modal.ChildConstraintModel>.emptyConstraintSet() : ConstraintSet{
+fun List<com.sgk.model.modal.ChildConstraintModel>.emptyConstraintSet() : ConstraintSet{
     return ConstraintSet{
 
     }
 }
 
-fun List<com.sgk.sduicore.modal.ChildConstraintModel>.handleContraintsSets() : ConstraintSet{
+fun List<com.sgk.model.modal.ChildConstraintModel>.handleContraintsSets() : ConstraintSet{
     return when(this.size){
         0 -> emptyConstraintSet()
 //        1 -> singleChildConstraintSet(this)
@@ -19,7 +19,7 @@ fun List<com.sgk.sduicore.modal.ChildConstraintModel>.handleContraintsSets() : C
 }
 
 fun singleChildConstraintSet(
-    list : List<com.sgk.sduicore.modal.ChildConstraintModel>
+    list : List<com.sgk.model.modal.ChildConstraintModel>
 ) : ConstraintSet{
     return ConstraintSet{
 
@@ -41,7 +41,7 @@ fun singleChildConstraintSet(
 }
 
 fun twoChildConstraintSet(
-    list : List<com.sgk.sduicore.modal.ChildConstraintModel>
+    list : List<com.sgk.model.modal.ChildConstraintModel>
 ) : ConstraintSet{
     return ConstraintSet{
 
@@ -71,7 +71,7 @@ fun twoChildConstraintSet(
 }
 
 fun commonConstraintsSet(
-    list : List<com.sgk.sduicore.modal.ChildConstraintModel>
+    list : List<com.sgk.model.modal.ChildConstraintModel>
 ) : ConstraintSet{
     return ConstraintSet{
         val constrainedLayoutReferencelist: ArrayList<ConstrainedLayoutReference> = ArrayList()

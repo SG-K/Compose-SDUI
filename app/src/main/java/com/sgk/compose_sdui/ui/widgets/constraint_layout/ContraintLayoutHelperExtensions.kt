@@ -22,7 +22,7 @@ fun ConstrainScope.checkIfParentElseGetReference(
 
 fun ConstrainScope.commonConstrainsHandling(
     list : List<ConstrainedLayoutReference>,
-    childConstraintModel: com.sgk.sduicore.modal.ChildConstraintModel
+    childConstraintModel: com.sgk.model.modal.ChildConstraintModel
 ){
 
     childConstraintModel.top?.let {
@@ -31,14 +31,14 @@ fun ConstrainScope.commonConstrainsHandling(
             id = it.constraintComposableId
         )
         when(it.contraintDirection){
-            com.sgk.sduicore.modal.ContraintDirections.TOP -> {
+            com.sgk.model.modal.ContraintDirections.TOP -> {
                 top.linkTo(
                     constrainedLayoutReference.top,
                     margin = it.margin.dp
                 )
             }
 
-            com.sgk.sduicore.modal.ContraintDirections.BOTTOM -> {
+            com.sgk.model.modal.ContraintDirections.BOTTOM -> {
                 top.linkTo(
                     constrainedLayoutReference.bottom,
                     margin = it.margin.dp
@@ -54,14 +54,14 @@ fun ConstrainScope.commonConstrainsHandling(
             id = it.constraintComposableId
         )
         when(it.contraintDirection){
-            com.sgk.sduicore.modal.ContraintDirections.TOP -> {
+            com.sgk.model.modal.ContraintDirections.TOP -> {
                 bottom.linkTo(
                     constrainedLayoutReference.top,
                     margin = it.margin.dp
                 )
             }
 
-            com.sgk.sduicore.modal.ContraintDirections.BOTTOM -> {
+            com.sgk.model.modal.ContraintDirections.BOTTOM -> {
                 bottom.linkTo(
                     constrainedLayoutReference.bottom,
                     margin = it.margin.dp
@@ -77,14 +77,14 @@ fun ConstrainScope.commonConstrainsHandling(
             id = it.constraintComposableId
         )
         when(it.contraintDirection){
-            com.sgk.sduicore.modal.ContraintDirections.START -> {
+            com.sgk.model.modal.ContraintDirections.START -> {
                 start.linkTo(
                     constrainedLayoutReference.start,
                     margin = it.margin.dp
                 )
             }
 
-            com.sgk.sduicore.modal.ContraintDirections.END -> {
+            com.sgk.model.modal.ContraintDirections.END -> {
                 start.linkTo(
                     constrainedLayoutReference.end,
                     margin = it.margin.dp
@@ -100,14 +100,14 @@ fun ConstrainScope.commonConstrainsHandling(
             id = it.constraintComposableId
         )
         when(it.contraintDirection){
-            com.sgk.sduicore.modal.ContraintDirections.START -> {
+            com.sgk.model.modal.ContraintDirections.START -> {
                 end.linkTo(
                     constrainedLayoutReference.start,
                     margin = it.margin.dp
                 )
             }
 
-            com.sgk.sduicore.modal.ContraintDirections.END -> {
+            com.sgk.model.modal.ContraintDirections.END -> {
                 end.linkTo(
                     constrainedLayoutReference.end,
                     margin = it.margin.dp
@@ -128,10 +128,10 @@ fun ConstrainScope.commonConstrainsHandling(
 
 }
 
-fun com.sgk.sduicore.modal.ContraintHeightWidth.getDimenssion() : Dimension{
+fun com.sgk.model.modal.ContraintHeightWidth.getDimenssion() : Dimension{
     return  when(this){
-        com.sgk.sduicore.modal.ContraintHeightWidth.WRAP_CONTENT -> Dimension.wrapContent
-        com.sgk.sduicore.modal.ContraintHeightWidth.MATCH_PARENT -> Dimension.matchParent
-        com.sgk.sduicore.modal.ContraintHeightWidth.FILL_TO_CONSTRAINTS -> Dimension.fillToConstraints
+        com.sgk.model.modal.ContraintHeightWidth.WRAP_CONTENT -> Dimension.wrapContent
+        com.sgk.model.modal.ContraintHeightWidth.MATCH_PARENT -> Dimension.matchParent
+        com.sgk.model.modal.ContraintHeightWidth.FILL_TO_CONSTRAINTS -> Dimension.fillToConstraints
     }
 }

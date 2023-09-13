@@ -1,14 +1,14 @@
 package com.sgk.compose_sdui.ui.widgets
 
 import androidx.compose.runtime.Composable
-import com.sgk.sduicore.modal.Image
-import com.sgk.sduicore.modal.LazyList
-import com.sgk.sduicore.modal.Row
-import com.sgk.sduicore.modal.Spacer
-import com.sgk.sduicore.modal.Text
+import com.sgk.model.modal.Image
+import com.sgk.model.modal.LazyList
+import com.sgk.model.modal.Row
+import com.sgk.model.modal.Spacer
+import com.sgk.model.modal.Text
 import com.sgk.compose_sdui.ui.widgets.constraint_layout.ConstraintLayoutRenderer
-import com.sgk.sduicore.modal.Button
-import com.sgk.sduicore.modal.Element
+import com.sgk.model.modal.Button
+import com.sgk.model.modal.Element
 
 /**
  * TODO: Pending UI tests for this widget
@@ -28,7 +28,7 @@ fun CompositeRenderer(element: Element) {
 //    is LazyGrid -> {
 //      LazyGridRenderer(element = element)
 //    }
-    is com.sgk.sduicore.modal.Column -> {
+    is com.sgk.model.modal.Column -> {
       ColumnRenderer(element = element)
     }
     is Row -> {
@@ -37,11 +37,11 @@ fun CompositeRenderer(element: Element) {
     is Spacer -> {
       SpacerRenderer(element = element)
     }
-    is com.sgk.sduicore.modal.ConstraintLayout -> {
+    is com.sgk.model.modal.ConstraintLayout -> {
       ConstraintLayoutRenderer( element = element)
     }
 
-    is com.sgk.sduicore.modal.Card -> {
+    is com.sgk.model.modal.Card -> {
       CardRenderer(element = element)
     }
     is Button -> {

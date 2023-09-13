@@ -10,11 +10,11 @@ import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.sduicore.modal.Column
-import com.sgk.sduicore.modal.Text
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Padding
-import com.sgk.sduicore.modal.metadata.TextStyle
+import com.sgk.model.modal.Column
+import com.sgk.model.modal.Text
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Padding
+import com.sgk.model.modal.metadata.TextStyle
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Test
 

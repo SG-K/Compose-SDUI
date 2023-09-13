@@ -22,8 +22,8 @@ import com.sgk.compose_sdui.ui.widgets.constraint_layout.commonConstrainsHandlin
 
 
 fun TwoContraintSet(
-    childConstraintModel1: com.sgk.sduicore.modal.ChildConstraintModel,
-    childConstraintModel2: com.sgk.sduicore.modal.ChildConstraintModel,
+    childConstraintModel1: com.sgk.model.modal.ChildConstraintModel,
+    childConstraintModel2: com.sgk.model.modal.ChildConstraintModel,
 ) : ConstraintSet{
     return ConstraintSet {
 //        val button = createRefFor("button")

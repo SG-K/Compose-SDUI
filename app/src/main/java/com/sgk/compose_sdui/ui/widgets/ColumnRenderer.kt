@@ -3,11 +3,11 @@ package com.sgk.compose_sdui.ui.widgets
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.sgk.sduicore.modal.Text as TextElement
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Padding
-import com.sgk.sduicore.modal.metadata.TextStyle
-import com.sgk.sduicore.modal.Column as ColumnElement
+import com.sgk.model.modal.Text as TextElement
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Padding
+import com.sgk.model.modal.metadata.TextStyle
+import com.sgk.model.modal.Column as ColumnElement
 
 @Composable
 fun ColumnRenderer(element: ColumnElement) {

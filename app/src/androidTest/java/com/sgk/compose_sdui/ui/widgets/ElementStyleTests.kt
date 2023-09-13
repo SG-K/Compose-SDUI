@@ -8,7 +8,7 @@ import com.sgk.compose_sdui.ui.widgets.utils.semantics.BackgroundKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.HeightKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.PaddingKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.WidthKey
-import com.sgk.sduicore.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.ElementStyle
 
 fun ElementStyle.elementStyleTests(
     composeRule : ComposeContentTestRule

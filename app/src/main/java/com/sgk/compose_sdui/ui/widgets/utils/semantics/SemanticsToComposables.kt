@@ -3,10 +3,10 @@ package com.sgk.compose_sdui.ui.widgets.utils.semantics
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import com.sgk.compose_sdui.ui.widgets.image.getImageVector
-import com.sgk.sduicore.modal.Card
-import com.sgk.sduicore.modal.Image
-import com.sgk.sduicore.modal.LazyList
-import com.sgk.sduicore.modal.Text
+import com.sgk.model.modal.Card
+import com.sgk.model.modal.Image
+import com.sgk.model.modal.LazyList
+import com.sgk.model.modal.Text
 
 fun Modifier.addTestSemantics(element : Text) : Modifier{
     return this.semantics {

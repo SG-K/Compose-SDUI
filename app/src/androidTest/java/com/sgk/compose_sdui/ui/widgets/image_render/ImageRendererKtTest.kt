@@ -15,11 +15,11 @@ import com.sgk.compose_sdui.ui.widgets.utils.semantics.ImageTypeKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.ImageUrlKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.TintKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.VectorUrlKey
-import com.sgk.sduicore.modal.Image
-import com.sgk.sduicore.modal.ImageType
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Length
-import com.sgk.sduicore.modal.metadata.Padding
+import com.sgk.model.modal.Image
+import com.sgk.model.modal.ImageType
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Length
+import com.sgk.model.modal.metadata.Padding
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Test
 

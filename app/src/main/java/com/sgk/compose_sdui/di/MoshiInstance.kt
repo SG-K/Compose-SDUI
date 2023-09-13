@@ -1,6 +1,6 @@
 package com.sgk.compose_sdui.di
 
-import com.sgk.sduicore.adapters.SduiJsonAdapterFactory
+import com.sgk.model.adapters.SduiJsonAdapterFactory
 import com.squareup.moshi.Moshi
 
 object MoshiInstance {

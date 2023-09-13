@@ -9,9 +9,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.sgk.compose_sdui.helper.toColor
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.addTestSemantics
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.TextStyle
-import com.sgk.sduicore.modal.Text as TextElement
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.TextStyle
+import com.sgk.model.modal.Text as TextElement
 
 @Composable
 fun TextRenderer(textElement: TextElement) {

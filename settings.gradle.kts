@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "FoodAppHomePageSDUI"
 include(":app")
-include(":sdui:sduiCore")
+include(":sdui:model")

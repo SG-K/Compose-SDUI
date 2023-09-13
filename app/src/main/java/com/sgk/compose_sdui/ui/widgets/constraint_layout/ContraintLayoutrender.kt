@@ -4,20 +4,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
-import com.sgk.sduicore.modal.ConstraintLayout
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Length
+import com.sgk.model.modal.ConstraintLayout
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Length
 import com.sgk.compose_sdui.ui.widgets.CompositeRenderer
 import com.sgk.compose_sdui.ui.widgets.asModifier
-import com.sgk.sduicore.modal.ChildConstraintModel
-import com.sgk.sduicore.modal.ContraintDirections
-import com.sgk.sduicore.modal.ContraintHeightWidth
-import com.sgk.sduicore.modal.DirectionConstraints
-import com.sgk.sduicore.modal.Image
-import com.sgk.sduicore.modal.ImageType
-import com.sgk.sduicore.modal.Text
-import com.sgk.sduicore.modal.metadata.Padding
-import com.sgk.sduicore.modal.metadata.TextStyle
+import com.sgk.model.modal.ChildConstraintModel
+import com.sgk.model.modal.ContraintDirections
+import com.sgk.model.modal.ContraintHeightWidth
+import com.sgk.model.modal.DirectionConstraints
+import com.sgk.model.modal.Image
+import com.sgk.model.modal.ImageType
+import com.sgk.model.modal.Text
+import com.sgk.model.modal.metadata.Padding
+import com.sgk.model.modal.metadata.TextStyle
 
 @Composable
 fun ConstraintLayoutRenderer(

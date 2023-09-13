@@ -11,14 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sgk.compose_sdui.helper.toColor
-import com.sgk.sduicore.modal.Button as ButtonElement
-import com.sgk.sduicore.modal.ButtonStyle.FILLED
-import com.sgk.sduicore.modal.ButtonStyle.OUTLINED
-import com.sgk.sduicore.modal.ButtonStyle.TEXT
-import com.sgk.sduicore.modal.Text
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Padding
-import com.sgk.sduicore.modal.metadata.TextStyle
+import com.sgk.model.modal.Button as ButtonElement
+import com.sgk.model.modal.ButtonStyle.FILLED
+import com.sgk.model.modal.ButtonStyle.OUTLINED
+import com.sgk.model.modal.ButtonStyle.TEXT
+import com.sgk.model.modal.Text
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Padding
+import com.sgk.model.modal.metadata.TextStyle
 
 @Composable
 fun ButtonRenderer(element: ButtonElement) {

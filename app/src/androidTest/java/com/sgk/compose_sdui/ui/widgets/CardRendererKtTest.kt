@@ -12,14 +12,14 @@ import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardContentColorKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardElevationKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardRadiusKey
-import com.sgk.sduicore.modal.Card
-import com.sgk.sduicore.modal.Card as CardElement
-import com.sgk.sduicore.modal.CardStyle
-import com.sgk.sduicore.modal.Text
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Length
-import com.sgk.sduicore.modal.metadata.Padding
-import com.sgk.sduicore.modal.metadata.TextStyle
+import com.sgk.model.modal.Card
+import com.sgk.model.modal.Card as CardElement
+import com.sgk.model.modal.CardStyle
+import com.sgk.model.modal.Text
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Length
+import com.sgk.model.modal.metadata.Padding
+import com.sgk.model.modal.metadata.TextStyle
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Test
 

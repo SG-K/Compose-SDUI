@@ -13,13 +13,13 @@ import androidx.compose.ui.test.onLast
 import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.ui.widgets.LazyListRenderer
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.IsTextBoldKey
-import com.sgk.sduicore.modal.LazyElement
-import com.sgk.sduicore.modal.LazyList
-import com.sgk.sduicore.modal.Text
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Orientation
-import com.sgk.sduicore.modal.metadata.Padding
-import com.sgk.sduicore.modal.metadata.TextStyle
+import com.sgk.model.modal.LazyElement
+import com.sgk.model.modal.LazyList
+import com.sgk.model.modal.Text
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Orientation
+import com.sgk.model.modal.metadata.Padding
+import com.sgk.model.modal.metadata.TextStyle
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Test
 

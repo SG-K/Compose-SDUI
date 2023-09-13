@@ -3,11 +3,11 @@ package com.sgk.compose_sdui.ui.widgets.image_render
 import androidx.compose.runtime.Composable
 import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.ui.widgets.ImageRenderer
-import com.sgk.sduicore.modal.Image
-import com.sgk.sduicore.modal.ImageType
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Length
-import com.sgk.sduicore.modal.metadata.Padding
+import com.sgk.model.modal.Image
+import com.sgk.model.modal.ImageType
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Length
+import com.sgk.model.modal.metadata.Padding
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Test
 

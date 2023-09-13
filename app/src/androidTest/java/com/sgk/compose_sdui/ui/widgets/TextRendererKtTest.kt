@@ -11,9 +11,9 @@ import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.TextColorKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.TextSizeKey
-import com.sgk.sduicore.modal.Text
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.TextStyle
+import com.sgk.model.modal.Text
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.TextStyle
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Test
 

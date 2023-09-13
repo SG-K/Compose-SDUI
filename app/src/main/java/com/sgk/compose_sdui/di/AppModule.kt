@@ -5,7 +5,7 @@ import android.content.res.AssetManager
 import com.sgk.compose_sdui.data.SduiDataRepositoryImpl
 import com.sgk.compose_sdui.domain.SduiDataRepository
 import com.sgk.compose_sdui.features.profile.domain.use_case.GetProfilePageData
-import com.sgk.sduicore.adapters.SduiJsonAdapterFactory
+import com.sgk.model.adapters.SduiJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides

@@ -8,11 +8,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.sgk.sduicore.modal.ImageType
-import com.sgk.sduicore.modal.Image as ImageElement
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Length
-import com.sgk.sduicore.modal.metadata.Padding
+import com.sgk.model.modal.ImageType
+import com.sgk.model.modal.Image as ImageElement
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Length
+import com.sgk.model.modal.metadata.Padding
 import com.sgk.compose_sdui.helper.toColor
 import com.sgk.compose_sdui.ui.widgets.image.getImageVector
 import com.sgk.compose_sdui.ui.widgets.image.getPaintResource

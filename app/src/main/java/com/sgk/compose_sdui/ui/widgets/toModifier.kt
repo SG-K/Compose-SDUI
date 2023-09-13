@@ -9,15 +9,15 @@ import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
-import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.Length
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Length
 import com.sgk.compose_sdui.helper.toColor
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.background
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.height
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.layoutId
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.padding
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.width
-import com.sgk.sduicore.modal.Element
+import com.sgk.model.modal.Element
 
 @SuppressLint("ModifierFactoryExtensionFunction")
 fun ElementStyle?.asModifier(): Modifier {
