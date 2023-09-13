@@ -17,3 +17,4 @@ rootProject.name = "FoodAppHomePageSDUI"
 include(":app")
 include(":sdui:model")
 include(":sdui:ui")
+include(":features:profile")

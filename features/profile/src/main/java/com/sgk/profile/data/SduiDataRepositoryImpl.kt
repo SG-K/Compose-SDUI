@@ -1,14 +1,14 @@
-package com.sgk.compose_sdui.data
+package com.sgk.profile.data
 
 import android.content.res.AssetManager
-import com.sgk.compose_sdui.domain.SduiDataRepository
+import com.sgk.profile.domain.SduiDataRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class SduiDataRepositoryImpl(
     val assert: AssetManager,
 //    context: Context
-) : SduiDataRepository {
+) : com.sgk.profile.domain.SduiDataRepository {
 
 //    private val assetManager = context.assets
 

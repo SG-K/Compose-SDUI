@@ -1,10 +1,7 @@
-package com.sgk.compose_sdui.di
+package com.sgk.profile.di
 
 import android.app.Application
 import android.content.res.AssetManager
-import com.sgk.compose_sdui.data.SduiDataRepositoryImpl
-import com.sgk.compose_sdui.domain.SduiDataRepository
-import com.sgk.compose_sdui.features.profile.domain.use_case.GetProfilePageData
 import com.sgk.model.adapters.SduiJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -13,15 +10,14 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object ProfileHiltModule {
 
     @Provides
     @Singleton
-    fun provideEasyToDoRepository(assetManager: AssetManager): SduiDataRepository {
-        return SduiDataRepositoryImpl(assetManager)
+    fun provideEasyToDoRepository(assetManager: AssetManager): com.sgk.profile.domain.SduiDataRepository {
+        return com.sgk.profile.data.SduiDataRepositoryImpl(assetManager)
     }
 
     @Provides
@@ -32,12 +28,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGetUseCases(repository: SduiDataRepository): GetProfilePageData {
-        return GetProfilePageData(
+    fun provideGetUseCases(repository: com.sgk.profile.domain.SduiDataRepository): com.sgk.profile.domain.use_case.GetProfilePageData {
+        return com.sgk.profile.domain.use_case.GetProfilePageData(
             sduiDataRepository = repository
         )
     }
-
 
     @Provides
     @Singleton
@@ -58,7 +53,6 @@ object AppModule {
 //         .add(KotlinJsonAdapterFactory())
             .build()
     }
-
 
 
 }

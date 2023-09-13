@@ -102,12 +102,14 @@ dependencies {
     implementation("com.squareup.moshi:moshi:1.14.0")
     implementation("com.squareup.moshi:moshi-adapters:1.14.0")
     implementation ("com.squareup.moshi:moshi-kotlin:1.14.0")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-    testImplementation("junit:junit:4.12")
-    testImplementation("junit:junit:4.12")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("junit:junit:4.12")
+    testImplementation("junit:junit:4.12")
+
 
 
     // Coroutine
@@ -121,8 +123,13 @@ dependencies {
     kapt ("com.google.dagger:hilt-compiler:2.44")
 //    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     kapt ("androidx.hilt:hilt-compiler:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+
+
     implementation(project(":sdui:model"))
     implementation(project(":sdui:ui"))
+    implementation(project(":features:profile"))
 
 
     testImplementation("junit:junit:4.13.2")

@@ -1,6 +1,6 @@
-package com.sgk.compose_sdui.features.profile.domain.use_case
+package com.sgk.profile.domain.use_case
 
-import com.sgk.compose_sdui.domain.SduiDataRepository
+import com.sgk.profile.domain.SduiDataRepository
 import kotlinx.coroutines.flow.Flow
 
 class GetProfilePageData(

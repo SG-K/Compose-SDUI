@@ -18,7 +18,7 @@ import androidx.compose.ui.test.printToLog
 import androidx.compose.ui.unit.dp
 import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.di.HomePageJsonTestDataAnnotation
-import com.sgk.compose_sdui.features.profile.domain.use_case.GetProfilePageData
+import com.sgk.profile.domain.use_case.GetProfilePageData
 import com.sgk.compose_sdui.ui.widgets.elementStyleTests
 import com.sgk.ui.widgets.image.getImageVector
 import com.sgk.compose_sdui.ui.widgets.image_render.testWidget
@@ -32,6 +32,7 @@ import com.sgk.model.modal.Image
 import com.sgk.model.modal.LazyList
 import com.sgk.model.modal.Row
 import com.sgk.model.modal.Text
+import com.sgk.profile.presentation.ProfileScreen
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Assert.*
@@ -49,7 +50,7 @@ class ProfileScreenKtTest : BaseComposeTest<Element>(){
     @Inject lateinit var jsonData: String
 
     @Inject
-    lateinit var getProfilePageData: GetProfilePageData
+    lateinit var getProfilePageData: com.sgk.profile.domain.use_case.GetProfilePageData
 
     override fun setData(): Element {
         return moshi.adapter(Element::class.java).fromJson(jsonData)!!
@@ -58,7 +59,7 @@ class ProfileScreenKtTest : BaseComposeTest<Element>(){
     @Composable
     override fun SetContent() {
         ProfileScreen(
-            getProfilePageData = getProfilePageData,
+            data = jsonData,
             moshi = moshi
         )
     }

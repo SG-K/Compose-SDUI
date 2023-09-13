@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.domain
+package com.sgk.profile.domain
 
 import kotlinx.coroutines.flow.Flow
 
