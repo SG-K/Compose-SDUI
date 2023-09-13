@@ -1,7 +1,6 @@
 package com.sgk.sduicore.modal
 
 import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.TextStyle
 
 
 data class Button(

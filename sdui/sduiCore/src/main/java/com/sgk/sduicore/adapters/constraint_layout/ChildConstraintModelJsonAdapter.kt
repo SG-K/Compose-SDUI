@@ -1,9 +1,7 @@
 package com.sgk.sduicore.adapters.constraint_layout
 
-import com.sgk.sduicore.modal.ChildConstraintModel
 import com.sgk.sduicore.modal.ContraintHeightWidth
 import com.sgk.sduicore.modal.DirectionConstraints
-import com.sgk.sduicore.adapters.AdapterConstants
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter

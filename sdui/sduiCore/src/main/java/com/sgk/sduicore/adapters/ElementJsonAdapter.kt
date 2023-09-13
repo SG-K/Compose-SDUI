@@ -2,7 +2,6 @@ package com.sgk.sduicore.adapters
 
 import com.sgk.sduicore.modal.Card
 import com.sgk.sduicore.modal.Column
-import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.ConstraintLayout
 import com.sgk.sduicore.modal.Element
 import com.sgk.sduicore.modal.ElementType

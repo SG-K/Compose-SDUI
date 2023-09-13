@@ -1,7 +1,5 @@
 package com.sgk.sduicore.adapters.metadata
 
-import com.sgk.sduicore.modal.CardStyle
-import com.sgk.sduicore.adapters.AdapterConstants
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter

@@ -3,7 +3,6 @@ package com.sgk.sduicore.adapters
 import com.sgk.sduicore.modal.Card
 import com.sgk.sduicore.modal.CardStyle
 import com.sgk.sduicore.modal.Column
-import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.ChildConstraintModel

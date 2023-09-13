@@ -1,8 +1,6 @@
 package dev.aungkyawpaing.loki.adapter
 
-import com.sgk.sduicore.modal.Column
 import com.sgk.sduicore.modal.Element
-import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader

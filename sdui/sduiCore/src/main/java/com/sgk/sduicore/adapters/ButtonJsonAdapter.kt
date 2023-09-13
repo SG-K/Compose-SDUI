@@ -4,7 +4,6 @@ import com.sgk.sduicore.modal.Button
 import com.sgk.sduicore.modal.ButtonStyle
 import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.metadata.ElementStyle
-import com.sgk.sduicore.modal.metadata.TextStyle
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter

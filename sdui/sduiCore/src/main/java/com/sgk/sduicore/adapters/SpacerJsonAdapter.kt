@@ -1,7 +1,5 @@
 package com.sgk.sduicore.adapters
 
-import com.sgk.sduicore.adapters.ElementJsonAdapter
-import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Spacer
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.squareup.moshi.JsonAdapter

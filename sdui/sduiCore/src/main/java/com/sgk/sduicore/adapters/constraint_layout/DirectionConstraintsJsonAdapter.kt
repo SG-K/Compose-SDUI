@@ -1,8 +1,5 @@
 package com.sgk.sduicore.adapters.constraint_layout
 
-import com.sgk.sduicore.adapters.AdapterConstants
-import com.sgk.sduicore.modal.ContraintDirections
-import com.sgk.sduicore.modal.DirectionConstraints
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader

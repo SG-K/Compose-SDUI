@@ -2,7 +2,6 @@ package dev.aungkyawpaing.loki.adapter
 
 import com.sgk.sduicore.modal.LazyElement
 import com.sgk.sduicore.modal.LazyList
-import com.sgk.sduicore.adapters.AdapterConstants
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Orientation
 import com.squareup.moshi.JsonAdapter

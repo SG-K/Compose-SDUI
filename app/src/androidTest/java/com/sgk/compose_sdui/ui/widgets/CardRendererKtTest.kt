@@ -7,10 +7,8 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onChild
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.theme.FoodAppHomePageSDUITheme
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardContentColorKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardElevationKey
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardRadiusKey
@@ -22,10 +20,7 @@ import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
-import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
 @HiltAndroidTest

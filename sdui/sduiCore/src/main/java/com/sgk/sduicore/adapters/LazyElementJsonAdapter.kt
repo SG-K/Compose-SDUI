@@ -1,9 +1,7 @@
 package dev.aungkyawpaing.loki.adapter
 
 import com.sgk.sduicore.modal.Element
-import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.LazyElement
-import com.sgk.sduicore.adapters.AdapterConstants
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter
