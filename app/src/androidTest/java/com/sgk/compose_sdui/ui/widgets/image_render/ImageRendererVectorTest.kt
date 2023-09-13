@@ -4,7 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.runtime.Composable
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.widgets.ImageRenderer
+import com.sgk.ui.widgets.ImageRenderer
 import com.sgk.model.modal.Image
 import com.sgk.model.modal.ImageType
 import com.sgk.model.modal.metadata.ElementStyle
@@ -39,7 +39,7 @@ class ImageRendererVectorTest : BaseComposeTest<Image>(){
 
     @Composable
     override fun SetContent() {
-        ImageRenderer(
+        com.sgk.ui.widgets.ImageRenderer(
             imgElement = element
         )
     }

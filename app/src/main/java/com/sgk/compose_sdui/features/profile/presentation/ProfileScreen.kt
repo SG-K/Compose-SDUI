@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import com.sgk.compose_sdui.ui.widgets.RenderFromJson
+import com.sgk.ui.widgets.RenderFromJson
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sgk.compose_sdui.features.profile.domain.use_case.GetProfilePageData
 import com.sgk.compose_sdui.ui.theme.colorBg
@@ -35,7 +35,7 @@ fun ProfileScreen(
             modifier = Modifier
         ) {
             Box(modifier = Modifier.padding(it)) {
-                RenderFromJson(
+                com.sgk.ui.widgets.RenderFromJson(
                     json = data,
                     moshi = moshi
                 )

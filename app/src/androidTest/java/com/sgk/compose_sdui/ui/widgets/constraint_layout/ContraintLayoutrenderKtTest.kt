@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.test.platform.app.InstrumentationRegistry
 import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.ui.widgets.elementStyleTests
-import com.sgk.compose_sdui.ui.widgets.image.getImageVector
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.VectorUrlKey
+import com.sgk.ui.widgets.image.getImageVector
+import com.sgk.ui.widgets.utils.semantics.VectorUrlKey
 import com.sgk.model.modal.ChildConstraintModel
 import com.sgk.model.modal.ConstraintLayout
 import com.sgk.model.modal.ContraintDirections
@@ -156,7 +156,7 @@ class ContraintLayoutrenderKtTest : BaseComposeTest<ConstraintLayout>(){
 
     @Composable
     override fun SetContent() {
-        ConstraintLayoutRenderer(element = element)
+        com.sgk.ui.widgets.constraint_layout.ConstraintLayoutRenderer(element = element)
     }
 
     @Test
@@ -260,7 +260,7 @@ class ContraintLayoutrenderKtTest : BaseComposeTest<ConstraintLayout>(){
             .onLast()
             .assertExists()
             .assert(
-                SemanticsMatcher.expectValue(VectorUrlKey, child3?.url?.getImageVector())
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.VectorUrlKey, child3?.url?.getImageVector())
             )
 
         // endregion

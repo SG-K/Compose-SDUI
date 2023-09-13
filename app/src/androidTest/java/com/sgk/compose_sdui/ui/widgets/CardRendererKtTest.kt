@@ -9,9 +9,9 @@ import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onChild
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardContentColorKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardElevationKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.CardRadiusKey
+import com.sgk.ui.widgets.utils.semantics.CardContentColorKey
+import com.sgk.ui.widgets.utils.semantics.CardElevationKey
+import com.sgk.ui.widgets.utils.semantics.CardRadiusKey
 import com.sgk.model.modal.Card
 import com.sgk.model.modal.Card as CardElement
 import com.sgk.model.modal.CardStyle
@@ -69,7 +69,7 @@ class CardRendererKtTest : BaseComposeTest<Card>(){
 
     @Composable
     override fun SetContent() {
-        CardRenderer(element = element)
+        com.sgk.ui.widgets.CardRenderer(element = element)
     }
 
     @Test
@@ -111,7 +111,7 @@ fun Card.testWidget(
             hasTestTag(style?.id!!)
         )
         .assert(
-            SemanticsMatcher.expectValue(CardRadiusKey, cardStyle?.radius)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.CardRadiusKey, cardStyle?.radius)
         )
 
     composeRule
@@ -119,7 +119,7 @@ fun Card.testWidget(
             hasTestTag(style?.id!!)
         )
         .assert(
-            SemanticsMatcher.expectValue(CardElevationKey, cardStyle?.elevation)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.CardElevationKey, cardStyle?.elevation)
         )
 
     composeRule
@@ -127,7 +127,7 @@ fun Card.testWidget(
             hasTestTag(style?.id!!)
         )
         .assert(
-            SemanticsMatcher.expectValue(CardContentColorKey, cardStyle?.contentColor)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.CardContentColorKey, cardStyle?.contentColor)
         )
 
     style?.elementStyleTests(composeRule)

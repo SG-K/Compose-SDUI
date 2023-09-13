@@ -12,10 +12,10 @@ import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.widgets.LazyListRenderer
+import com.sgk.ui.widgets.LazyListRenderer
 import com.sgk.compose_sdui.ui.widgets.elementStyleTests
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.IsTextBoldKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.OrientationKey
+import com.sgk.ui.widgets.utils.semantics.IsTextBoldKey
+import com.sgk.ui.widgets.utils.semantics.OrientationKey
 import com.sgk.model.modal.LazyElement
 import com.sgk.model.modal.LazyList
 import com.sgk.model.modal.Text
@@ -107,7 +107,7 @@ class HorizontalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
 
     @Composable
     override fun SetContent() {
-        LazyListRenderer(element = element)
+        com.sgk.ui.widgets.LazyListRenderer(element = element)
     }
 
     @Test
@@ -125,7 +125,7 @@ class HorizontalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
         composeTestRule
             .onNode(hasTestTag(element.style?.id?:""))
             .assert(
-                SemanticsMatcher.expectValue(OrientationKey, element.orientation)
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.OrientationKey, element.orientation)
             )
             .onChildren()
             .assertCountEquals(3)
@@ -144,7 +144,7 @@ class HorizontalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
             .assertTextEquals(child1.text?:"")
             .assert(
                 SemanticsMatcher.expectValue(
-                    IsTextBoldKey,
+                    com.sgk.ui.widgets.utils.semantics.IsTextBoldKey,
                     child1.textStyle.isBold
                 )
             )
@@ -158,7 +158,7 @@ class HorizontalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
             .assertTextEquals(child2.text?:"")
             .assert(
                 SemanticsMatcher.expectValue(
-                    IsTextBoldKey,
+                    com.sgk.ui.widgets.utils.semantics.IsTextBoldKey,
                     child2.textStyle.isBold
                 )
             )
@@ -173,7 +173,7 @@ class HorizontalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
             .assertTextEquals(child3.text?:"")
             .assert(
                 SemanticsMatcher.expectValue(
-                    IsTextBoldKey,
+                    com.sgk.ui.widgets.utils.semantics.IsTextBoldKey,
                     child3.textStyle.isBold
                 )
             )
@@ -196,7 +196,7 @@ fun LazyList.testWidget(
     composeRule
         .onNode(hasTestTag(style?.id?:""))
         .assert(
-            SemanticsMatcher.expectValue(OrientationKey, orientation)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.OrientationKey, orientation)
         )
 
     Assert.assertNotEquals(0,children.size)

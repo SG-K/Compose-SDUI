@@ -64,7 +64,7 @@ class ColumnRendererKtTest : BaseComposeTest<Column>(){
 
     @Composable
     override fun SetContent() {
-        ColumnRenderer(element = element)
+        com.sgk.ui.widgets.ColumnRenderer(element = element)
     }
 
     @Test

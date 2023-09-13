@@ -122,6 +122,7 @@ dependencies {
 //    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     kapt ("androidx.hilt:hilt-compiler:1.0.0")
     implementation(project(":sdui:model"))
+    implementation(project(":sdui:ui"))
 
 
     testImplementation("junit:junit:4.13.2")

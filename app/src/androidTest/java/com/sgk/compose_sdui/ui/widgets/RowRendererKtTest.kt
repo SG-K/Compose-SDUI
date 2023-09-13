@@ -12,7 +12,7 @@ import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.IsTextBoldKey
+import com.sgk.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.model.modal.Row
 import com.sgk.model.modal.Text
 import com.sgk.model.modal.metadata.ElementStyle
@@ -70,7 +70,7 @@ class RowRendererKtTest : BaseComposeTest<Row>(){
     
     @Composable
     override fun SetContent() {
-        RowRenderer(element = element)
+        com.sgk.ui.widgets.RowRenderer(element = element)
     }
 
     @Test
@@ -97,14 +97,14 @@ class RowRendererKtTest : BaseComposeTest<Row>(){
             .onFirst()
             .assertTextEquals(child1.text)
             .assert(
-                SemanticsMatcher.expectValue(IsTextBoldKey, child1.textStyle.isBold)
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.IsTextBoldKey, child1.textStyle.isBold)
             )
 
         childern
             .onLast()
             .assertTextEquals(child2.text)
             .assert(
-                SemanticsMatcher.expectValue(IsTextBoldKey, child2.textStyle.isBold)
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.IsTextBoldKey, child2.textStyle.isBold)
             )
 
         child1.testWidget(composeTestRule)

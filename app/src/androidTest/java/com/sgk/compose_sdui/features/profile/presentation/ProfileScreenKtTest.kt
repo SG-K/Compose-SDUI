@@ -20,11 +20,11 @@ import com.sgk.compose_sdui.base.BaseComposeTest
 import com.sgk.compose_sdui.di.HomePageJsonTestDataAnnotation
 import com.sgk.compose_sdui.features.profile.domain.use_case.GetProfilePageData
 import com.sgk.compose_sdui.ui.widgets.elementStyleTests
-import com.sgk.compose_sdui.ui.widgets.image.getImageVector
+import com.sgk.ui.widgets.image.getImageVector
 import com.sgk.compose_sdui.ui.widgets.image_render.testWidget
 import com.sgk.compose_sdui.ui.widgets.testTextStyle
 import com.sgk.compose_sdui.ui.widgets.testWidget
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.VectorUrlKey
+import com.sgk.ui.widgets.utils.semantics.VectorUrlKey
 import com.sgk.model.modal.Card
 import com.sgk.model.modal.ConstraintLayout
 import com.sgk.model.modal.Element
@@ -135,7 +135,7 @@ class ProfileScreenKtTest : BaseComposeTest<Element>(){
             )
             .assert(
                 SemanticsMatcher.expectValue(
-                    VectorUrlKey,
+                    com.sgk.ui.widgets.utils.semantics.VectorUrlKey,
                     child1_1.url.getImageVector()
                 )
             )

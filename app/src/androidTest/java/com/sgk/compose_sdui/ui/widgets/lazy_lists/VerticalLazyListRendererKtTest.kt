@@ -11,8 +11,8 @@ import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.widgets.LazyListRenderer
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.IsTextBoldKey
+import com.sgk.ui.widgets.LazyListRenderer
+import com.sgk.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.model.modal.LazyElement
 import com.sgk.model.modal.LazyList
 import com.sgk.model.modal.Text
@@ -102,7 +102,7 @@ class VerticalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
 
     @Composable
     override fun SetContent() {
-        LazyListRenderer(element = element)
+        com.sgk.ui.widgets.LazyListRenderer(element = element)
     }
 
     @Test
@@ -136,7 +136,7 @@ class VerticalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
             .assertTextEquals(child1.text?:"")
             .assert(
                 SemanticsMatcher.expectValue(
-                    IsTextBoldKey,
+                    com.sgk.ui.widgets.utils.semantics.IsTextBoldKey,
                     child1.textStyle.isBold
                 )
             )
@@ -150,7 +150,7 @@ class VerticalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
             .assertTextEquals(child2.text?:"")
             .assert(
                 SemanticsMatcher.expectValue(
-                    IsTextBoldKey,
+                    com.sgk.ui.widgets.utils.semantics.IsTextBoldKey,
                     child2.textStyle.isBold
                 )
             )
@@ -165,7 +165,7 @@ class VerticalLazyListRendererKtTest : BaseComposeTest<LazyList>(){
             .assertTextEquals(child3.text?:"")
             .assert(
                 SemanticsMatcher.expectValue(
-                    IsTextBoldKey,
+                    com.sgk.ui.widgets.utils.semantics.IsTextBoldKey,
                     child3.textStyle.isBold
                 )
             )

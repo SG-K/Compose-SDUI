@@ -8,9 +8,9 @@ import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.IsTextBoldKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.TextColorKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.TextSizeKey
+import com.sgk.ui.widgets.utils.semantics.IsTextBoldKey
+import com.sgk.ui.widgets.utils.semantics.TextColorKey
+import com.sgk.ui.widgets.utils.semantics.TextSizeKey
 import com.sgk.model.modal.Text
 import com.sgk.model.modal.metadata.ElementStyle
 import com.sgk.model.modal.metadata.TextStyle
@@ -33,7 +33,7 @@ class TextRendererKtTest : BaseComposeTest<Text>() {
 
     @Composable
     override fun SetContent() {
-        TextRenderer(
+        com.sgk.ui.widgets.TextRenderer(
             textElement = element
         )
     }
@@ -72,18 +72,18 @@ fun TextStyle.testTextStyle(
     composeRule
         .onNode(hasTestTag(id))
         .assert(
-            SemanticsMatcher.expectValue(TextColorKey, textColor)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.TextColorKey, textColor)
         )
 
     composeRule
         .onNode(hasTestTag(id))
         .assert(
-            SemanticsMatcher.expectValue(TextSizeKey, textSize)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.TextSizeKey, textSize)
         )
 
     composeRule
         .onNode(hasTestTag(id))
         .assert(
-            SemanticsMatcher.expectValue(IsTextBoldKey, isBold)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.IsTextBoldKey, isBold)
         )
 }

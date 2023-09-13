@@ -9,12 +9,12 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.widgets.ImageRenderer
+import com.sgk.ui.widgets.ImageRenderer
 import com.sgk.compose_sdui.ui.widgets.elementStyleTests
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.ImageTypeKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.ImageUrlKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.TintKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.VectorUrlKey
+import com.sgk.ui.widgets.utils.semantics.ImageTypeKey
+import com.sgk.ui.widgets.utils.semantics.ImageUrlKey
+import com.sgk.ui.widgets.utils.semantics.TintKey
+import com.sgk.ui.widgets.utils.semantics.VectorUrlKey
 import com.sgk.model.modal.Image
 import com.sgk.model.modal.ImageType
 import com.sgk.model.modal.metadata.ElementStyle
@@ -48,7 +48,7 @@ class ImageRendererKtTest : BaseComposeTest<Image>() {
 
     @Composable
     override fun SetContent() {
-        ImageRenderer(
+        com.sgk.ui.widgets.ImageRenderer(
             imgElement = element
         )
     }
@@ -78,7 +78,7 @@ fun Image.testWidget(
         .assertExists()
         .assertIsDisplayed()
         .assert(
-            SemanticsMatcher.expectValue(ImageTypeKey, imageType)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.ImageTypeKey, imageType)
         )
 
     composeRule
@@ -92,7 +92,7 @@ fun Image.testWidget(
         .assertExists()
         .assertIsDisplayed()
         .assert(
-            SemanticsMatcher.expectValue(TintKey, tint)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.TintKey, tint)
         )
 
     composeRule
@@ -100,7 +100,7 @@ fun Image.testWidget(
         .assertExists()
         .assertIsDisplayed()
         .assert(
-            SemanticsMatcher.expectValue(ImageUrlKey, url)
+            SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.ImageUrlKey, url)
         )
 
 
@@ -111,7 +111,7 @@ fun Image.testWidget(
             .onNode(hasTestTag(style?.id!!))
             .assertExists()
             .assert(
-                SemanticsMatcher.expectValue(VectorUrlKey, it)
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.VectorUrlKey, it)
             )
     }
 

@@ -4,10 +4,10 @@ import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.BackgroundKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.HeightKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.PaddingKey
-import com.sgk.compose_sdui.ui.widgets.utils.semantics.WidthKey
+import com.sgk.ui.widgets.utils.semantics.BackgroundKey
+import com.sgk.ui.widgets.utils.semantics.HeightKey
+import com.sgk.ui.widgets.utils.semantics.PaddingKey
+import com.sgk.ui.widgets.utils.semantics.WidthKey
 import com.sgk.model.modal.metadata.ElementStyle
 
 fun ElementStyle.elementStyleTests(
@@ -27,7 +27,7 @@ fun ElementStyle.elementStyleTests(
                 hasTestTag(it)
             )
             .assert(
-                SemanticsMatcher.expectValue(WidthKey, width)
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.WidthKey, width)
             )
 
         composeRule
@@ -35,7 +35,7 @@ fun ElementStyle.elementStyleTests(
                 hasTestTag(it)
             )
             .assert(
-                SemanticsMatcher.expectValue(HeightKey, height)
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.HeightKey, height)
             )
 
         composeRule
@@ -43,7 +43,7 @@ fun ElementStyle.elementStyleTests(
                 hasTestTag(it)
             )
             .assert(
-                SemanticsMatcher.expectValue(PaddingKey, padding)
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.PaddingKey, padding)
             )
 
         composeRule
@@ -51,7 +51,7 @@ fun ElementStyle.elementStyleTests(
                 hasTestTag(it)
             )
             .assert(
-                SemanticsMatcher.expectValue(BackgroundKey, background)
+                SemanticsMatcher.expectValue(com.sgk.ui.widgets.utils.semantics.BackgroundKey, background)
             )
 
     }
