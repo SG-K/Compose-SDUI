@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.ui.widgets
+package com.sgk.ui.widgets
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.SemanticsMatcher
@@ -7,7 +7,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import com.sgk.compose_sdui.base.BaseComposeTest
+import com.sgk.ui.base.BaseComposeTest
 import com.sgk.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.ui.widgets.utils.semantics.TextColorKey
 import com.sgk.ui.widgets.utils.semantics.TextSizeKey

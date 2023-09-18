@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.ui.widgets
+package com.sgk.ui.widgets
 
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assert

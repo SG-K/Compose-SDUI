@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.helper
+package com.sgk.ui.helpers
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.junit4.createComposeRule

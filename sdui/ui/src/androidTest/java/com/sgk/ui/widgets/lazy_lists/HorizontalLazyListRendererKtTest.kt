@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.ui.widgets.lazy_lists
+package com.sgk.ui.widgets.lazy_lists
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.SemanticsMatcher
@@ -11,9 +11,9 @@ import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
-import com.sgk.compose_sdui.base.BaseComposeTest
+import com.sgk.ui.base.BaseComposeTest
 import com.sgk.ui.widgets.LazyListRenderer
-import com.sgk.compose_sdui.ui.widgets.elementStyleTests
+import com.sgk.ui.widgets.elementStyleTests
 import com.sgk.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.ui.widgets.utils.semantics.OrientationKey
 import com.sgk.model.modal.LazyElement

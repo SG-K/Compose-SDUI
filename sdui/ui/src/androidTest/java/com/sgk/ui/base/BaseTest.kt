@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.base
+package com.sgk.ui.base
 
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

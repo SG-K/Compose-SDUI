@@ -1,9 +1,9 @@
-package com.sgk.compose_sdui.ui.widgets.image_render
+package com.sgk.ui.widgets.image_render
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.runtime.Composable
-import com.sgk.compose_sdui.base.BaseComposeTest
+import com.sgk.ui.base.BaseComposeTest
 import com.sgk.ui.widgets.ImageRenderer
 import com.sgk.model.modal.Image
 import com.sgk.model.modal.ImageType

@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.ui.widgets.constraint_layout
+package com.sgk.ui.widgets.constraint_layout
 
 import android.content.Context
 import android.util.DisplayMetrics
@@ -20,8 +20,8 @@ import androidx.compose.ui.test.onLast
 import androidx.compose.ui.test.printToLog
 import androidx.compose.ui.unit.dp
 import androidx.test.platform.app.InstrumentationRegistry
-import com.sgk.compose_sdui.base.BaseComposeTest
-import com.sgk.compose_sdui.ui.widgets.elementStyleTests
+import com.sgk.ui.base.BaseComposeTest
+import com.sgk.ui.widgets.elementStyleTests
 import com.sgk.ui.widgets.image.getImageVector
 import com.sgk.ui.widgets.utils.semantics.VectorUrlKey
 import com.sgk.model.modal.ChildConstraintModel

@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.ui.widgets
+package com.sgk.ui.widgets
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.SemanticsMatcher
@@ -8,7 +8,7 @@ import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onChild
-import com.sgk.compose_sdui.base.BaseComposeTest
+import com.sgk.ui.base.BaseComposeTest
 import com.sgk.ui.widgets.utils.semantics.CardContentColorKey
 import com.sgk.ui.widgets.utils.semantics.CardElevationKey
 import com.sgk.ui.widgets.utils.semantics.CardRadiusKey
@@ -69,7 +69,7 @@ class CardRendererKtTest : BaseComposeTest<Card>(){
 
     @Composable
     override fun SetContent() {
-        com.sgk.ui.widgets.CardRenderer(element = element)
+        CardRenderer(element = element)
     }
 
     @Test

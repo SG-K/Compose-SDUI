@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.ui.widgets.image_render
+package com.sgk.ui.widgets.image_render
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -8,9 +8,9 @@ import androidx.compose.ui.test.assertContentDescriptionEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import com.sgk.compose_sdui.base.BaseComposeTest
+import com.sgk.ui.base.BaseComposeTest
 import com.sgk.ui.widgets.ImageRenderer
-import com.sgk.compose_sdui.ui.widgets.elementStyleTests
+import com.sgk.ui.widgets.elementStyleTests
 import com.sgk.ui.widgets.utils.semantics.ImageTypeKey
 import com.sgk.ui.widgets.utils.semantics.ImageUrlKey
 import com.sgk.ui.widgets.utils.semantics.TintKey

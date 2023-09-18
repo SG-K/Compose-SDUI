@@ -1,8 +1,7 @@
-package com.sgk.compose_sdui.base
+package com.sgk.ui.base
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.junit4.createComposeRule
-import com.sgk.compose_sdui.ui.theme.FoodAppHomePageSDUITheme
 import org.junit.Rule
 import org.junit.Test
 
@@ -19,9 +18,9 @@ abstract class BaseComposeTest<T>() : BaseTest(){
     override fun setUp() {
         super.setUp()
         composeTestRule.setContent {
-            FoodAppHomePageSDUITheme {
+//            FoodAppHomePageSDUITheme {
                 SetContent()
-            }
+//            }
         }
     }
 

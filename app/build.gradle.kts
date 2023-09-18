@@ -16,12 +16,13 @@ android {
 
     defaultConfig {
         applicationId = "com.sgk.compose_sdui"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "com.sgk.compose_sdui.HiltTestRunner"
+//        testInstrumentationRunner = "com.sgk.testing.HiltTestRunner"
 //        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -122,7 +123,9 @@ dependencies {
 
     implementation(project(":sdui:model"))
     implementation(project(":sdui:ui"))
+    androidTestImplementation(project(":sdui:ui"))
     implementation(project(":features:profile"))
+
 
 
 

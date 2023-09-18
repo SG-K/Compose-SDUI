@@ -1,4 +1,4 @@
-package com.sgk.compose_sdui.ui.widgets
+package com.sgk.ui.widgets
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.SemanticsMatcher
@@ -11,7 +11,7 @@ import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
-import com.sgk.compose_sdui.base.BaseComposeTest
+import com.sgk.ui.base.BaseComposeTest
 import com.sgk.ui.widgets.utils.semantics.IsTextBoldKey
 import com.sgk.model.modal.Row
 import com.sgk.model.modal.Text
