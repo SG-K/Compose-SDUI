@@ -1,7 +1,10 @@
 package com.sgk.compose_sdui.ui.widgets
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.tooling.preview.Preview
 import com.sgk.sduicore.modal.metadata.Background
 import com.sgk.sduicore.modal.metadata.ElementStyle
@@ -14,10 +17,35 @@ import com.sgk.sduicore.modal.Row as RowElement
 fun RowRenderer(element: RowElement) {
   Row(
     modifier = element.style.asModifier(),
+    verticalAlignment =  element.alignment.getRowAlignment()
   ) {
     element.children.forEach { child ->
       CompositeRenderer(element = child)
     }
+  }
+}
+
+fun com.sgk.sduicore.modal.Alignment.getRowAlignment() : Alignment.Vertical {
+  return when(this){
+    com.sgk.sduicore.modal.Alignment.CENTER_VERTICAL -> Alignment.CenterVertically
+    com.sgk.sduicore.modal.Alignment.TOP -> Alignment.Top
+    com.sgk.sduicore.modal.Alignment.BOTTOM -> Alignment.Bottom
+    else -> Alignment.Top
+  }
+}
+
+fun com.sgk.sduicore.modal.Alignment.getAlignment() : Alignment {
+  return when(this){
+    com.sgk.sduicore.modal.Alignment.TOP_START -> Alignment.TopStart 
+    com.sgk.sduicore.modal.Alignment.TOP_CENTER -> Alignment.TopCenter 
+    com.sgk.sduicore.modal.Alignment.TOP_END -> Alignment.TopEnd 
+    com.sgk.sduicore.modal.Alignment.CENTER_START -> Alignment.CenterStart 
+    com.sgk.sduicore.modal.Alignment.CENTER -> Alignment.Center 
+    com.sgk.sduicore.modal.Alignment.CENTER_END -> Alignment.CenterEnd 
+    com.sgk.sduicore.modal.Alignment.BOTTOM_START -> Alignment.BottomStart 
+    com.sgk.sduicore.modal.Alignment.BOTTOM_CENTER -> Alignment.BottomCenter 
+    com.sgk.sduicore.modal.Alignment.BOTTOM_END -> Alignment.BottomEnd 
+    else -> Alignment.TopStart 
   }
 }
 

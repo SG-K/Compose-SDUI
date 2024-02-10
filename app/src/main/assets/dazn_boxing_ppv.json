@@ -167,6 +167,64 @@
                 },
 
                 {
+                  "type" : "Row",
+                  "alignment" : "center_vertical",
+                  "children" : [
+                    {
+                      "type" : "Text",
+                      "text" : "FURY",
+                      "textStyle" : {
+                        "textColor" : "#F9FAFA",
+                        "fontWeight" : 800,
+                        "lineHeight" : 35,
+                        "textSize" : 42
+                      },
+                      "style" : {
+                        "id" : "text_event_name_one"
+                      }
+                    },
+                    {
+                      "type" : "Text",
+                      "text" : "VS",
+                      "textStyle" : {
+                        "textColor" : "#F9FAFA",
+                        "fontWeight" : 800,
+                        "lineHeight" : 18,
+                        "textSize" : 22
+                      },
+                      "style" : {
+                        "id" : "text_event_name_one",
+                        "padding" : {
+                          "left" : 8,
+                          "right" : 8
+                        }
+                      }
+                    },
+                    {
+                      "type" : "Text",
+                      "text" : "USYK",
+                      "textStyle" : {
+                        "textColor" : "#F9FAFA",
+                        "fontWeight" : 800,
+                        "lineHeight" : 35,
+                        "textSize" : 42
+                      },
+                      "style" : {
+                        "id" : "text_event_name_one"
+                      }
+                    }
+                  ],
+                  "style" : {
+                    "id" : "row_event_name",
+                    "width" : "max",
+                    "padding" : {
+                      "left" : 16,
+                      "right" : 16
+                    }
+                  }
+                },
+
+                {
                   "type" : "Text",
                   "text" : "For the first time in over 20 years an undisputed heavyweight champion of the world will be crowned.",
                   "textStyle": {
@@ -178,7 +236,6 @@
                   "style": {
                     "id" : "card_one_body",
                     "padding" : {
-                      "top" : 8,
                       "bottom" : 20,
                       "left" : 16,
                       "right" : 16
@@ -321,6 +378,14 @@
               ],
               "childernConstrainsList" : [
                 {
+                  "refId" : "row_event_name",
+                  "bottom" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "card_one_body"
+                  }
+                },
+
+                {
                   "refId" : "card_one_bg",
                   "top" : {
                     "contraintDirection" : "top",
@@ -358,7 +423,6 @@
             }
           }
         }
-
       ],
       "style" : {
         "width" : "max",
