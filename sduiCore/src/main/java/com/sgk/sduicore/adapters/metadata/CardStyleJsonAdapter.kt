@@ -10,6 +10,7 @@ class CardStyleJsonAdapter : JsonAdapter<com.sgk.sduicore.modal.CardStyle>() {
     override fun fromJson(reader: JsonReader): com.sgk.sduicore.modal.CardStyle? {
         var radius: Int = 0
         var contentColor : String? = null
+        var containerColor : String? = null
         var elevation : Int = 0
 
         reader.beginObject()
@@ -29,6 +30,10 @@ class CardStyleJsonAdapter : JsonAdapter<com.sgk.sduicore.modal.CardStyle>() {
                     elevation = reader.nextInt()
                 }
 
+                3 -> {
+                    containerColor = reader.nextString()
+                }
+
                 else -> {
                     reader.skipName()
                     reader.skipValue()
@@ -39,7 +44,7 @@ class CardStyleJsonAdapter : JsonAdapter<com.sgk.sduicore.modal.CardStyle>() {
         reader.endObject()
 
         return com.sgk.sduicore.modal.CardStyle(
-            radius, contentColor, elevation
+            radius, contentColor, elevation, containerColor
         )
     }
 
@@ -57,6 +62,9 @@ class CardStyleJsonAdapter : JsonAdapter<com.sgk.sduicore.modal.CardStyle>() {
 
             writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_ELEVATION)
             writer.value(value.elevation)
+
+            writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_CONTENT_COLOR)
+            writer.value(value.contentColor)
 
             writer.endObject()
         }

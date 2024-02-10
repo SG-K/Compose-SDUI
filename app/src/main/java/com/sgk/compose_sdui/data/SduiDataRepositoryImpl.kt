@@ -13,7 +13,8 @@ class SduiDataRepositoryImpl(
 //    private val assetManager = context.assets
 
     override fun getProfileScreenJson(): Flow<String> {
-        val json = assert.open("home_page.json").bufferedReader().use {
+//        val json = assert.open("home_page.json").bufferedReader().use {
+        val json = assert.open("dazn_boxing_ppv.json").bufferedReader().use {
 //        val json = assetManager.open("temp.json").bufferedReader().use {
             it.readText()
         }

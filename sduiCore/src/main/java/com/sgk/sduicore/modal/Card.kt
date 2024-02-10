@@ -12,5 +12,6 @@ data class Card(
 data class CardStyle(
     val radius: Int = 0,
     val contentColor : String?,
-    val elevation : Int = 0
+    val elevation : Int = 0,
+    val containerColor : String?,
 )

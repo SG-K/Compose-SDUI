@@ -16,6 +16,7 @@ import com.sgk.sduicore.modal.DirectionConstraints
 import com.sgk.sduicore.modal.Image
 import com.sgk.sduicore.modal.ImageType
 import com.sgk.sduicore.modal.Text
+import com.sgk.sduicore.modal.metadata.ElementBackground
 import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
 
@@ -50,7 +51,7 @@ fun ConstraintLayoutRendererPreview(){
                     ),
                     style = ElementStyle(
                         id = "card_password_lable",
-                        background = "#FF0000",
+                        background = ElementBackground(colors = arrayListOf("#FF0000")),
                         width = Length.Max
                     )
                 ),
@@ -134,7 +135,7 @@ fun ConstraintLayoutRendererPreview(){
                 ),
 
 
-            ),
+                ),
             style = ElementStyle(
                 id = "contraint_layout_password",
                 width = Length.Max,
@@ -144,7 +145,7 @@ fun ConstraintLayoutRendererPreview(){
                     left = 16,
                     right = 16
                 ),
-                background = "#FFFFFF"
+                background = ElementBackground(colors = arrayListOf("#FFFFFF")),
             )
         )
     )

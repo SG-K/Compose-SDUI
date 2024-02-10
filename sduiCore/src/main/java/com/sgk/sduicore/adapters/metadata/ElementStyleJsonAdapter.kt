@@ -1,6 +1,7 @@
 package com.sgk.sduicore.adapters.metadata
 
 import com.sgk.sduicore.adapters.AdapterConstants
+import com.sgk.sduicore.modal.metadata.ElementBackground
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.sduicore.modal.metadata.Padding
@@ -10,7 +11,8 @@ import com.squareup.moshi.JsonWriter
 
 class ElementStyleJsonAdapter constructor(
     private val lengthJsonAdapter: JsonAdapter<Length>,
-    private val paddingJsonAdapter: JsonAdapter<Padding>
+    private val paddingJsonAdapter: JsonAdapter<Padding>,
+    private val backgroundJsonAdapter: JsonAdapter<ElementBackground>,
 ) : JsonAdapter<ElementStyle>() {
 
     companion object {
@@ -25,7 +27,7 @@ class ElementStyleJsonAdapter constructor(
         var width: Length? = null
         var height: Length? = null
         var padding: Padding? = null
-        var background : String? = null
+        var background : ElementBackground? = null
         var id : String? = null
 
         if (reader.peek() == JsonReader.Token.NULL) {
@@ -46,7 +48,7 @@ class ElementStyleJsonAdapter constructor(
                     padding = paddingJsonAdapter.fromJson(reader)
                 }
                 3 -> {
-                    background = reader.nextString()
+                    background = backgroundJsonAdapter.fromJson(reader)
                 }
                 4 -> {
                     id = reader.nextString()
@@ -81,7 +83,7 @@ class ElementStyleJsonAdapter constructor(
         paddingJsonAdapter.toJson(writer, value.padding)
 
         writer.name(KEY_BACKGROUND)
-        writer.value(value.background)
+        backgroundJsonAdapter.toJson(writer, value.background)
 
         writer.name(AdapterConstants.KEY_ID)
         writer.value(value.id)

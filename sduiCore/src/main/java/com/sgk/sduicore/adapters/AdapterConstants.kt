@@ -26,8 +26,10 @@ object AdapterConstants {
     const val KEY_SIZE = "size"
     const val KEY_RADIUS = "radius"
     const val KEY_CONTENT_COLOR = "contentColor"
+    const val KEY_CONTAINER_COLOR = "containerColor"
     const val KEY_ELEVATION = "elevation"
     const val KEY_LAZY_ELEMENT_ID = "lazyElemntId"
+    const val KEY_COLORS = "colors"
 
 
 
@@ -74,7 +76,13 @@ object AdapterConstants {
     val KEY_OPTIONS_CARD_STYLE = JsonReader.Options.of(
         KEY_RADIUS,
         KEY_CONTENT_COLOR,
-        KEY_ELEVATION
+        KEY_ELEVATION,
+        KEY_CONTAINER_COLOR
+    )
+
+    val KEY_OPTIONS_BACKGROUND = JsonReader.Options.of(
+        KEY_COLORS,
+        KEY_ORIENTATION,
     )
 
 

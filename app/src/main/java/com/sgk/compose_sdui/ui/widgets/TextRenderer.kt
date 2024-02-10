@@ -3,6 +3,7 @@ package com.sgk.compose_sdui.ui.widgets
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,10 +20,7 @@ fun TextRenderer(textElement: TextElement) {
   Text(
     text = textElement.text,
     fontSize = textElement.textStyle.textSize.sp,
-    fontWeight = if (textElement.textStyle.isBold == true)
-      FontWeight.Bold
-    else
-      FontWeight.Normal,
+    fontWeight = textElement.textStyle.fontWeight?.let{ FontWeight(it) },
     color = textElement.textStyle.textColor?.toColor() ?: Color.Unspecified,
     modifier = textElement
       .style

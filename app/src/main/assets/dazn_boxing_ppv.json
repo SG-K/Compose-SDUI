@@ -1,0 +1,491 @@
+{
+  "type": "ConstraintLayout",
+  "style": {
+    "width" : "max",
+    "height" : "max",
+    "background" : {
+      "colors" : ["#000000"]
+    },
+    "id" : "root"
+  },
+
+  "children": [
+    {
+      "type": "ConstraintLayout",
+      "style": {
+        "width" : "max",
+        "background" : {
+          "colors" : ["#000000"]
+        },
+        "id" : "header"
+      },
+
+      "children": [
+        {
+          "type" : "Image",
+          "url" : "https://images.ctfassets.net/vhp9jnid12wf/2UqeyD9OZwzJUqyPJZPQwX/e82828ec043acc81b538147042449ddc/DAZN_logo.png",
+          "altText" : "Close Icon",
+          "imageType" : "remote",
+          "style": {
+            "width" : 40,
+            "height" : 40,
+            "id" : "header_dazn_icon"
+          },
+          "tint" : "#FFFFFF"
+        },
+
+        {
+          "type" : "Text",
+          "text" : "Welcome to DAZN",
+          "textStyle": {
+            "textSize": 20,
+            "textColor": "#FFFFFF",
+            "fontWeight" : 700
+          },
+          "style": {
+            "id" : "header_text"
+          }
+        },
+
+        {
+          "type" : "Text",
+          "text" : "Sign In",
+          "textStyle": {
+            "textSize": 14,
+            "textColor": "#F9FAFA",
+            "fontWeight" : 700
+          },
+          "style": {
+            "id" : "header_sign_in"
+          }
+        }
+      ],
+
+      "childernConstrainsList" : [
+        {
+          "refId" : "header_dazn_icon",
+          "start" : {
+            "contraintDirection" : "start",
+            "constraintComposableId" : "-101",
+            "margin" : 16
+          },
+          "top" : {
+            "contraintDirection" : "top",
+            "constraintComposableId" : "-101",
+            "margin" : 0
+          },
+          "bottom" : {
+            "contraintDirection" : "bottom",
+            "constraintComposableId" : "-101",
+            "margin" : 0
+          }
+        },
+
+        {
+          "refId" : "header_text",
+          "start" : {
+            "contraintDirection" : "end",
+            "constraintComposableId" : "header_dazn_icon",
+            "margin" : 12
+          },
+          "top" : {
+            "contraintDirection" : "top",
+            "constraintComposableId" : "header_dazn_icon",
+            "margin" : 0
+          },
+          "bottom" : {
+            "contraintDirection" : "bottom",
+            "constraintComposableId" : "header_dazn_icon",
+            "margin" : 0
+          }
+
+        },
+        {
+          "refId" : "header_sign_in",
+          "end" : {
+            "contraintDirection" : "end",
+            "constraintComposableId" : "-101",
+            "margin" : 16
+          },
+          "top" : {
+            "contraintDirection" : "top",
+            "constraintComposableId" : "header_dazn_icon",
+            "margin" : 0
+          },
+          "bottom" : {
+            "contraintDirection" : "bottom",
+            "constraintComposableId" : "header_dazn_icon",
+            "margin" : 0
+          }
+        }
+      ]
+
+    },
+
+    {
+      "type" : "Text",
+      "text" : "Choose your subscription",
+      "textStyle": {
+        "textSize": 16,
+        "textColor": "#FFFFFF",
+        "fontWeight" : 700
+      },
+      "style": {
+        "id" : "sub_header_txt",
+        "padding" : {
+          "top" : 20,
+          "bottom" : 16,
+          "left" : 16
+        }
+      }
+    },
+
+    {
+      "type": "LazyList",
+      "orientation": "vertical",
+      "children": [
+        {
+          "lazyElemntId": "1",
+          "element": {
+            "type" : "Card",
+            "child" : {
+              "type": "ConstraintLayout",
+              "style": {
+                "width" : "max",
+                "id" : "contraint_layout_card_1"
+              },
+              "children" : [
+                {
+                  "type" : "Image",
+                  "url" : "https://images.ctfassets.net/vhp9jnid12wf/z4wmHbok6qAVQH4ZWqoVX/6028fc812fd1bab6cf145eda31501a7d/Q4_Unrivalled_Landing_Page_Mobile___Tablet_720x1600_UK.jpg?fm=webp",
+                  "altText" : "card_one_image",
+                  "imageType" : "remote",
+                  "style": {
+                    "width" : "max",
+                    "id" : "card_one_bg"
+                  }
+                },
+
+                {
+                  "type" : "Text",
+                  "text" : "For the first time in over 20 years an undisputed heavyweight champion of the world will be crowned.",
+                  "textStyle": {
+                    "textSize": 15,
+                    "textColor": "#FBEC7C",
+                    "fontWeight" : 700
+                  },
+                  "style": {
+                    "id" : "card_one_body",
+                    "padding" : {
+                      "top" : 8,
+                      "bottom" : 20,
+                      "left" : 16,
+                      "right" : 16
+                    }
+                  }
+                },
+
+                {
+                  "type" : "ConstraintLayout",
+                  "style" : {
+                    "id" : "card_one_sub_layer",
+                    "width" : "max",
+                    "background" : {
+                      "colors" : ["#FBED7D","#C48C09","#C48C09"],
+                      "orientation" : "horizontal"
+                    }
+                  },
+                  "children" : [
+
+                    {
+                      "type" : "Text",
+                      "text" : "Sign up to DAZN today and buy the pay-per-view",
+                      "textStyle" : {
+                        "textSize" : 13,
+                        "fontWeight" : 700,
+                        "textColor" : "#181818"
+                      },
+                      "style" : {
+                        "width" : 0,
+                        "id" : "text_book_now_desp"
+                      }
+                    },
+
+                    {
+                      "type" : "Card",
+                      "style": {
+                        "id" : "row_book_now"
+                      },
+                      "cardStyle" : {
+                        "radius" : 10,
+                        "contentColor" : "#FFFFFF",
+                        "elevation" : 0,
+                        "containerColor" : "#000000"
+                      },
+                      "child" : {
+                        "type": "Text",
+                        "text": "BOOK NOW",
+                        "textStyle": {
+                          "textSize": 16,
+                          "textColor": "#F9FAFA",
+                          "fontWeight": 700
+                        },
+                        "style": {
+                          "id": "text_book_now",
+                          "padding" : {
+                            "top" : 10,
+                            "left" : 20,
+                            "right" : 20,
+                            "bottom" : 10
+                          },
+                          "background" : {
+                            "colors" : [ "#000000" ]
+                          }
+                        }
+                      }
+                    },
+
+                    {
+                      "type" : "Spacer",
+                      "style" : {
+                        "width" : "max",
+                        "height" : 16,
+                        "id" : "card_one_sub_layer_spacer_1"
+                      }
+                    },
+
+                    {
+                      "type" : "Spacer",
+                      "style" : {
+                        "width" : "max",
+                        "height" : 16,
+                        "id" : "card_one_sub_layer_spacer_2"
+                      }
+                    }
+
+                  ],
+                  "childernConstrainsList" : [
+
+                    {
+                      "refId" : "card_one_sub_layer_spacer_1",
+                      "top" : {
+                        "contraintDirection" : "top",
+                        "constraintComposableId" : "-101"
+                      }
+                    },
+
+                    {
+                      "refId" : "card_one_sub_layer_spacer_2",
+                      "top" : {
+                        "contraintDirection" : "bottom",
+                        "constraintComposableId" : "row_book_now"
+                      }
+                    },
+
+                    {
+                      "refId" : "row_book_now",
+                      "top" : {
+                        "contraintDirection" : "bottom",
+                        "constraintComposableId" : "card_one_sub_layer_spacer_1"
+                      },
+                      "end" : {
+                        "contraintDirection" : "end",
+                        "constraintComposableId" : "-101",
+                        "margin" : 16
+                      }
+                    },
+
+                    {
+                      "refId" : "text_book_now_desp",
+                      "top" : {
+                        "contraintDirection" : "bottom",
+                        "constraintComposableId" : "card_one_sub_layer_spacer_1"
+                      },
+                      "start" : {
+                        "contraintDirection" : "start",
+                        "constraintComposableId" : "-101",
+                        "margin" : 16
+                      },
+                      "end" : {
+                        "contraintDirection" : "start",
+                        "constraintComposableId" : "row_book_now",
+                        "margin" : 16
+                      },
+                      "width_constraint" : "fillToConstraints"
+                    }
+
+                  ]
+                }
+              ],
+              "childernConstrainsList" : [
+                {
+                  "refId" : "card_one_bg",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101"
+                  }
+                },
+
+                {
+                  "refId" : "card_one_body",
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "card_one_bg"
+                  }
+                },
+
+                {
+                  "refId" : "card_one_sub_layer",
+                  "top" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "card_one_bg"
+                  }
+                }
+              ]
+            },
+            "cardStyle" : {
+              "radius" : 15
+            },
+            "style": {
+              "width" : "max",
+              "padding": {
+                "left" : 16,
+                "right" : 16
+              },
+              "id" : "card_one"
+            }
+          }
+        }
+
+      ],
+      "style" : {
+        "width" : "max",
+        "id" : "list_cards",
+        "padding" : {
+          "top" : 10
+        }
+      }
+    },
+
+    {
+      "type": "ConstraintLayout",
+      "style": {
+        "width" : "max",
+        "background" : {
+          "colors" : ["#000000"]
+        },
+        "id" : "footer"
+
+      },
+
+      "children": [
+
+        {
+          "type" : "Text",
+          "text" : "GET STARTED FOR FREE",
+          "textStyle": {
+            "textSize": 16,
+            "textColor": "#F9FAFA",
+            "fontWeight" : 700
+          },
+          "style": {
+            "id" : "footer_text",
+            "padding" : {
+              "top" : 16,
+              "bottom" : 16
+            }
+          }
+        },
+
+        {
+          "type" : "Image",
+          "url" : "forward_arrow",
+          "altText" : "forward_arrow",
+          "imageType" : "image_vector",
+          "style": {
+            "width" : 24,
+            "height" : 24,
+            "id" : "footer_arrow"
+          },
+          "tint" : "#FFFFFF"
+        }
+      ],
+
+      "childernConstrainsList" : [
+        {
+          "refId" : "footer_text",
+          "top" : {
+            "contraintDirection" : "top",
+            "constraintComposableId" : "-101"
+          },
+          "bottom" : {
+            "contraintDirection" : "bottom",
+            "constraintComposableId" : "-101"
+          },
+          "start" : {
+            "contraintDirection" : "start",
+            "constraintComposableId" : "-101"
+          },
+          "end" : {
+            "contraintDirection" : "end",
+            "constraintComposableId" : "-101"
+          }
+        },
+        {
+          "refId" : "footer_arrow",
+          "top" : {
+            "contraintDirection" : "top",
+            "constraintComposableId" : "-101"
+          },
+          "bottom" : {
+            "contraintDirection" : "bottom",
+            "constraintComposableId" : "-101"
+          },
+          "start" : {
+            "contraintDirection" : "end",
+            "constraintComposableId" : "footer_text"
+          }
+        }
+      ]
+
+    }
+  ],
+
+  "childernConstrainsList" : [
+    {
+      "refId" : "header",
+      "top" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      }
+    },
+    {
+      "refId" : "sub_header_txt",
+      "top" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "header"
+      }
+    },
+    {
+      "refId" : "list_cards",
+      "top" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "sub_header_txt"
+      },
+      "bottom" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "footer"
+      },
+      "height_constraint" : "fillToConstraints"
+    },
+    {
+      "refId" : "footer",
+      "bottom" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "-101",
+        "margin" : 0
+      }
+    }
+  ]
+}

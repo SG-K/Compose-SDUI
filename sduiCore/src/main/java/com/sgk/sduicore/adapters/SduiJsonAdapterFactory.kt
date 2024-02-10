@@ -24,6 +24,7 @@ import com.sgk.sduicore.modal.Element
 import com.sgk.sduicore.adapters.constraint_layout.ChildConstraintModelJsonAdapter
 import com.sgk.sduicore.adapters.constraint_layout.ConstraintLayoutJsonAdapter
 import com.sgk.sduicore.adapters.constraint_layout.DirectionConstraintsJsonAdapter
+import com.sgk.sduicore.adapters.metadata.BackgroundJsonAdapter
 import com.sgk.sduicore.adapters.metadata.CardStyleJsonAdapter
 import com.sgk.sduicore.adapters.metadata.ElementStyleJsonAdapter
 import com.sgk.sduicore.adapters.metadata.LengthJsonAdapter
@@ -32,6 +33,7 @@ import com.sgk.sduicore.adapters.metadata.PaddingJsonAdapter
 import com.sgk.sduicore.adapters.metadata.TextStyleJsonAdapter
 import com.sgk.sduicore.modal.Button
 import com.sgk.sduicore.modal.ButtonStyle
+import com.sgk.sduicore.modal.metadata.ElementBackground
 import com.sgk.sduicore.modal.metadata.Length
 import dev.aungkyawpaing.loki.adapter.LazyElementJsonAdapter
 import dev.aungkyawpaing.loki.adapter.LazyListJsonAdapter
@@ -146,11 +148,18 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
 
             ElementStyle::class.java -> {
                 ElementStyleJsonAdapter(
-                    moshi.adapter(Length::class.java), moshi.adapter(Padding::class.java)
+                    moshi.adapter(Length::class.java),
+                    moshi.adapter(Padding::class.java),
+                    moshi.adapter(ElementBackground::class.java),
                 )
             }
             DirectionConstraints::class.java -> {
                 DirectionConstraintsJsonAdapter()
+            }
+            ElementBackground::class.java -> {
+                BackgroundJsonAdapter(
+                    moshi.adapter(Orientation::class.java),
+                )
             }
             ChildConstraintModel::class.java -> {
                 ChildConstraintModelJsonAdapter(

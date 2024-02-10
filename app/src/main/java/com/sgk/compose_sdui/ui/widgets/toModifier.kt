@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.semantics
@@ -18,6 +20,7 @@ import com.sgk.compose_sdui.ui.widgets.utils.semantics.layoutId
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.padding
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.width
 import com.sgk.sduicore.modal.Element
+import com.sgk.sduicore.modal.metadata.Orientation
 
 @SuppressLint("ModifierFactoryExtensionFunction")
 fun ElementStyle?.asModifier(): Modifier {
@@ -38,7 +41,16 @@ fun ElementStyle?.asModifier(): Modifier {
   }
 
   background?.let {
-    modifier = modifier.background(it.toColor())
+    if (it.colors.size == 1){
+      modifier = modifier.background(it.colors[0].toColor())
+    } else if (it.colors.size > 1){
+      val brush = if (it.orientation == Orientation.HORIZONTAL){
+        Brush.horizontalGradient(it.colors.toColors())
+      } else {
+        Brush.verticalGradient(it.colors.toColors())
+      }
+      modifier = modifier.background(brush)
+    }
   }
 
   val _width = width
@@ -105,4 +117,16 @@ fun Element?.asModifier(): Modifier {
 //  }
 
   return modifier
+}
+
+fun List<String>.toColors() : List<Color>{
+  val list = ArrayList<Color>()
+
+  this.map {
+    if (it.isNotEmpty()){
+      list.add(it.toColor())
+    }
+  }
+
+  return list
 }
