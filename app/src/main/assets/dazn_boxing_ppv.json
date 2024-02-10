@@ -167,61 +167,88 @@
                 },
 
                 {
-                  "type" : "Row",
-                  "alignment" : "center_vertical",
-                  "children" : [
-                    {
-                      "type" : "Text",
-                      "text" : "FURY",
-                      "textStyle" : {
-                        "textColor" : "#F9FAFA",
-                        "fontWeight" : 800,
-                        "lineHeight" : 35,
-                        "textSize" : 42
-                      },
-                      "style" : {
-                        "id" : "text_event_name_one"
-                      }
-                    },
-                    {
-                      "type" : "Text",
-                      "text" : "VS",
-                      "textStyle" : {
-                        "textColor" : "#F9FAFA",
-                        "fontWeight" : 800,
-                        "lineHeight" : 18,
-                        "textSize" : 22
-                      },
-                      "style" : {
-                        "id" : "text_event_name_one",
-                        "padding" : {
-                          "left" : 8,
-                          "right" : 8
-                        }
-                      }
-                    },
-                    {
-                      "type" : "Text",
-                      "text" : "USYK",
-                      "textStyle" : {
-                        "textColor" : "#F9FAFA",
-                        "fontWeight" : 800,
-                        "lineHeight" : 35,
-                        "textSize" : 42
-                      },
-                      "style" : {
-                        "id" : "text_event_name_one"
-                      }
-                    }
-                  ],
+                  "type" : "Column",
                   "style" : {
-                    "id" : "row_event_name",
+                    "id" : "column_event_details",
                     "width" : "max",
                     "padding" : {
                       "left" : 16,
                       "right" : 16
                     }
-                  }
+                  },
+                  "children" : [
+
+                    {
+                      "type" : "Text",
+                      "text" : "SAT 17TH FEB",
+                      "textStyle" : {
+                        "textColor" : "#CED0D2",
+                        "fontWeight" : 500,
+                        "lineHeight" : 39,
+                        "textSize" : 14
+                      },
+                      "style" : {
+                        "id" : "text_date",
+                        "padding" : {
+                          "bottom" : 6
+                        }
+                      }
+                    },
+
+                    {
+                      "type" : "Row",
+                      "alignment" : "center_vertical",
+                      "children" : [
+                        {
+                          "type" : "Text",
+                          "text" : "FURY",
+                          "textStyle" : {
+                            "textColor" : "#F9FAFA",
+                            "fontWeight" : 800,
+                            "lineHeight" : 35,
+                            "textSize" : 42
+                          },
+                          "style" : {
+                            "id" : "text_event_name_one"
+                          }
+                        },
+                        {
+                          "type" : "Text",
+                          "text" : "VS",
+                          "textStyle" : {
+                            "textColor" : "#F9FAFA",
+                            "fontWeight" : 800,
+                            "lineHeight" : 18,
+                            "textSize" : 22
+                          },
+                          "style" : {
+                            "id" : "text_event_name_one",
+                            "padding" : {
+                              "left" : 8,
+                              "right" : 8
+                            }
+                          }
+                        },
+                        {
+                          "type" : "Text",
+                          "text" : "USYK",
+                          "textStyle" : {
+                            "textColor" : "#F9FAFA",
+                            "fontWeight" : 800,
+                            "lineHeight" : 35,
+                            "textSize" : 42
+                          },
+                          "style" : {
+                            "id" : "text_event_name_one"
+                          }
+                        }
+                      ],
+                      "style" : {
+                        "id" : "row_event_name",
+                        "width" : "max"
+                      }
+                    }
+                  ]
                 },
 
                 {
@@ -378,7 +405,7 @@
               ],
               "childernConstrainsList" : [
                 {
-                  "refId" : "row_event_name",
+                  "refId" : "column_event_details",
                   "bottom" : {
                     "contraintDirection" : "top",
                     "constraintComposableId" : "card_one_body"
