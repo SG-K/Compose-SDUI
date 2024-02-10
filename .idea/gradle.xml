@@ -12,7 +12,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/sduiCore" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/profile" />
+            <option value="$PROJECT_DIR$/sdui" />
+            <option value="$PROJECT_DIR$/sdui/model" />
+            <option value="$PROJECT_DIR$/sdui/ui" />
           </set>
         </option>
       </GradleProjectSettings>

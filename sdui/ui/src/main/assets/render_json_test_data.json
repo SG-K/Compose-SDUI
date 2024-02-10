@@ -1,0 +1,45 @@
+{
+  "type" : "Row",
+  "children" : [
+    {
+      "type" : "Image",
+      "url" : "check",
+      "altText" : "Verified",
+      "imageType" : "image_vector",
+      "style": {
+        "width" : 18,
+        "height" : 18,
+        "id" : "header_back_view"
+      },
+      "tint" : "#5a5f63"
+    },
+    {
+      "type" : "Spacer",
+      "style": {
+        "width" : 5,
+        "id" : "verified_spacer"
+      }
+    },
+    {
+      "type" : "Text",
+      "text" : "Verified",
+      "textStyle": {
+        "textSize": 12,
+        "textColor": "#5a5f63",
+        "isBold": true
+      },
+      "style" : {
+        "id" : "verified_text"
+      }
+    }
+  ],
+  "style": {
+    "padding" : {
+      "top": 5,
+      "bottom": 5,
+      "left": 12,
+      "right": 10
+    },
+    "id" : "row_verified_lable"
+  }
+}

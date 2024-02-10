@@ -18,7 +18,7 @@ class GetProfilePageDataTest{
     val hiltRule = HiltAndroidRule(this)
 
     @Inject
-    lateinit var getProfilePageData: GetProfilePageData
+    lateinit var getProfilePageData: com.sgk.profile.domain.use_case.GetProfilePageData
 
     @Before
     fun setUp(){

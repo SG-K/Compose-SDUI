@@ -1,0 +1,53 @@
+package com.sgk.ui.widgets.image_render
+
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Check
+import androidx.compose.runtime.Composable
+import com.sgk.ui.base.BaseComposeTest
+import com.sgk.ui.widgets.ImageRenderer
+import com.sgk.model.modal.Image
+import com.sgk.model.modal.ImageType
+import com.sgk.model.modal.metadata.ElementStyle
+import com.sgk.model.modal.metadata.Length
+import com.sgk.model.modal.metadata.Padding
+import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.Test
+
+
+@HiltAndroidTest
+class ImageRendererVectorTest : BaseComposeTest<Image>(){
+
+    override fun setData(): Image {
+        return Image(
+            altText = "some altText",
+            url = "check",
+            imageType = ImageType.IMAGE_VECTOR,
+            tint = "#FF0000",
+            style = ElementStyle(
+                width = Length.Number(48),
+                height = Length.Number(48),
+                id = "image",
+                padding = Padding(
+                    left = 24,
+                    right = 24,
+                    top = 24,
+                    bottom = 24,
+                )
+            )
+        )
+    }
+
+    @Composable
+    override fun SetContent() {
+        com.sgk.ui.widgets.ImageRenderer(
+            imgElement = element
+        )
+    }
+
+    @Test
+    override fun testExecution() {
+        element.testWidget(composeTestRule,imageVector = Icons.Outlined.Check)
+    }
+
+
+}
