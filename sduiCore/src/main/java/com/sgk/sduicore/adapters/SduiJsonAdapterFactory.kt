@@ -3,7 +3,6 @@ package com.sgk.sduicore.adapters
 import com.sgk.sduicore.modal.Card
 import com.sgk.sduicore.modal.CardStyle
 import com.sgk.sduicore.modal.Column
-import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.modal.ChildConstraintModel
@@ -33,7 +32,7 @@ import com.sgk.sduicore.adapters.metadata.PaddingJsonAdapter
 import com.sgk.sduicore.adapters.metadata.TextStyleJsonAdapter
 import com.sgk.sduicore.modal.Button
 import com.sgk.sduicore.modal.ButtonStyle
-import com.sgk.sduicore.modal.metadata.ElementBackground
+import com.sgk.sduicore.modal.metadata.Background
 import com.sgk.sduicore.modal.metadata.Length
 import dev.aungkyawpaing.loki.adapter.LazyElementJsonAdapter
 import dev.aungkyawpaing.loki.adapter.LazyListJsonAdapter
@@ -150,13 +149,13 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
                 ElementStyleJsonAdapter(
                     moshi.adapter(Length::class.java),
                     moshi.adapter(Padding::class.java),
-                    moshi.adapter(ElementBackground::class.java),
+                    moshi.adapter(Background::class.java),
                 )
             }
             DirectionConstraints::class.java -> {
                 DirectionConstraintsJsonAdapter()
             }
-            ElementBackground::class.java -> {
+            Background::class.java -> {
                 BackgroundJsonAdapter(
                     moshi.adapter(Orientation::class.java),
                 )

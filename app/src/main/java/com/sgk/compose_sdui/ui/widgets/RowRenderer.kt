@@ -3,7 +3,7 @@ package com.sgk.compose_sdui.ui.widgets
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.sgk.sduicore.modal.metadata.ElementBackground
+import com.sgk.sduicore.modal.metadata.Background
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
@@ -57,7 +57,7 @@ fun RowRendererPreview() {
         ),
       style = ElementStyle(
         id = "row",
-        background = ElementBackground(colors = arrayListOf("#FFFFFF")),
+        background = Background(colors = arrayListOf("#FFFFFF")),
         padding = Padding(
           top = 12,
           bottom = 12,

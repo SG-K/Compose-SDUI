@@ -15,7 +15,7 @@ import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.sgk.compose_sdui.helper.toColor
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.addTestSemantics
-import com.sgk.sduicore.modal.metadata.ElementBackground
+import com.sgk.sduicore.modal.metadata.Background
 import com.sgk.sduicore.modal.Card as CardElement
 
 @Composable
@@ -85,7 +85,7 @@ fun CardRendererPreview() {
             left = 12,
             right = 12
           ),
-          background = ElementBackground(colors = arrayListOf("#0000FF"))
+          background = Background(colors = arrayListOf("#0000FF"))
         )
       )
     )

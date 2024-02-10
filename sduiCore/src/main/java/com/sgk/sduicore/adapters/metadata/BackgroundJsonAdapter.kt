@@ -1,6 +1,6 @@
 package com.sgk.sduicore.adapters.metadata
 
-import com.sgk.sduicore.modal.metadata.ElementBackground
+import com.sgk.sduicore.modal.metadata.Background
 import com.sgk.sduicore.modal.metadata.Orientation
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonAdapter
@@ -10,10 +10,10 @@ import com.squareup.moshi.ToJson
 
 class BackgroundJsonAdapter(
     private val orientationJsonAdapter: JsonAdapter<Orientation>,
-) : JsonAdapter<ElementBackground>() {
+) : JsonAdapter<Background>() {
 
     @FromJson
-    override fun fromJson(reader: JsonReader): ElementBackground? {
+    override fun fromJson(reader: JsonReader): Background? {
         if (reader.peek() == JsonReader.Token.NULL) {
             reader.skipValue()
             return null
@@ -49,14 +49,14 @@ class BackgroundJsonAdapter(
             throw Exception("Invalid list of colors")
         }
 
-        return ElementBackground(
+        return Background(
             colors = colors,
             orientation = orientation
         )
     }
 
     @ToJson
-    override fun toJson(writer: JsonWriter, value: ElementBackground?) {
+    override fun toJson(writer: JsonWriter, value: Background?) {
         writer.beginObject()
 
         writer.name(com.sgk.sduicore.adapters.AdapterConstants.KEY_COLORS)

@@ -2,7 +2,7 @@ package com.sgk.compose_sdui.ui.widgets.utils.semantics
 
 import androidx.compose.ui.semantics.SemanticsPropertyKey
 import androidx.compose.ui.semantics.SemanticsPropertyReceiver
-import com.sgk.sduicore.modal.metadata.ElementBackground
+import com.sgk.sduicore.modal.metadata.Background
 import com.sgk.sduicore.modal.metadata.Length
 import com.sgk.sduicore.modal.metadata.Padding
 
@@ -15,7 +15,7 @@ var SemanticsPropertyReceiver.height by HeightKey
 val PaddingKey = SemanticsPropertyKey<Padding?>("Padding")
 var SemanticsPropertyReceiver.padding by PaddingKey
 
-val BackgroundKey = SemanticsPropertyKey<ElementBackground?>("Background")
+val BackgroundKey = SemanticsPropertyKey<Background?>("Background")
 var SemanticsPropertyReceiver.background by BackgroundKey
 
 val LayoutIdKey = SemanticsPropertyKey<String?>("LayoutId")

@@ -6,6 +6,6 @@ data class ElementStyle(
     val width: Length? = null,
     val height: Length? = null,
     val padding: Padding? = null,
-    val background : ElementBackground? = null,
+    val background : Background? = null,
     val id : String? = null
 )
