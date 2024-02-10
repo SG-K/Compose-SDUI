@@ -12,7 +12,17 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
         private const val KEY_TEXT_SIZE = "textSize"
         private const val KEY_IS_BOLD = "isBold"
         private const val KEY_TEXT_COLOR = "textColor"
-        private val KEY_OPTIONS = JsonReader.Options.of(KEY_TEXT_SIZE, KEY_IS_BOLD, KEY_TEXT_COLOR)
+        private const val KEY_FONT_WEIGHT = "fontWeight"
+        private const val KEY_LINE_HEIGHT = "lineHeight"
+        private const val KEY_FONT_FAMILY = "fontFamily"
+        private val KEY_OPTIONS = JsonReader.Options.of(
+            KEY_TEXT_SIZE,
+            KEY_IS_BOLD,
+            KEY_TEXT_COLOR,
+            KEY_FONT_WEIGHT,
+            KEY_LINE_HEIGHT,
+            KEY_FONT_FAMILY
+        )
     }
 
     @Throws(IOException::class)
@@ -20,6 +30,9 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
         var textSize: Int? = null
         var isBold: Boolean? = null
         var textColor: String? = null
+        var fontWeight: Int? = null
+        var lineHeight: Int? = null
+        var fontFamily: String? = null
 
         reader.beginObject()
         while (reader.hasNext()) {
@@ -32,6 +45,15 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
                 }
                 2 -> {
                     textColor = reader.nextString()
+                }
+                3 -> {
+                    fontWeight = reader.nextInt()
+                }
+                4 -> {
+                    lineHeight = reader.nextInt()
+                }
+                5 -> {
+                    fontFamily = reader.nextString()
                 }
                 else -> {
                     reader.skipName()
@@ -49,7 +71,10 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
         return TextStyle(
             textSize = textSize,
             isBold = isBold,
-            textColor = textColor
+            textColor = textColor,
+            lineHeight = lineHeight,
+            fontFamily = fontFamily,
+            fontWeight = fontWeight,
         )
     }
 
@@ -67,6 +92,15 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
 
             writer.name(KEY_TEXT_COLOR)
             writer.value(value.textColor)
+
+            writer.name(KEY_FONT_WEIGHT)
+            writer.value(value.fontWeight)
+
+            writer.name(KEY_LINE_HEIGHT)
+            writer.value(value.lineHeight)
+
+            writer.name(KEY_FONT_FAMILY)
+            writer.value(value.fontFamily)
 
             writer.endObject()
         }

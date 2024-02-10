@@ -172,7 +172,8 @@
                   "textStyle": {
                     "textSize": 15,
                     "textColor": "#FBEC7C",
-                    "fontWeight" : 700
+                    "fontWeight" : 700,
+                    "lineHeight" : 18
                   },
                   "style": {
                     "id" : "card_one_body",
@@ -203,7 +204,8 @@
                       "textStyle" : {
                         "textSize" : 13,
                         "fontWeight" : 700,
-                        "textColor" : "#181818"
+                        "textColor" : "#181818",
+                        "lineHeight" : 15
                       },
                       "style" : {
                         "width" : 0,
@@ -228,7 +230,7 @@
                         "textStyle": {
                           "textSize": 16,
                           "textColor": "#F9FAFA",
-                          "fontWeight": 700
+                          "fontWeight": 800
                         },
                         "style": {
                           "id": "text_book_now",
