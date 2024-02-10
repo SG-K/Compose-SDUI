@@ -185,7 +185,8 @@
                         "textColor" : "#CED0D2",
                         "fontWeight" : 500,
                         "lineHeight" : 39,
-                        "textSize" : 14
+                        "textSize" : 14,
+                        "fontFamily" : "trim"
                       },
                       "style" : {
                         "id" : "text_date",
@@ -206,7 +207,8 @@
                             "textColor" : "#F9FAFA",
                             "fontWeight" : 800,
                             "lineHeight" : 35,
-                            "textSize" : 42
+                            "textSize" : 42,
+                            "fontFamily" : "trim"
                           },
                           "style" : {
                             "id" : "text_event_name_one"
@@ -219,7 +221,8 @@
                             "textColor" : "#F9FAFA",
                             "fontWeight" : 800,
                             "lineHeight" : 18,
-                            "textSize" : 22
+                            "textSize" : 22,
+                            "fontFamily" : "trim"
                           },
                           "style" : {
                             "id" : "text_event_name_one",
@@ -236,7 +239,8 @@
                             "textColor" : "#F9FAFA",
                             "fontWeight" : 800,
                             "lineHeight" : 35,
-                            "textSize" : 42
+                            "textSize" : 42,
+                            "fontFamily" : "trim"
                           },
                           "style" : {
                             "id" : "text_event_name_one"

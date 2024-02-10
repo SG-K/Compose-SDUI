@@ -13,6 +13,21 @@ val oscineFont = FontFamily(
     Font(R.font.oscine_extra_bold, FontWeight.ExtraBold)
 )
 
+val trimFont = FontFamily(
+    Font(R.font.trim_light, FontWeight.Light),
+    Font(R.font.trim_regular, FontWeight.Normal),
+    Font(R.font.trim_medium, FontWeight.Medium),
+    Font(R.font.trim_bold, FontWeight.Bold),
+    Font(R.font.trim_extra_bold, FontWeight.ExtraBold)
+)
+
+fun String.getFontFamily() : FontFamily {
+    return when(this){
+        "trim" -> trimFont
+        else -> oscineFont
+    }
+}
+
 fun String.getFont() : Font{
     return when(this){
         "light" -> Font(R.font.oscine_light, FontWeight.Light)

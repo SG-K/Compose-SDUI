@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sgk.compose_sdui.helper.toColor
 import com.sgk.compose_sdui.ui.theme.getFont
+import com.sgk.compose_sdui.ui.theme.getFontFamily
 import com.sgk.compose_sdui.ui.theme.oscineFont
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.addTestSemantics
 import com.sgk.sduicore.modal.metadata.ElementStyle
@@ -32,7 +33,7 @@ fun TextRenderer(textElement: TextElement) {
     fontWeight = textElement.textStyle.fontWeight?.let{ FontWeight(it) },
     color = textElement.textStyle.textColor?.toColor() ?: Color.Unspecified,
     lineHeight = textElement.textStyle.lineHeight?.sp ?: TextUnit.Unspecified,
-    fontFamily = oscineFont,
+    fontFamily = textElement.textStyle.fontFamily?.getFontFamily(),
     modifier = textElement
       .style
       .asModifier()
