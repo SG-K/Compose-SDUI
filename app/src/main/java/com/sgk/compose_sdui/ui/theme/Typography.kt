@@ -21,9 +21,15 @@ val trimFont = FontFamily(
     Font(R.font.trim_extra_bold, FontWeight.ExtraBold)
 )
 
+val trimCondensendFont = FontFamily(
+    Font(R.font.trim_condensed_text_regular, FontWeight.Normal),
+    Font(R.font.trim_condensed_display_bold, FontWeight.Bold),
+)
+
 fun String.getFontFamily() : FontFamily {
     return when(this){
         "trim" -> trimFont
+        "trimCondensend" -> trimCondensendFont
         else -> oscineFont
     }
 }

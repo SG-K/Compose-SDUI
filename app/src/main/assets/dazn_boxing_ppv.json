@@ -19,7 +19,6 @@
         },
         "id" : "header"
       },
-
       "children": [
         {
           "type" : "Image",
@@ -60,7 +59,6 @@
           }
         }
       ],
-
       "childernConstrainsList" : [
         {
           "refId" : "header_dazn_icon",
@@ -100,6 +98,7 @@
           }
 
         },
+
         {
           "refId" : "header_sign_in",
           "end" : {
@@ -119,7 +118,6 @@
           }
         }
       ]
-
     },
 
     {
@@ -189,10 +187,7 @@
                         "fontFamily" : "trim"
                       },
                       "style" : {
-                        "id" : "text_date",
-                        "padding" : {
-                          "bottom" : 6
-                        }
+                        "id" : "text_date"
                       }
                     },
 
@@ -205,10 +200,10 @@
                           "text" : "FURY",
                           "textStyle" : {
                             "textColor" : "#F9FAFA",
-                            "fontWeight" : 800,
+                            "fontWeight" : 700,
                             "lineHeight" : 35,
                             "textSize" : 42,
-                            "fontFamily" : "trim"
+                            "fontFamily" : "trimCondensend"
                           },
                           "style" : {
                             "id" : "text_event_name_one"
@@ -219,10 +214,10 @@
                           "text" : "VS",
                           "textStyle" : {
                             "textColor" : "#F9FAFA",
-                            "fontWeight" : 800,
+                            "fontWeight" : 700,
                             "lineHeight" : 18,
                             "textSize" : 22,
-                            "fontFamily" : "trim"
+                            "fontFamily" : "trimCondensend"
                           },
                           "style" : {
                             "id" : "text_event_name_one",
@@ -237,10 +232,10 @@
                           "text" : "USYK",
                           "textStyle" : {
                             "textColor" : "#F9FAFA",
-                            "fontWeight" : 800,
+                            "fontWeight" : 700,
                             "lineHeight" : 35,
                             "textSize" : 42,
-                            "fontFamily" : "trim"
+                            "fontFamily" : "trimCondensend"
                           },
                           "style" : {
                             "id" : "text_event_name_one"
@@ -280,7 +275,7 @@
                     "id" : "card_one_sub_layer",
                     "width" : "max",
                     "background" : {
-                      "colors" : ["#FBED7D","#C48C09","#C48C09"],
+                      "colors" : ["#CFA120","#FBED7D","#CF9F20"],
                       "orientation" : "horizontal"
                     }
                   },
@@ -318,14 +313,15 @@
                         "textStyle": {
                           "textSize": 16,
                           "textColor": "#F9FAFA",
-                          "fontWeight": 800
+                          "fontWeight": 700,
+                          "fontFamily" : "trim"
                         },
                         "style": {
                           "id": "text_book_now",
                           "padding" : {
                             "top" : 10,
-                            "left" : 20,
-                            "right" : 20,
+                            "left" : 10,
+                            "right" : 10,
                             "bottom" : 10
                           },
                           "background" : {
@@ -474,7 +470,6 @@
         "id" : "footer"
 
       },
-
       "children": [
 
         {
@@ -507,7 +502,6 @@
           "tint" : "#FFFFFF"
         }
       ],
-
       "childernConstrainsList" : [
         {
           "refId" : "footer_text",
@@ -557,6 +551,7 @@
         "margin" : 16
       }
     },
+
     {
       "refId" : "sub_header_txt",
       "top" : {
@@ -564,6 +559,7 @@
         "constraintComposableId" : "header"
       }
     },
+
     {
       "refId" : "list_cards",
       "top" : {
@@ -576,6 +572,7 @@
       },
       "height_constraint" : "fillToConstraints"
     },
+
     {
       "refId" : "footer",
       "bottom" : {
