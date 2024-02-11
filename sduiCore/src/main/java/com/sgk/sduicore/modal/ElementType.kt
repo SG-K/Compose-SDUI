@@ -10,7 +10,8 @@ enum class ElementType(val typeString: String) {
     CONSTRAINT_LAYOUT("ConstraintLayout"),
     CARD("Card"),
     SPACER("Spacer"),
-    LAZY_LIST("LazyList");
+    LAZY_LIST("LazyList"),
+    BOX("Box");
 //    LAZY_GRID("LazyGrid");
 
     companion object {

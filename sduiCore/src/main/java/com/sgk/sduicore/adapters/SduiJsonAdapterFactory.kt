@@ -30,6 +30,7 @@ import com.sgk.sduicore.adapters.metadata.LengthJsonAdapter
 import com.sgk.sduicore.adapters.metadata.OrientationJsonAdapter
 import com.sgk.sduicore.adapters.metadata.PaddingJsonAdapter
 import com.sgk.sduicore.adapters.metadata.TextStyleJsonAdapter
+import com.sgk.sduicore.modal.Box
 import com.sgk.sduicore.modal.Button
 import com.sgk.sduicore.modal.ButtonStyle
 import com.sgk.sduicore.modal.metadata.Background
@@ -53,6 +54,7 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
                     moshi.adapter(LazyList::class.java),
                     moshi.adapter(Spacer::class.java),
                     moshi.adapter(Button::class.java),
+                    moshi.adapter(Box::class.java),
                 )
             }
             ConstraintLayout::class.java -> {
@@ -107,6 +109,12 @@ class SduiJsonAdapterFactory : JsonAdapter.Factory {
 
             CardStyle::class.java -> {
                 CardStyleJsonAdapter()
+            }
+
+            Box::class.java -> {
+                BoxJsonAdapter(
+                    styleJsonAdapter = moshi.adapter(ElementStyle::class.java),
+                )
             }
 
             LazyElement::class.java -> {

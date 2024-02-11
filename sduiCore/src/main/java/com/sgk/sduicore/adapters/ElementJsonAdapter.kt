@@ -12,6 +12,7 @@ import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Spacer
 import com.sgk.sduicore.modal.Text
 import com.sgk.sduicore.adapters.constraint_layout.print
+import com.sgk.sduicore.modal.Box
 import com.sgk.sduicore.modal.Button
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
@@ -27,6 +28,7 @@ class ElementJsonAdapter(
     private val lazyListJsonAdapter: JsonAdapter<LazyList>,
     private val spacerJsonAdapter: JsonAdapter<Spacer>,
     private val buttonJsonAdapter: JsonAdapter<Button>,
+    private val boxJsonAdapter: JsonAdapter<Box>,
 ) : JsonAdapter<Element>() {
 
     companion object {
@@ -67,6 +69,9 @@ class ElementJsonAdapter(
                 }
                 ElementType.BUTTON-> {
                     element = buttonJsonAdapter.fromJsonValue(jsonValueMap)
+                }
+                ElementType.BOX-> {
+                    element = boxJsonAdapter.fromJsonValue(jsonValueMap)
                 }
                 null -> {
                     throw IllegalArgumentException("Illegal type: $typeString found. Refer to Loki spec")

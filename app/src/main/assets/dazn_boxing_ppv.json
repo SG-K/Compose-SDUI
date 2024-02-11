@@ -449,6 +449,304 @@
               "id" : "card_one"
             }
           }
+        },
+
+        {
+          "lazyElemntId" : "2",
+          "element" : {
+            "type" : "ConstraintLayout",
+            "style" : {
+              "width" : "max",
+              "height" : 50,
+              "id" : "layout_divider"
+            },
+            "children" : [
+
+              {
+                "type" : "Box",
+                "style" : {
+                  "id" : "box_space_one",
+                  "height" : 1,
+                  "width" : 0,
+                  "background" : {
+                    "colors" : ["#6D7377"]
+                  }
+                }
+              },
+
+              {
+                "type" : "Text",
+                "text" : "OR",
+                "textStyle" : {
+                  "textSize" : 14,
+                  "lineHeight" : 10,
+                  "fontWeight" : 700,
+                  "textColor" : "#9EA2A4"
+                },
+                "style" : {
+                  "id" : "text_or",
+                  "padding" : {
+                    "start" : 10,
+                    "end" : 10
+                  }
+                }
+              },
+
+              {
+                "type" : "Box",
+                "style" : {
+                  "id" : "box_space_two",
+                  "height" : 1,
+                  "width" : 0,
+                  "background" : {
+                    "colors" : ["#6D7377"]
+                  }
+                }
+              }
+            ],
+
+            "childernConstrainsList" : [
+              {
+                "refId" : "box_space_one",
+                "start" : {
+                  "contraintDirection" : "start",
+                  "constraintComposableId" : "-101",
+                  "margin" : 16
+                },
+                "end" : {
+                  "contraintDirection" : "start",
+                  "constraintComposableId" : "text_or",
+                  "margin" : 16
+                },
+                "top" : {
+                  "contraintDirection" : "top",
+                  "constraintComposableId" : "-101"
+                },
+                "bottom" : {
+                  "contraintDirection" : "bottom",
+                  "constraintComposableId" : "-101"
+                },
+                "width_constraint" : "fillToConstraints"
+              },
+              {
+                "refId" : "text_or",
+                "start" : {
+                  "contraintDirection" : "start",
+                  "constraintComposableId" : "-101",
+                  "margin" : 16
+                },
+                "end" : {
+                  "contraintDirection" : "end",
+                  "constraintComposableId" : "-101",
+                  "margin" : 16
+                },
+                "top" : {
+                  "contraintDirection" : "top",
+                  "constraintComposableId" : "-101"
+                },
+                "bottom" : {
+                  "contraintDirection" : "bottom",
+                  "constraintComposableId" : "-101"
+                }
+              },
+
+              {
+                "refId" : "box_space_two",
+                "end" : {
+                  "contraintDirection" : "end",
+                  "constraintComposableId" : "-101",
+                  "margin" : 16
+                },
+                "start" : {
+                  "contraintDirection" : "end",
+                  "constraintComposableId" : "text_or",
+                  "margin" : 16
+                },
+                "top" : {
+                  "contraintDirection" : "top",
+                  "constraintComposableId" : "-101"
+                },
+                "bottom" : {
+                  "contraintDirection" : "bottom",
+                  "constraintComposableId" : "-101"
+                },
+                "width_constraint" : "fillToConstraints"
+              }
+            ]
+
+          }
+        },
+
+        {
+          "lazyElemntId": "3",
+          "element": {
+            "type" : "Card",
+            "child" : {
+              "type": "ConstraintLayout",
+              "style": {
+                "width" : "max",
+                "id" : "contraint_layout_card_2"
+              },
+              "children" : [
+                {
+                  "type" : "Image",
+                  "url" : "https://images.ctfassets.net/vhp9jnid12wf/PBKn4YoRSxtLSO7eS4Izu/3a017f4090d77955afc4061694af9f56/MicrosoftTeams-image__3_.png?fm=webp",
+                  "altText" : "card_two_image",
+                  "imageType" : "remote",
+                  "style": {
+                    "width" : "max",
+                    "id" : "card_two_bg"
+                  }
+                },
+
+                {
+                  "type" : "ConstraintLayout",
+                  "style" : {
+                    "id" : "constraint_layout_texts_2",
+                    "width" : "max"
+                  },
+                  "children" : [
+
+                    {
+                      "type" : "Text",
+                      "text" : "Super Bowl LVIII",
+                      "style" : {
+                        "id" : "text_card_two_title"
+                      },
+                      "textStyle" : {
+                        "textColor" : "#FFFFFF",
+                        "textSize" : 16,
+                        "lineHeight" : 20,
+                        "fontWeight" : 800,
+                        "fontFamily" : "trim"
+                      }
+                    },
+
+                    {
+                      "type" : "Text",
+                      "text" : "Watch the greatest show on earth on Feb 12th exclusively on DAZN",
+                      "style" : {
+                        "id" : "text_card_two_desp",
+                        "width" : 0
+                      },
+                      "textStyle" : {
+                        "textColor" : "#CED0D2",
+                        "textSize" : 14,
+                        "lineHeight" : 20,
+                        "fontWeight" : 700
+                      }
+                    },
+
+                    {
+                      "type" : "Card",
+                      "style": {
+                        "id" : "row_book_now_2"
+                      },
+                      "cardStyle" : {
+                        "radius" : 10,
+                        "contentColor" : "#000000",
+                        "elevation" : 0,
+                        "containerColor" : "#FFFFFF"
+                      },
+                      "child" : {
+                        "type": "Text",
+                        "text": "BOOK NOW",
+                        "textStyle": {
+                          "textSize": 16,
+                          "textColor": "#000000",
+                          "fontWeight": 700,
+                          "fontFamily" : "trim"
+                        },
+                        "style": {
+                          "id": "text_book_now_2",
+                          "padding" : {
+                            "top" : 10,
+                            "left" : 10,
+                            "right" : 10,
+                            "bottom" : 10
+                          },
+                          "background" : {
+                            "colors" : [ "#FFFFFF" ]
+                          }
+                        }
+                      }
+                    }
+
+                  ],
+                  "childernConstrainsList" : [
+                    {
+                      "refId" : "row_book_now_2",
+                      "end" : {
+                        "contraintDirection" : "end",
+                        "constraintComposableId" : "-101",
+                        "margin" : 16
+                      }
+                    },
+
+                    {
+                      "refId" : "text_card_two_title",
+                      "start" : {
+                        "contraintDirection" : "start",
+                        "constraintComposableId" : "-101",
+                        "margin" : 16
+                      },
+                      "bottom" : {
+                        "contraintDirection" : "top",
+                        "constraintComposableId" : "text_card_two_desp",
+                        "margin" : 8
+                      }
+                    },
+
+                    {
+                      "refId" : "text_card_two_desp",
+                      "start" : {
+                        "contraintDirection" : "start",
+                        "constraintComposableId" : "-101",
+                        "margin" : 16
+                      },
+                      "end" : {
+                        "contraintDirection" : "start",
+                        "constraintComposableId" : "row_book_now_2",
+                        "margin" : 16
+                      },
+                      "width_constraint" : "fillToConstraints"
+                    }
+                  ]
+                }
+              ],
+              "childernConstrainsList" : [
+
+                {
+                  "refId" : "card_two_bg",
+                  "top" : {
+                    "contraintDirection" : "top",
+                    "constraintComposableId" : "-101"
+                  }
+                },
+
+                {
+                  "refId" : "constraint_layout_texts_2",
+                  "bottom" : {
+                    "contraintDirection" : "bottom",
+                    "constraintComposableId" : "card_two_bg",
+                    "margin" : 16
+                  }
+                }
+
+              ]
+            },
+            "cardStyle" : {
+              "radius" : 15
+            },
+            "style": {
+              "width" : "max",
+              "padding": {
+                "left" : 16,
+                "right" : 16
+              },
+              "id" : "card_two"
+            }
+          }
         }
       ],
       "style" : {

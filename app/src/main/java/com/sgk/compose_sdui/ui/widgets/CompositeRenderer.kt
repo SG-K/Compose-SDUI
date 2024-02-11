@@ -31,6 +31,9 @@ fun CompositeRenderer(element: Element) {
     is com.sgk.sduicore.modal.Column -> {
       ColumnRenderer(element = element)
     }
+    is com.sgk.sduicore.modal.Box -> {
+      BoxRenderer(element = element)
+    }
     is Row -> {
       RowRenderer(element = element)
     }
