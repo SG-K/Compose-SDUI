@@ -14,7 +14,6 @@ import com.sgk.sduicore.modal.metadata.Padding
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
-import dev.aungkyawpaing.loki.adapter.ColumnJsonAdapter
 import com.sgk.sduicore.modal.Image
 import com.sgk.sduicore.modal.LazyElement
 import com.sgk.sduicore.modal.LazyList
@@ -35,7 +34,6 @@ import com.sgk.sduicore.modal.Button
 import com.sgk.sduicore.modal.ButtonStyle
 import com.sgk.sduicore.modal.metadata.Background
 import com.sgk.sduicore.modal.metadata.Length
-import dev.aungkyawpaing.loki.adapter.LazyElementJsonAdapter
 import dev.aungkyawpaing.loki.adapter.LazyListJsonAdapter
 import java.lang.reflect.Type
 

@@ -1,4 +1,4 @@
-package dev.aungkyawpaing.loki.adapter
+package com.sgk.sduicore.adapters
 
 import com.sgk.sduicore.modal.Element
 import com.sgk.sduicore.adapters.ElementJsonAdapter
