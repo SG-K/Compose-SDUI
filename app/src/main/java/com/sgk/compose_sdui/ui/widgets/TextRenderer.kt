@@ -16,9 +16,14 @@ import com.sgk.compose_sdui.ui.theme.getFont
 import com.sgk.compose_sdui.ui.theme.getFontFamily
 import com.sgk.compose_sdui.ui.theme.oscineFont
 import com.sgk.compose_sdui.ui.widgets.utils.semantics.addTestSemantics
+import com.sgk.sduicore.adapters.constraint_layout.print
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.sgk.sduicore.modal.Text as TextElement
+import com.sgk.sduicore.modal.metadata.TextAlign as SduiTextAlign
+import com.sgk.sduicore.modal.metadata.TextAlign.LEFT as LEFT
+import com.sgk.sduicore.modal.metadata.TextAlign.RIGHT as RIGHT
+import com.sgk.sduicore.modal.metadata.TextAlign.CENTER as CENTER
 
 @Composable
 fun TextRenderer(textElement: TextElement) {
@@ -26,6 +31,8 @@ fun TextRenderer(textElement: TextElement) {
   if (textElement.style?.id == "text_book_now_desp"){
     Log.v("hjdsvbsjdhbv", "fontWeight = ${textElement.textStyle.fontWeight}")
   }
+
+  "sdvfdfv json data = ${textElement.textStyle.align}".print()
 
   Text(
     text = textElement.text,
@@ -38,8 +45,15 @@ fun TextRenderer(textElement: TextElement) {
       .style
       .asModifier()
       .addTestSemantics(textElement),
-    textAlign = TextAlign.Left
+    textAlign = textElement.textStyle.align?.toComposeTextAlign() ?: TextAlign.Left
   )
+}
+
+fun SduiTextAlign.toComposeTextAlign() = when(this){
+  LEFT -> TextAlign.Left
+  CENTER -> TextAlign.Center
+  CENTER -> TextAlign.Center
+  RIGHT -> TextAlign.Right
 }
 
 @Preview(name = "Text", "Text Components")

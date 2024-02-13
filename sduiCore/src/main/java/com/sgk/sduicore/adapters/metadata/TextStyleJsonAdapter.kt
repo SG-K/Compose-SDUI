@@ -1,5 +1,7 @@
 package com.sgk.sduicore.adapters.metadata
 
+import com.sgk.sduicore.adapters.constraint_layout.print
+import com.sgk.sduicore.modal.metadata.TextAlign
 import com.sgk.sduicore.modal.metadata.TextStyle
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
@@ -15,13 +17,15 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
         private const val KEY_FONT_WEIGHT = "fontWeight"
         private const val KEY_LINE_HEIGHT = "lineHeight"
         private const val KEY_FONT_FAMILY = "fontFamily"
+        private const val KEY_ALIGN = "align"
         private val KEY_OPTIONS = JsonReader.Options.of(
             KEY_TEXT_SIZE,
             KEY_IS_BOLD,
             KEY_TEXT_COLOR,
             KEY_FONT_WEIGHT,
             KEY_LINE_HEIGHT,
-            KEY_FONT_FAMILY
+            KEY_FONT_FAMILY,
+            KEY_ALIGN
         )
     }
 
@@ -33,6 +37,7 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
         var fontWeight: Int? = null
         var lineHeight: Int? = null
         var fontFamily: String? = null
+        var align : TextAlign? = null
 
         reader.beginObject()
         while (reader.hasNext()) {
@@ -55,6 +60,15 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
                 5 -> {
                     fontFamily = reader.nextString()
                 }
+                6 -> {
+                    val sam = reader.nextString()
+                    "sdvfdfv json data = $sam".print()
+                    align = when(sam){
+                        "center" -> TextAlign.CENTER
+                        "right" -> TextAlign.RIGHT
+                        else -> TextAlign.LEFT
+                     }
+                }
                 else -> {
                     reader.skipName()
                     reader.skipValue()
@@ -75,6 +89,7 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
             lineHeight = lineHeight,
             fontFamily = fontFamily,
             fontWeight = fontWeight,
+            align = align,
         )
     }
 
@@ -101,6 +116,14 @@ class TextStyleJsonAdapter : JsonAdapter<TextStyle>() {
 
             writer.name(KEY_FONT_FAMILY)
             writer.value(value.fontFamily)
+
+            writer.name(KEY_ALIGN)
+            val align = when(value.align){
+                TextAlign.CENTER -> "center"
+                TextAlign.RIGHT -> "right"
+                else -> "left"
+            }
+            writer.value(align)
 
             writer.endObject()
         }

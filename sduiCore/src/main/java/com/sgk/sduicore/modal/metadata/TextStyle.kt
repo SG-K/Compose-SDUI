@@ -9,4 +9,11 @@ data class TextStyle(
     val fontWeight : Int? = null,
     val lineHeight : Int? = null,
     val fontFamily : String? = null,
+    val align: TextAlign? = null
 )
+
+enum class TextAlign{
+    LEFT,
+    RIGHT,
+    CENTER
+}
