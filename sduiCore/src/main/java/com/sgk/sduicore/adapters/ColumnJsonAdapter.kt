@@ -1,5 +1,6 @@
 package com.sgk.sduicore.adapters
 
+import com.sgk.sduicore.modal.Alignment
 import com.sgk.sduicore.modal.Element
 import com.sgk.sduicore.modal.metadata.ElementStyle
 import com.squareup.moshi.JsonAdapter
@@ -16,10 +17,12 @@ class ColumnJsonAdapter(
         private const val KEY_TYPE = "type"
         private const val KEY_CHILDREN = "children"
         private const val KEY_STYLE = "style"
+        private const val KEY_ALIGNMENT = "alignment"
         private const val KEY_INTERACTIONS = "interactions"
         private val KEY_OPTIONS = JsonReader.Options.of(
             KEY_CHILDREN,
             KEY_STYLE,
+            KEY_ALIGNMENT,
 //            KEY_ID
         )
     }
@@ -28,6 +31,7 @@ class ColumnJsonAdapter(
         var children: MutableList<Element>? = null
         var style: ElementStyle? = null
         var id : String? = null
+        var alignment : Alignment? = null
         reader.beginObject()
 
         while (reader.hasNext()) {
@@ -45,6 +49,10 @@ class ColumnJsonAdapter(
                 }
                 1 -> {
                     style = styleJsonAdapter.fromJson(reader)
+                }
+                2 -> {
+                    val typeString = reader.nextString()
+                    alignment = Alignment.fromTypeString(typeString)
                 }
 //                2 -> {
 //                    id = reader.nextString()
@@ -66,6 +74,7 @@ class ColumnJsonAdapter(
         return com.sgk.sduicore.modal.Column(
             children = children.toList(),
             style = style,
+            alignment = alignment ?: Alignment.TOP_START,
 //            id = id ?: System.currentTimeMillis().toString()
         )
     }

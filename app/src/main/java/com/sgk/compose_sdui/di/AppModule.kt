@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.res.AssetManager
 import com.sgk.compose_sdui.data.SduiDataRepositoryImpl
 import com.sgk.compose_sdui.domain.SduiDataRepository
+import com.sgk.compose_sdui.features.profile.domain.use_case.GetJsonAsperType
 import com.sgk.compose_sdui.features.profile.domain.use_case.GetProfilePageData
 import com.sgk.sduicore.adapters.SduiJsonAdapterFactory
 import com.squareup.moshi.Moshi
@@ -34,6 +35,14 @@ object AppModule {
     @Singleton
     fun provideGetUseCases(repository: SduiDataRepository): GetProfilePageData {
         return GetProfilePageData(
+            sduiDataRepository = repository
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetJsonAsperTypeUsecase(repository: SduiDataRepository): GetJsonAsperType {
+        return GetJsonAsperType(
             sduiDataRepository = repository
         )
     }

@@ -1,0 +1,145 @@
+{
+  "type" : "ConstraintLayout",
+  "style" : {
+    "id" : "layout_root",
+    "width" : "max",
+    "background" : {
+      "colors" : [ "#000000" ]
+    }
+  },
+  "children" : [
+    {
+      "type" : "Image",
+      "url" : "menu",
+      "altText" : "menu",
+      "imageType" : "image_vector",
+      "tint" : "#FFFFFF",
+      "style": {
+        "id" : "menu_icon"
+      }
+    },
+
+    {
+      "type" : "Text",
+      "text" : "HOME",
+      "textStyle": {
+        "textSize": 20,
+        "textColor": "#FFFFFF",
+        "fontWeight" : 700
+      },
+      "style": {
+        "width" : 0,
+        "id" : "header_text"
+      }
+    },
+
+    {
+      "type" : "Image",
+      "url" : "mail",
+      "altText" : "mail_icon",
+      "imageType" : "image_vector",
+      "tint" : "#FFFFFF",
+      "style": {
+        "height" : 24,
+        "width" : 24,
+        "id" : "mail_icon"
+      }
+    },
+
+    {
+      "type" : "Image",
+      "url" : "search",
+      "altText" : "search_icon",
+      "imageType" : "image_vector",
+      "tint" : "#FFFFFF",
+      "style": {
+        "height" : 24,
+        "width" : 24,
+        "id" : "search_icon"
+      }
+    }
+  ],
+  "childernConstrainsList" : [
+    {
+      "refId" : "menu_icon",
+      "start" : {
+        "contraintDirection" : "start",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      },
+      "top" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      },
+      "bottom" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      }
+    },
+
+    {
+      "refId" : "header_text",
+      "start" : {
+        "contraintDirection" : "end",
+        "constraintComposableId" : "menu_icon",
+        "margin" : 12
+      },
+      "end" : {
+        "contraintDirection" : "start",
+        "constraintComposableId" : "mail_icon",
+        "margin" : 12
+      },
+      "top" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "menu_icon",
+        "margin" : 0
+      },
+      "bottom" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "menu_icon",
+        "margin" : 0
+      },
+      "width_constraint" : "fillToConstraints"
+    },
+
+    {
+      "refId" : "search_icon",
+      "end" : {
+        "contraintDirection" : "end",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      },
+      "top" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      },
+      "bottom" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      }
+    },
+
+    {
+      "refId" : "mail_icon",
+      "end" : {
+        "contraintDirection" : "start",
+        "constraintComposableId" : "search_icon",
+        "margin" : 16
+      },
+      "top" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      },
+      "bottom" : {
+        "contraintDirection" : "bottom",
+        "constraintComposableId" : "-101",
+        "margin" : 16
+      }
+    }
+  ]
+}

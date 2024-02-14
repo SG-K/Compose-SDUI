@@ -2,6 +2,7 @@ package com.sgk.compose_sdui.ui.widgets
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.Preview
 import com.sgk.sduicore.modal.Text as TextElement
 import com.sgk.sduicore.modal.metadata.ElementStyle
@@ -13,10 +14,20 @@ import com.sgk.sduicore.modal.Column as ColumnElement
 fun ColumnRenderer(element: ColumnElement) {
   Column(
     modifier = element.asModifier(),
+    horizontalAlignment =  element.alignment.getColumnAlignment()
   ) {
     element.children.forEach { child ->
       CompositeRenderer(element = child)
     }
+  }
+}
+
+fun com.sgk.sduicore.modal.Alignment.getColumnAlignment() : Alignment.Horizontal {
+  return when(this){
+    com.sgk.sduicore.modal.Alignment.CENTER_HORIZONTAL -> Alignment.CenterHorizontally
+    com.sgk.sduicore.modal.Alignment.TOP_START -> Alignment.Start
+    com.sgk.sduicore.modal.Alignment.BOTTOM_START -> Alignment.End
+    else -> Alignment.Start
   }
 }
 

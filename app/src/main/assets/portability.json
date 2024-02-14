@@ -1,0 +1,157 @@
+{
+  "type" : "ConstraintLayout",
+  "style" :{
+    "id" : "constraint_layout_root",
+    "width" : "max",
+    "padding" : {
+      "top" : 16,
+      "bottom" : 16,
+      "left" : 16,
+      "right" : 16
+    }
+  },
+  "children" : [
+
+
+
+    {
+      "type" : "Card",
+      "style" : {
+        "id" : "card_portability",
+        "width" : "max"
+      },
+      "child" : {
+
+        "type" : "Column",
+        "alignment" : "center_horizontal",
+        "style" : {
+          "id" : "column_portability"
+        },
+        "children" : [
+          {
+            "type": "Image",
+            "url": "aeroplane",
+            "altText": "aeroplane_icon",
+            "imageType": "drawable",
+            "tint": "#000000",
+            "style": {
+              "height": 48,
+              "width": 48,
+              "padding" : {
+                "top" : 16
+              },
+              "id": "aeroplane_icon"
+            }
+          },
+
+
+
+          {
+            "type" : "Text",
+            "text" : "Looks like you're traveling",
+            "textStyle": {
+              "textSize": 24,
+              "textColor": "#080E12",
+              "fontWeight" : 700,
+              "fontFamily" : "trim",
+              "align" : "center"
+            },
+            "style": {
+              "id" : "header",
+              "padding" : {
+                "top" : 10
+              }
+            }
+          },
+
+          {
+            "type" : "Spacer",
+            "style" : {
+              "id" : "spacer_one",
+              "height" : 10
+            }
+          },
+
+          {
+            "type" : "Text",
+            "text" : "Content may be different while you’re traveling. You can still enjoy global content",
+            "textStyle": {
+              "textSize": 16,
+              "textColor": "#0c161c",
+              "fontWeight" : 500,
+              "fontFamily" : "trim",
+              "lineHeight" : 18,
+              "align" : "center"
+            },
+            "style": {
+              "id" : "header",
+              "padding" : {
+                "left" : 16,
+                "right" : 16,
+                "bottom" : 16
+              }
+            }
+          }
+        ]
+
+      },
+      "cardStyle" : {
+        "radius" : 10,
+        "containerColor" : "#f7ff1a"
+      }
+    },
+
+    {
+      "type": "Image",
+      "url": "world_map",
+      "altText": "world_map",
+      "imageType": "drawable",
+      "tint" : "#45000000",
+      "style": {
+        "width": 0,
+        "id": "world_map"
+      }
+    }
+  ],
+
+  "childernConstrainsList" : [
+    {
+      "refId" : "card_portability",
+      "start" : {
+        "contraintDirection" : "start",
+        "constraintComposableId" : "-101",
+        "margin" : 0
+      },
+
+      "top" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "-101",
+        "margin" : 0
+      }
+    },
+
+    {
+      "refId" : "world_map",
+      "start" : {
+        "contraintDirection" : "start",
+        "constraintComposableId" : "-101",
+        "margin" : 0
+      },
+
+      "end" : {
+        "contraintDirection" : "end",
+        "constraintComposableId" : "-101",
+        "margin" : 0
+      },
+
+      "top" : {
+        "contraintDirection" : "top",
+        "constraintComposableId" : "-101",
+        "margin" : 0
+      },
+
+      "width_constraint" : "fillToConstraints"
+
+    }
+  ]
+}

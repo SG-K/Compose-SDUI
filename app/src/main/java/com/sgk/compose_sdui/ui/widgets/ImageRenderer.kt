@@ -21,7 +21,7 @@ import com.sgk.compose_sdui.ui.widgets.utils.semantics.addTestSemantics
 @Composable
 fun ImageRenderer(imgElement: ImageElement) {
 
-  val modifier = imgElement
+  var modifier = imgElement
     .style
     .asModifier()
     .addTestSemantics(imgElement)
@@ -35,7 +35,7 @@ fun ImageRenderer(imgElement: ImageElement) {
           .url
           .getPaintResource(),
         contentDescription = imgElement.altText,
-        contentScale = ContentScale.FillBounds,
+        contentScale = if (imgElement.style?.id?.equals("world_map") == true )ContentScale.FillBounds else ContentScale.FillBounds,
         colorFilter = imgElement.tint?.toColor()?.let {
           ColorFilter.tint(it)
         }
@@ -79,6 +79,30 @@ fun ImageRendererPreview() {
       altText = "some altText",
       url = "https://images.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
       imageType = ImageType.REMOTE,
+      tint = "#FF0000",
+      style = ElementStyle(
+        width = Length.Number(48),
+        height = Length.Number(48),
+        id = "image",
+        padding = Padding(
+          left = 24,
+          right = 24,
+          top = 24,
+          bottom = 24,
+        )
+      )
+    )
+  )
+}
+
+@Preview(name = "Image", "Layout Components")
+@Composable
+fun ImageRendererImageVectorPreview() {
+  ImageRenderer(
+    imgElement = ImageElement(
+      altText = "some altText",
+      url = "menu",
+      imageType = ImageType.IMAGE_VECTOR,
       tint = "#FF0000",
       style = ElementStyle(
         width = Length.Number(48),

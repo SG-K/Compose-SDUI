@@ -6,6 +6,9 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.outlined.ArrowForward
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.Email
+import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -22,6 +25,9 @@ fun String.getImageVector() : ImageVector{
         "close"-> Icons.Default.Close
         "edit"-> Icons.Outlined.Edit
         "check"-> Icons.Outlined.Check
+        "menu"-> Icons.Outlined.Menu
+        "mail" -> Icons.Outlined.Email
+        "search" -> Icons.Outlined.Search
         "forward_arrow"-> Icons.Outlined.ArrowForward
         else -> Icons.Default.ArrowBack
     }
@@ -34,6 +40,8 @@ fun String.getPaintResource() : Painter {
         "facebook" -> painterResource(id = R.drawable.ic_facebook)
         "apple" -> painterResource(id = R.drawable.ic_applie)
         "yellow_gradient" -> painterResource(id = R.drawable.ic_bottom_background_icon)
+        "aeroplane" -> painterResource(id = R.drawable.ic_aeroplane)
+        "world_map" -> painterResource(id = R.drawable.world_map)
         else -> painterResource(id = R.drawable.ic_google)
     }
 }

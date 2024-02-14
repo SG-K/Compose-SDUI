@@ -14,8 +14,18 @@ class SduiDataRepositoryImpl(
 
     override fun getProfileScreenJson(): Flow<String> {
 //        val json = assert.open("home_page.json").bufferedReader().use {
-        val json = assert.open("dazn_boxing_ppv.json").bufferedReader().use {
+//        val json = assert.open("dazn_boxing_ppv.json").bufferedReader().use {
+        val json = assert.open("portability.json").bufferedReader().use {
 //        val json = assert.open("demo.json").bufferedReader().use {
+            it.readText()
+        }
+        return flow {
+            emit(json)
+        }
+    }
+
+    override fun getJsonFromFile(jsonFileName: String): Flow<String> {
+        val json = assert.open(jsonFileName).bufferedReader().use {
             it.readText()
         }
         return flow {

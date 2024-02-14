@@ -71,7 +71,7 @@ fun TextRendererPreview() {
     .Builder()
     .add(SduiJsonAdapterFactory())
     .build()
-  val element = moshi.adapter(Element::class.java).fromJson(json_file)!!
+  val element : Element = moshi.adapter(Element::class.java).fromJson(json_file)!!
 
   TextRenderer(textElement = element as TextElement)
 
