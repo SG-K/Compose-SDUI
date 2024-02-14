@@ -1,0 +1,12 @@
+{
+  "type" : "Text",
+  "text" : "Welcome to DAZN",
+  "textStyle": {
+    "textSize": 20,
+    "textColor": "#FF0000",
+    "fontWeight" : 700
+  },
+  "style": {
+    "id" : "header_text"
+  }
+}
