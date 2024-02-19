@@ -155,9 +155,9 @@
               "children" : [
                 {
                   "type" : "Image",
-                  "url" : "https://images.ctfassets.net/vhp9jnid12wf/z4wmHbok6qAVQH4ZWqoVX/6028fc812fd1bab6cf145eda31501a7d/Q4_Unrivalled_Landing_Page_Mobile___Tablet_720x1600_UK.jpg?fm=webp",
+                  "url" : "ppv_bg_1",
                   "altText" : "card_one_image",
-                  "imageType" : "remote",
+                  "imageType" : "drawable",
                   "style": {
                     "width" : "max",
                     "id" : "card_one_bg"
@@ -585,16 +585,18 @@
               "type": "ConstraintLayout",
               "style": {
                 "width" : "max",
-                "id" : "contraint_layout_card_2"
+                "id" : "contraint_layout_card_2",
+                "height" : 150
               },
               "children" : [
                 {
                   "type" : "Image",
-                  "url" : "https://images.ctfassets.net/vhp9jnid12wf/PBKn4YoRSxtLSO7eS4Izu/3a017f4090d77955afc4061694af9f56/MicrosoftTeams-image__3_.png?fm=webp",
+                  "url" : "ppv_bg_2",
                   "altText" : "card_two_image",
-                  "imageType" : "remote",
+                  "imageType" : "drawable",
                   "style": {
                     "width" : "max",
+                    "height" : 150,
                     "id" : "card_two_bg"
                   }
                 },

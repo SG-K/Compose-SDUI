@@ -1,8 +1,10 @@
 package com.sgk.sduicore.adapters
 
+import com.sgk.sduicore.adapters.constraint_layout.print
+import com.sgk.sduicore.modal.Box
+import com.sgk.sduicore.modal.Button
 import com.sgk.sduicore.modal.Card
 import com.sgk.sduicore.modal.Column
-import com.sgk.sduicore.adapters.ElementJsonAdapter
 import com.sgk.sduicore.modal.ConstraintLayout
 import com.sgk.sduicore.modal.Element
 import com.sgk.sduicore.modal.ElementType
@@ -11,9 +13,6 @@ import com.sgk.sduicore.modal.LazyList
 import com.sgk.sduicore.modal.Row
 import com.sgk.sduicore.modal.Spacer
 import com.sgk.sduicore.modal.Text
-import com.sgk.sduicore.adapters.constraint_layout.print
-import com.sgk.sduicore.modal.Box
-import com.sgk.sduicore.modal.Button
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.JsonWriter

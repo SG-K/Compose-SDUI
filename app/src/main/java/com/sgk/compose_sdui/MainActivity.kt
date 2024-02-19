@@ -119,24 +119,24 @@ fun ThreeButtons(
         }) {
             Text(text = "Landing page Header")
         }
-
-        Spacer(modifier = Modifier.height( 16.dp))
-
-        Button(onClick = {
-            click("2")
-        }) {
-            Text(text = "Dazn Top Bar")
-        }
-
-        Spacer(modifier = Modifier.height( 16.dp))
-
-        Button(onClick = {
-            click("3")
-        }) {
-            Text(text = "Dazn Portability")
-        }
-
-        Spacer(modifier = Modifier.height( 16.dp))
+//
+//        Spacer(modifier = Modifier.height( 16.dp))
+//
+//        Button(onClick = {
+//            click("2")
+//        }) {
+//            Text(text = "Dazn Top Bar")
+//        }
+//
+//        Spacer(modifier = Modifier.height( 16.dp))
+//
+//        Button(onClick = {
+//            click("3")
+//        }) {
+//            Text(text = "Dazn Portability")
+//        }
+//
+//        Spacer(modifier = Modifier.height( 16.dp))
 
         Button(onClick = {
             click("4")

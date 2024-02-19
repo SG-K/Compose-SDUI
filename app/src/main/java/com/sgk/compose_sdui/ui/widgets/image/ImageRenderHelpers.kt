@@ -29,6 +29,7 @@ fun String.getImageVector() : ImageVector{
         "mail" -> Icons.Outlined.Email
         "search" -> Icons.Outlined.Search
         "forward_arrow"-> Icons.Outlined.ArrowForward
+        "ppv_bg_1"-> Icons.Outlined.ArrowForward
         else -> Icons.Default.ArrowBack
     }
 }
@@ -42,6 +43,8 @@ fun String.getPaintResource() : Painter {
         "yellow_gradient" -> painterResource(id = R.drawable.ic_bottom_background_icon)
         "aeroplane" -> painterResource(id = R.drawable.ic_aeroplane)
         "world_map" -> painterResource(id = R.drawable.world_map)
+        "ppv_bg_1"-> painterResource(id = R.drawable.ppv_bg_1)
+        "ppv_bg_2"-> painterResource(id = R.drawable.ppv_bg_2)
         else -> painterResource(id = R.drawable.ic_google)
     }
 }

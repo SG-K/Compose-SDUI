@@ -28,7 +28,6 @@ fun RowRenderer(element: RowElement) {
 fun com.sgk.sduicore.modal.Alignment.getRowAlignment() : Alignment.Vertical {
   return when(this){
     com.sgk.sduicore.modal.Alignment.CENTER_VERTICAL -> Alignment.CenterVertically
-    com.sgk.sduicore.modal.Alignment.TOP -> Alignment.Top
     com.sgk.sduicore.modal.Alignment.BOTTOM -> Alignment.Bottom
     else -> Alignment.Top
   }
